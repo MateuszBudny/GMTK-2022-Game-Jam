@@ -52,4 +52,9 @@ public class Dice : MonoBehaviour
 
     [Button(enabledMode: EButtonEnableMode.Playmode)]
     public void DebugRoll() => Roll(new Vector3(0f, 0.4f, 0f), new Vector3(37f, 21f, 47f));
+
+    //private void Update()
+    //{
+    //    Debug.LogWarning("value: " + CurrentValue);
+    //}
 }
