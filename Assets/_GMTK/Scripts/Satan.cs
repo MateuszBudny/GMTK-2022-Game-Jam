@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Satan : DicePlayer
 {
+    public SatanFaceType CurrentFace { get; private set; }
+
     private void Start()
     {
         GameplayManager.Instance.OnPlayerThrewDices += OnPlayerThrewDices;
@@ -12,6 +14,16 @@ public class Satan : DicePlayer
     private void OnDisable()
     {
         GameplayManager.Instance.OnPlayerThrewDices -= OnPlayerThrewDices;
+    }
+
+    public void SetFace(SatanFaceType newFaceType)
+    {
+        if(newFaceType == CurrentFace)
+        {
+            return;
+        }
+
+        // TODO face rotation
     }
 
     private void OnPlayerThrewDices()

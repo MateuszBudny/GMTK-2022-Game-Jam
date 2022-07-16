@@ -63,14 +63,17 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
 
         if(player.CurrentScore > satan.CurrentScore)
         {
+            StoryManager.Instance.ShowNextSatanLoseLines();
             Debug.Log("The weather is so bad, that the bombing was canceled.");
         }
         else if(satan.CurrentScore > player.CurrentScore)
         {
+            StoryManager.Instance.ShowNextSatanWinLines();
             Debug.Log("Aaand there goes the bombs.");
         }
         else
         {
+            StoryManager.Instance.ShowNextSatanDrawLines();
             Debug.Log("One more time, then.");
         }
 
@@ -79,6 +82,7 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
     private IEnumerator PlayTheGameWithDelay()
     {
         yield return new WaitForSeconds(1f);
+        StoryManager.Instance.ShowLines(StoryManager.Instance.introLine);
         PlayTheGame();
     }
 }
