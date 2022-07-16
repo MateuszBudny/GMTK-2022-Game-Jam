@@ -1,0 +1,34 @@
+{
+    "name": "DiceGame",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "edf7e30a-bfe0-450f-bda5-2c33434c8311",
+            "actions": [
+                {
+                    "name": "ThrowDices",
+                    "type": "Button",
+                    "id": "1b460b2e-d95c-414d-8033-aa3c0d05fd56",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "cadc20dc-97df-4afd-b6d9-25711b81e2e8",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ThrowDices",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

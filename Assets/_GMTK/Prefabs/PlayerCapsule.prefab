@@ -124,7 +124,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 5393215578589016642}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -139,6 +139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8997996947095583982}
   - component: {fileID: 8616685848737228382}
+  - component: {fileID: 2640456077424127503}
   - component: {fileID: 8616685848737228371}
   - component: {fileID: 1978471637655604388}
   - component: {fileID: 5420857361349278248}
@@ -184,7 +185,28 @@ CharacterController:
   m_StepOffset: 0.25
   m_SkinWidth: 0.02
   m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 0.93, z: 0}
+  m_Center: {x: 0, y: 0.93, z: -0.3}
+--- !u!114 &2640456077424127503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8616685848737228372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a50c27396fe5341408b50fea310cde34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dicesGroup: {fileID: 0}
+  throwForceScaleMin: 0.2
+  throwForceScaleMax: 0.5
+  throwRangeMin: {fileID: 0}
+  throwRangeMax: {fileID: 0}
+  throwTorqueMin: {x: 5, y: 5, z: 5}
+  throwTorqueMax: {x: 20, y: 20, z: 20}
+  showDicesPosition: {fileID: 0}
+  throwDicesPosition: {fileID: 0}
 --- !u!114 &8616685848737228371
 MonoBehaviour:
   m_ObjectHideFlags: 0

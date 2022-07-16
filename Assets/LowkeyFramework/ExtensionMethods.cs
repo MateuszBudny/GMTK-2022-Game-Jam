@@ -33,6 +33,11 @@ public static class ExtensionMethods
         return list[chosenElementIndex];
     }
 
+    public static Vector3 RandomRange(this Vector3 minInclusive, Vector3 maxInclusive)
+    {
+        return new Vector3(UnityEngine.Random.Range(minInclusive.x, maxInclusive.x), UnityEngine.Random.Range(minInclusive.y, maxInclusive.y), UnityEngine.Random.Range(minInclusive.z, maxInclusive.z));
+    }
+
     public static void SafeDestroy(this GameObject gameObject)
     {
         gameObject.transform.parent = null;

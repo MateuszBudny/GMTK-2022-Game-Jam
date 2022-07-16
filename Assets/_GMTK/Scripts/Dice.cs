@@ -30,22 +30,26 @@ public class Dice : MonoBehaviour
         diceFaces.ForEach(face => face.OnDiceStoppedOnThisFace -= OnDiceStoppedRolling);
     }
 
-    private void Update()
+    public void Roll(Vector3 throwForceMin, Vector3 throwForceMax, Vector3 throwTorqueMin, Vector3 throwTorqueMax)
     {
-        Debug.Log(CurrentValue);
+        Roll(throwForceMin.RandomRange(throwForceMax), throwTorqueMin.RandomRange(throwTorqueMax));
     }
 
-    [Button(enabledMode: EButtonEnableMode.Playmode)]
-    public void Roll()
+    public void Roll(Vector3 rollForce, Vector3 rollTorque)
     {
         CurrentValue = 0;
-		diceFaces.ForEach(face => face.StartRolling(confirmDiceValueAfterThoseSecondsOfBeingStill));
-        rigid.AddForce(new Vector3(0.3f, 2f, 0.2f));
-        rigid.AddTorque(new Vector3(37f, 21f, 47f));
+        diceFaces.ForEach(face => face.StartRolling(confirmDiceValueAfterThoseSecondsOfBeingStill));
+        rigid.AddForce(rollForce);
+        rigid.AddTorque(rollTorque);
     }
+
+    public void TogglePhysicsAffection(bool active) => rigid.isKinematic = !active;
 
     private void OnDiceStoppedRolling(int valueRolled)
     {
         CurrentValue = valueRolled;
     }
+
+    [Button(enabledMode: EButtonEnableMode.Playmode)]
+    public void DebugRoll() => Roll(new Vector3(0f, 0.4f, 0f), new Vector3(37f, 21f, 47f));
 }
