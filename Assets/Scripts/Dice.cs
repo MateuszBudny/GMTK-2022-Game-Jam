@@ -41,7 +41,7 @@ public class Dice : MonoBehaviour
         CurrentValue = 0;
 		diceFaces.ForEach(face => face.StartRolling(confirmDiceValueAfterThoseSecondsOfBeingStill));
         rigid.AddForce(new Vector3(0.3f, 2f, 0.2f));
-        rigid.AddTorque(new Vector3(7f, 8f, 10f));
+        rigid.AddTorque(new Vector3(37f, 21f, 47f));
     }
 
     private void OnDiceStoppedRolling(int valueRolled)
