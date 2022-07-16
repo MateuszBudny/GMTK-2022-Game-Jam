@@ -7,14 +7,28 @@ public class DiceFace : MonoBehaviour
 {
 	[SerializeField]
 	private DiceFaceTriggerCollider triggerCollider;
+    [SerializeField]
+    private int faceValue;
 
-	private void Start()
+    public event Action<int> OnDiceStoppedOnThisFace;
+
+    private void OnEnable()
+    {
+		triggerCollider.OnDiceStoppedOnThisCollider += OnDiceStoppedOnThisFaceCollider;
+    }
+
+    private void OnDisable()
+    {
+        triggerCollider.OnDiceStoppedOnThisCollider -= OnDiceStoppedOnThisFaceCollider;
+    }
+
+    public void StartRolling(float confirmDiceValueAfterThoseSecondsOfBeingStill)
+    {
+        triggerCollider.StartRolling(confirmDiceValueAfterThoseSecondsOfBeingStill);
+    }
+
+    private void OnDiceStoppedOnThisFaceCollider()
 	{
-		triggerCollider.OnDiceStoppedOnThisFace += OnDiceStoppedOnThisFace;
-	}
-
-	private void OnDiceStoppedOnThisFace()
-	{
-
+        OnDiceStoppedOnThisFace(faceValue);
 	}
 }
