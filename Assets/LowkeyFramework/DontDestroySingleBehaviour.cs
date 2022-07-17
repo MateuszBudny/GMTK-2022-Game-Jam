@@ -12,6 +12,6 @@ public class DontDestroySingleBehaviour<T> : SingleBehaviour<T> where T : DontDe
 
     protected override void OnAnotherInstance()
     {
-        gameObject.SafeDestroy();
+        Destroy(gameObject);
     }
 }

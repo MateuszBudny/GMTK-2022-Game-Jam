@@ -1,4 +1,4 @@
-using LowkeyFramework.AttributeSaveSystem;
+//using LowkeyFramework.AttributeSaveSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -38,16 +38,16 @@ public static class ExtensionMethods
         return new Vector3(UnityEngine.Random.Range(minInclusive.x, maxInclusive.x), UnityEngine.Random.Range(minInclusive.y, maxInclusive.y), UnityEngine.Random.Range(minInclusive.z, maxInclusive.z));
     }
 
-    public static void SafeDestroy(this GameObject gameObject)
-    {
-        gameObject.transform.parent = null;
-        gameObject.name = "$disposed";
-        SaveableBehaviour saveable = gameObject.GetComponent<SaveableBehaviour>();
-        if(saveable)
-        {
-            saveable.TurnOffSavingAndLoadingForThisBehaviour = true;
-        }
-        UnityEngine.Object.Destroy(gameObject);
-        gameObject.SetActive(false);
-    }
+    //public static void SafeDestroy(this GameObject gameObject)
+    //{
+    //    gameObject.transform.parent = null;
+    //    gameObject.name = "$disposed";
+    //    SaveableBehaviour saveable = gameObject.GetComponent<SaveableBehaviour>();
+    //    if(saveable)
+    //    {
+    //        saveable.TurnOffSavingAndLoadingForThisBehaviour = true;
+    //    }
+    //    UnityEngine.Object.Destroy(gameObject);
+    //    gameObject.SetActive(false);
+    //}
 }

@@ -1,9 +1,9 @@
-using LowkeyFramework.AttributeSaveSystem;
+//using LowkeyFramework.AttributeSaveSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SingleBehaviour<T> : SaveableBehaviour where T : SingleBehaviour<T>
+public class SingleBehaviour<T> : MonoBehaviour where T : SingleBehaviour<T>
 {
     public static T Instance { get; private set; }
 
