@@ -2512,9 +2512,12 @@ MonoBehaviour:
   guid: e7ad43ce-beb0-450a-9ea3-5fcd19e1f926
   introLine:
     lines:
-    - text: Twoja kolej.
-      satanFaceType: 2
+    - text: Your turn.
+      satanFaceType: 0
   satanWinOrderedLines:
+  - lines:
+    - text: "Beginner\u2019s luck."
+      satanFaceType: 0
   - lines:
     - text: "Czas dope\u0142ni\u0107 obowi\u0105zku."
       satanFaceType: 0
