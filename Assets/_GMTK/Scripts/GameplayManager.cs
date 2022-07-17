@@ -193,7 +193,9 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
 
     private IEnumerator PlayTheGameAfterBombsFallen()
     {
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(4f);
+        StoryManager.Instance.ShowNextSatanSuggestion();
+        yield return new WaitForSeconds(6f);
         bombs.ForEach(bomb => bomb.ResetPos());
         PlayTheGame();
     }

@@ -59,6 +59,10 @@ public class Gun : MonoBehaviour, IInteractable
                     GameplayManager.Instance.Suicide();
                 }
             }
+            if(hit.collider.CompareTag(Tags.Satan.ToString()))
+            {
+                StoryManager.Instance.ShowNextPlayerShootingAtSatanLines();
+            }
         }
 
 
