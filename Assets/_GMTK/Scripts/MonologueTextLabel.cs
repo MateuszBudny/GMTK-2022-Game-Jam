@@ -25,6 +25,7 @@ public class MonologueTextLabel : MonoBehaviour
     private void ShowSingleLine(SatanLineRecord singleLine)
     {
         textLabel.text = singleLine.text;
+        GameplayManager.Instance.satan.SetFace(singleLine.satanFaceType);
         showStartedTimestamp = Time.time;
     }
 

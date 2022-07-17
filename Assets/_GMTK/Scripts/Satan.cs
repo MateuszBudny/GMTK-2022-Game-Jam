@@ -1,10 +1,14 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Satan : DicePlayer
 {
-    public SatanFaceType CurrentFace { get; private set; }
+    [SerializeField]
+    private Transform facesTransform;
+
+    public SatanFaceType CurrentFace { get; private set; } = SatanFaceType.Joy;
 
     private void Start()
     {
@@ -23,7 +27,11 @@ public class Satan : DicePlayer
             return;
         }
 
-        // TODO face rotation
+
+        int diff = (int)CurrentFace - (int)newFaceType;
+        float currentRotation = facesTransform.eulerAngles.y;
+        facesTransform.DORotate(new Vector3(facesTransform.eulerAngles.x, currentRotation - 90f * diff, facesTransform.eulerAngles.z), 1f);
+        CurrentFace = newFaceType;
     }
 
     private void OnPlayerThrewDices()
