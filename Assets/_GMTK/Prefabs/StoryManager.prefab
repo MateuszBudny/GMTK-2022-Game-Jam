@@ -49,44 +49,147 @@ MonoBehaviour:
     - text: Your turn.
       satanFaceType: 0
   waitingLine:
-    lines: []
+    lines:
+    - text: The privilege of neutrality does not apply to you.
+      satanFaceType: 0
   playerAimingWithGunAtHimself:
-    lines: []
+    lines:
+    - text: At least that much of your military courage.
+      satanFaceType: 0
   playerAimingWithGunAtSatan:
     lines: []
-  playerShootingAtSatanOrderedLines: []
+  playerShootingAtSatanOrderedLines:
+  - lines:
+    - text: You really thought you could shoot me?
+      satanFaceType: 2
+  - lines:
+    - text: Pathetic.
+      satanFaceType: 2
+  - lines:
+    - text: '-'
+      satanFaceType: 1
+  - lines:
+    - text: Will you finally make some use of this weapon and aim it at yourself?
+      satanFaceType: 3
+  - lines:
+    - text: So this is desperation.
+      satanFaceType: 0
+  - lines:
+    - text: Shoot at will. Then you see your true face.
+      satanFaceType: 0
   satanWinOrderedLines:
   - lines:
     - text: "Beginner\u2019s luck."
       satanFaceType: 0
   - lines:
-    - text: "Czas dope\u0142ni\u0107 obowi\u0105zku."
-      satanFaceType: 0
-    - text: druga linijka kurde
+    - text: Time to do your duty.
       satanFaceType: 0
   - lines:
-    - text: "325 bombowc\xF3w B-17. Rezultat - 83 tysi\u0105ce zabitych. Imponuj\u0105ce."
+    - text: "325 bombers B-17. The result \u2013 83,000 dead. Impressive."
       satanFaceType: 0
   - lines:
-    - text: "Najpi\u0119kniej jest wtedy, gdy p\u0142on\u0105 drewniane domy. Widzia\u0142e\u015B
-        kiedy\u015B ognist\u0105 burz\u0119? W 1945 w Tokio taka by\u0142a."
+    - text: 'It is most beautiful when wooden houses are on fire. Have you ever seen
+        a firestorm? In 1945, there was such a storm in Tokyo. '
+      satanFaceType: 0
+  - lines:
+    - text: A sea of charred bodies. Does such a nameless, dark mass arouse your
+        sympathy?
+      satanFaceType: 0
+  - lines:
+    - text: Burning smell. Do you feel it?
+      satanFaceType: 0
+  - lines:
+    - text: "It\u2019s amazing that it only takes a few bombs to make Earth look
+        like hell."
+      satanFaceType: 0
+  - lines:
+    - text: Nothing encourages the resumption of negotiations more than a carpet
+        bombing.
+      satanFaceType: 0
+  - lines:
+    - text: Cremation takes place at 1,200 degrees. How many degrees do you think
+        is down there?
       satanFaceType: 0
   satanLoseOrderedLines:
   - lines:
-    - text: "Z\u0142o\u015Bliwo\u015B\u0107 rzeczy martwych."
+    - text: Natural perversity of inanimate objects.
       satanFaceType: 1
   - lines:
-    - text: 'Hmm chyba porozrzucano foliowe paski. '
+    - text: 'Interference in receivers. I think there were foil strips scattered
+        around. '
       satanFaceType: 1
   - lines:
-    - text: Przerwa na papierosa.
+    - text: Cigarette break.
+      satanFaceType: 1
+  - lines:
+    - text: It is said that 20% of German bombs were duds. This time nothing happened.
+      satanFaceType: 1
+  - lines:
+    - text: The radars are gone.
+      satanFaceType: 1
+  - lines:
+    - text: Well, the weather is bad.
       satanFaceType: 1
   satanDrawOrderedLines:
   - lines:
-    - text: "remis kur\u0142aa jeszcze raz"
+    - text: Well, the weather is bad.
       satanFaceType: 2
   - lines:
-    - text: "za\u015B kurde co jes, kulaj jeszcze roz"
+    - text: Draw? What is lost will not come back anyway.
       satanFaceType: 3
-  satanSuggestions: []
+  - lines:
+    - text: It makes me impatient
+      satanFaceType: 3
+  - lines:
+    - text: Fate hesitated.
+      satanFaceType: 3
+  satanSuggestions:
+  - lines:
+    - text: It's a problem you're here.
+      satanFaceType: 0
+  - lines:
+    - text: "Some creatures are like zeros. They need a number to precede them, and
+        then their nothingness takes on ten times its value and\u2026"
+      satanFaceType: 0
+    - text: ' a burden. How much already weighs your being here? 20, 300, 1000 human
+        lives?'
+      satanFaceType: 0
+  - lines:
+    - text: A little mold that will crush into the tissue of this planet. What else
+        they are. What are you?
+      satanFaceType: 3
+  - lines:
+    - text: 'You have been sitting here with me for a long time. You sit down a little
+        longer, and you will stay forever. You will close your eyes. And when you
+        open them, the world will be gone. '
+      satanFaceType: 0
+    - text: You will find yourself in an infinite void that would not be filled by
+        all the resurrected dead of all time, and you will be in it like a grain
+        of sand in the middle of the steppe.
+      satanFaceType: 0
+  - lines:
+    - text: To die is nothing but to convey nothingness to nothingness. Do you see
+        the nothingness beneath you? Do you think you are more than that?
+      satanFaceType: 0
+  - lines:
+    - text: People have given themselves all their good and bad. They did not seize
+        it, and they did not find it, and it did not fall as a voice from heaven.
+        You're giving yours a name now.
+      satanFaceType: 0
+  - lines:
+    - text: Everything has its time. Suicide also has its time
+      satanFaceType: 0
+  - lines:
+    - text: How do you count down to death? Years or left corpses?
+      satanFaceType: 0
+  - lines:
+    - text: Life is a miracle. Your Life. I have never seen a life worth so many
+        lost lives as your.
+      satanFaceType: 0
+  - lines:
+    - text: Where is a soldier's honor? In obedience or sacrifice?
+      satanFaceType: 3
+  - lines:
+    - text: "I guess it's better to die than remember. Isn\u2019t it?"
+      satanFaceType: 0
   textLabel: {fileID: 0}
