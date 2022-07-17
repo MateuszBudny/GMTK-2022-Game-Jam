@@ -50,6 +50,7 @@ namespace StarterAssets
 		public float TopClamp = 90.0f;
 		[Tooltip("How far in degrees can you move the camera down")]
 		public float BottomClamp = -90.0f;
+		public float SideClamp = 90f;
 
 		// cinemachine
 		private float _cinemachineTargetPitch;
@@ -148,8 +149,54 @@ namespace StarterAssets
 
 				// rotate the player left and right
 				transform.Rotate(Vector3.up * _rotationVelocity);
-			}
+
+                transform.localRotation = Quaternion.Euler(0f, ClampAngleGun(transform.localEulerAngles.y, -SideClamp, SideClamp), 0f);
+            }
 		}
+
+		private float gunRotation;
+
+		private float ClampAngleGun(float angle, float min, float max)
+        {
+			if(angle > 180f)
+            {
+				angle -= 360f;
+            }
+
+			if(GameplayManager.Instance.State == GameState.PlayerHoldingGun)
+            {
+				if(gunRotation < 0.01f && gunRotation > -0.01f)
+                {
+					if(angle > max)
+                    {
+						gunRotation += angle - max;
+                    }
+					else if(angle < min)
+                    {
+						gunRotation += angle - min;
+                    }
+                }
+				else if(gunRotation > 0.01f)
+                {
+					gunRotation += angle - max;
+					if(gunRotation < 0f)
+                    {
+						gunRotation = 0f;
+                    } 
+                }
+				else if(gunRotation < -0.01f)
+                {
+					gunRotation += angle - min;
+					if(gunRotation > 0f)
+                    {
+						gunRotation = 0f;
+                    }
+                }
+				GameplayManager.Instance.player.gunHolder.transform.localRotation = Quaternion.Euler(0f, gunRotation, 0f);
+			}
+
+			return Mathf.Clamp(angle, min, max);
+        }
 
 		private void Move()
 		{

@@ -9,6 +9,9 @@ public class Player : DicePlayer
 {
     [SerializeField]
     private float interactionMaxDistance = 10f;
+    public Transform gunHolder;
+
+    private Gun gun;
 
     public void OnPlayerAction(InputValue inputValue)
     {
@@ -19,7 +22,7 @@ public class Player : DicePlayer
                 diceThrowing.ThrowDices();
                 GameplayManager.Instance.PlayerThrewDices();
             }
-            if(GameplayManager.Instance.State == GameState.PlayerCanInteract)
+            else if(GameplayManager.Instance.State == GameState.PlayerCanInteract)
             {
                 if(!TryToInteract())
                 {
@@ -27,18 +30,32 @@ public class Player : DicePlayer
                     GameplayManager.Instance.ChangeState(GameState.PlayerTurn);
                 }
             }
-            else
+            else if(GameplayManager.Instance.State == GameState.PlayerHoldingGun)
+            {
+                gun.TryToShoot();
+            }
+            else if(GameplayManager.Instance.State != GameState.SatanMonolog && GameplayManager.Instance.State != GameState.SatanThrewDices && GameplayManager.Instance.State != GameState.SatanTurn)
             {
                 TryToInteract();
             }
         }
     }
 
+    public void TakeGun(Gun gun)
+    {
+        this.gun = gun;
+        gun.Rigid.isKinematic = true;
+        gun.transform.SetParent(gunHolder);
+        gun.transform.DOLocalMove(Vector3.zero, 1f);
+        gun.transform.DOLocalRotate(Vector3.zero, 1f);
+        GameplayManager.Instance.ChangeState(GameState.PlayerHoldingGun);
+    }
+
     private bool TryToInteract()
     {
         Ray cameraRay = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0f));
-        int interactabeLayerMask = 1 << (int)Layers.Interactable;
-        if(Physics.Raycast(cameraRay, out RaycastHit hit, interactionMaxDistance, interactabeLayerMask))
+        //int interactabeLayerMask = 1 << (int)Layers.Interactable;
+        if(Physics.Raycast(cameraRay, out RaycastHit hit, interactionMaxDistance))
         {
             if(hit.collider.TryGetComponent(out IInteractable interactable))
             {

@@ -9,6 +9,8 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
 {
     public Player player;
     public Satan satan;
+    [SerializeField]
+    private GameObject cursor;
     [Header("Camera work")]
     [SerializeField]
     private CinemachineVirtualCamera vcamFollowMouse;
@@ -44,6 +46,7 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
     public void ChangeState(GameState newState)
     {
         Debug.Log("Previous state: " + State + ", new state: " + newState);
+        cursor.SetActive(newState == GameState.PlayerCanInteract || newState == GameState.PlayerCanInteractNoDice);
         State = newState;
     }
 
@@ -66,8 +69,6 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
         Debug.Log("Hull opened, bombs are falling");
         StartCoroutine(PlayTheGameAfterBombsFallen());
     }
-
-
 
     private void ShowResultAfterSomeSeconds()
     {
@@ -122,7 +123,7 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
 
     private IEnumerator ReleaseTheCameraAfterDelay()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         vcamFollowMouse.Priority = currentVcam.Priority + 1;
         currentVcam = vcamFollowMouse;
     }
@@ -140,4 +141,5 @@ public enum GameState
     SatanThrewDices,
     ResultOfSingleGame,
     BombsAreFalling,
+    PlayerHoldingGun,
 }
