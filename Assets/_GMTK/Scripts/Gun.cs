@@ -9,6 +9,10 @@ public class Gun : MonoBehaviour, IInteractable
     private float throwForce = 500f;
     [SerializeField]
     private float throwTorque = 20f;
+    [SerializeField]
+    private Transform spawnShotPosition;
+    [SerializeField]
+    private GameObject shotEffectPrefab;
 
     public int CurrentAmmo { get; private set; }
     public Rigidbody Rigid { get; private set; }
@@ -43,16 +47,22 @@ public class Gun : MonoBehaviour, IInteractable
     private void Shoot()
     {
         CurrentAmmo--;
+        Instantiate(shotEffectPrefab, spawnShotPosition.transform.position, Quaternion.identity, transform);
+        SoundManager.Instance.Play(Audio.Gunshot);
         Debug.LogWarning("bang");
     }
 
     private void NoAmmo()
     {
-        if(noAmmoCounter == 3)
+        if(noAmmoCounter == 2)
         {
             Throw();
         }
-        noAmmoCounter++;
+        else
+        {
+            noAmmoCounter++;
+            SoundManager.Instance.Play(Audio.NoAmmo);
+        }
     }
 
     private void Throw()

@@ -1,4 +1,5 @@
 using NaughtyAttributes;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class Dice : MonoBehaviour
 
     public int CurrentValue { get; private set; }
     public bool IsRolling => CurrentValue == 0;
+    public event Action OnPlayDiceSound;
 
     private Rigidbody rigid;
 
@@ -28,6 +30,14 @@ public class Dice : MonoBehaviour
     public void OnDisable()
     {
         diceFaces.ForEach(face => face.OnDiceStoppedOnThisFace -= OnDiceStoppedRolling);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.CompareTag(Tags.Ground.ToString()))
+        {
+            OnPlayDiceSound();
+        }
     }
 
     public void Roll(Vector3 throwForceMin, Vector3 throwForceMax, Vector3 throwTorqueMin, Vector3 throwTorqueMax)

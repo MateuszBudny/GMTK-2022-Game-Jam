@@ -34,10 +34,12 @@ public class Satan : DicePlayer
         if(diff == 0)
         {
             facesTransform.DORotate(new Vector3(0f, 360f, 0f), 3f, RotateMode.FastBeyond360).SetRelative(true);
+            SoundManager.Instance.Play(Audio.SatanSetFaceLonger);
         }
         else
         {
             facesTransform.DORotate(endRotationValue, 2f);
+            SoundManager.Instance.Play(Audio.SatanSetFaceShorter);
         }
         CurrentFace = newFaceType;
     }

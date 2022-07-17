@@ -8,13 +8,27 @@ using UnityEngine;
 public class DicesGroup : MonoBehaviour
 {
     [SerializeField]
+    private float dicesSoundCooldown = 2f;
+    [SerializeField]
     private List<DiceRecord> dicesRecords;
 
     public int CurrentValue => dicesRecords.Sum(record => record.dice.CurrentValue);
 
+    private float dicesSoundTimestamp = -1f;
+
     private void Start()
     {
         Release();
+    }
+
+    private void OnEnable()
+    {
+        dicesRecords.ForEach(record => record.dice.OnPlayDiceSound += PlayDicesSound);
+    }
+
+    private void OnDisable()
+    {
+        dicesRecords.ForEach(record => record.dice.OnPlayDiceSound -= PlayDicesSound);
     }
 
     public void Roll(Vector3 throwForceMin, Vector3 throwForceMax, Vector3 throwTorqueMin, Vector3 throwTorqueMax)
@@ -45,6 +59,15 @@ public class DicesGroup : MonoBehaviour
     private void Regroup()
     {
         dicesRecords.ForEach(record => record.dice.transform.DOLocalMove(record.diceBaseLocalPosition, 0.3f));
+    }
+
+    private void PlayDicesSound()
+    {
+        if(Time.time - dicesSoundTimestamp > dicesSoundCooldown)
+        {
+            SoundManager.Instance.Play(Audio.DiceBounce);
+            dicesSoundTimestamp = Time.time;
+        }
     }
 
     [Serializable]
