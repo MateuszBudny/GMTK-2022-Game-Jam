@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class GameplayManager : SingleBehaviour<GameplayManager>
 {
@@ -16,6 +17,12 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
     private CinemachineVirtualCamera vcamFollowMouse;
     [SerializeField]
     private CinemachineVirtualCamera vcamCrank;
+    [SerializeField]
+    private Transform crankToRoll;
+    [SerializeField]
+    private Transform hulkDoorLeft;
+    [SerializeField]
+    private Transform hulkDoorRight;
 
     public GameState State { get; private set; }
 
@@ -66,8 +73,32 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
     {
         // TODO: animation
         // TODO: bomby spadaja
+        SoundManager.Instance.Play(Audio.CrankHullOpening);
+        hulkDoorLeft.DOLocalRotate(new Vector3(0f, 0f, -120f), 4f).SetRelative(true);
+        hulkDoorRight.DOLocalRotate(new Vector3(0f, 0f, 120f), 4f).SetRelative(true);
+        crankToRoll.DOLocalRotate(new Vector3(-3600f, 0f, 0f), 4f, RotateMode.FastBeyond360).SetRelative(true);
         Debug.Log("Hull opened, bombs are falling");
+        StartCoroutine(DropBombsAfterDelay());
+    }
+
+    public void CloseHullDoor()
+    {
+        hulkDoorLeft.DOLocalRotate(new Vector3(0f, 0f, 120f), 4f).SetRelative(true);
+        hulkDoorRight.DOLocalRotate(new Vector3(0f, 0f, -120f), 4f).SetRelative(true);
+        crankToRoll.DOLocalRotate(new Vector3(3600f, 0f, 0f), 4f, RotateMode.FastBeyond360).SetRelative(true);
+    }
+
+    private IEnumerator DropBombsAfterDelay()
+    {
+        yield return new WaitForSeconds(2f);
+        // TODO
         StartCoroutine(PlayTheGameAfterBombsFallen());
+    }
+
+    private IEnumerator CloseHullDoorAfterBombing()
+    {
+        yield return new WaitForSeconds(4f);
+        CloseHullDoor();
     }
 
     private void ShowResultAfterSomeSeconds()
