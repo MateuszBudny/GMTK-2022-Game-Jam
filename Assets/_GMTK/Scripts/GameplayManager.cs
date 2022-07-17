@@ -28,9 +28,8 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
     public void PlayTheGame()
     {
         Debug.Log("New game started.");
-        player.PrepareForGame();
         satan.PrepareForGame();
-        ChangeState(GameState.PlayerTurn);
+        ChangeState(GameState.PlayerCanInteract);
     }
 
     public void ChangeState(GameState newState)
@@ -91,6 +90,7 @@ public enum GameState
 {
     Intro,
     SatanMonolog,
+    PlayerCanInteract,
     PlayerTurn,
     PlayerThrewDices,
     SatanTurn,

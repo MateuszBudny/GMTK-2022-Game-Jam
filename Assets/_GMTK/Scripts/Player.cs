@@ -19,6 +19,14 @@ public class Player : DicePlayer
                 diceThrowing.ThrowDices();
                 GameplayManager.Instance.PlayerThrewDices();
             }
+            if(GameplayManager.Instance.State == GameState.PlayerCanInteract)
+            {
+                if(!TryToInteract())
+                {
+                    PrepareForGame();
+                    GameplayManager.Instance.ChangeState(GameState.PlayerTurn);
+                }
+            }
             else
             {
                 TryToInteract();
@@ -26,21 +34,19 @@ public class Player : DicePlayer
         }
     }
 
-    private void TryToInteract()
+    private bool TryToInteract()
     {
         Ray cameraRay = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0f));
         int interactabeLayerMask = 1 << (int)Layers.Interactable;
         if(Physics.Raycast(cameraRay, out RaycastHit hit, interactionMaxDistance, interactabeLayerMask))
         {
-            Debug.DrawRay(cameraRay.origin, cameraRay.direction, Color.green);
             if(hit.collider.TryGetComponent(out IInteractable interactable))
             {
                 interactable.Interact(this);
+                return true;
             }
         }
-        else
-        {
-            Debug.DrawRay(cameraRay.origin, cameraRay.direction, Color.red);
-        }
+        
+        return false;
     }
 }
