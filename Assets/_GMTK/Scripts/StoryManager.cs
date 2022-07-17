@@ -34,6 +34,9 @@ public class StoryManager : SingleBehaviour<StoryManager>
     protected override void Awake()
     {
         base.Awake();
+        satanWinOrderedLines.Remove(satanWinOrderedLines.GetRandomElement());
+        satanWinOrderedLines.Remove(satanWinOrderedLines.GetRandomElement());
+        satanWinOrderedLines.Remove(satanWinOrderedLines.GetRandomElement());
         SatanWinLinesQueue = new Queue<SatanLines>(satanWinOrderedLines);
         SatanLoseLinesQueue = new Queue<SatanLines>(satanLoseOrderedLines);
         SatanDrawLinesQueue = new Queue<SatanLines>(satanDrawOrderedLines);

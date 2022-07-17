@@ -29,6 +29,8 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
     private Image blackScreen;
     [SerializeField]
     private TextMeshProUGUI thankYou;
+    [SerializeField]
+    private List<Bomb> bombs;
 
     public GameState State { get; private set; }
 
@@ -112,8 +114,6 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
 
     public void OpenHullDoor()
     {
-        // TODO: animation
-        // TODO: bomby spadaja
         SoundManager.Instance.Play(Audio.CrankHullOpening);
         hulkDoorLeft.DOLocalRotate(new Vector3(0f, 0f, -120f), 4f).SetRelative(true);
         hulkDoorRight.DOLocalRotate(new Vector3(0f, 0f, 120f), 4f).SetRelative(true);
@@ -132,7 +132,11 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
     private IEnumerator DropBombsAfterDelay()
     {
         yield return new WaitForSeconds(2f);
-        // TODO
+        bombs.ForEach(bomb => {
+            bomb.GetComponent<Rigidbody>().isKinematic = false;
+            bomb.transform.SetParent(null);
+            SoundManager.Instance.Play(Audio.BombsFalling);
+        });
         StartCoroutine(PlayTheGameAfterBombsFallen());
     }
 
@@ -189,7 +193,8 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
 
     private IEnumerator PlayTheGameAfterBombsFallen()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(8f);
+        bombs.ForEach(bomb => bomb.ResetPos());
         PlayTheGame();
     }
 
