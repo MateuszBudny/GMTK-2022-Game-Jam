@@ -695,6 +695,47 @@ MonoBehaviour:
     minPitch: 0
     maxPitch: 0
     volume: 1
+  satanTalking:
+  - audioClip: {fileID: 8300000, guid: bad062d9340906b49bd950390973101f, type: 3}
+    audioEnum: 0
+    minPitch: 0
+    maxPitch: 0
+    volume: 1
+  - audioClip: {fileID: 8300000, guid: 74ddac0ed30ebf54ca2756507bfd2700, type: 3}
+    audioEnum: 0
+    minPitch: 0
+    maxPitch: 0
+    volume: 1
+  - audioClip: {fileID: 8300000, guid: 500087ec482a210408a19550746f1d3f, type: 3}
+    audioEnum: 0
+    minPitch: 0
+    maxPitch: 0
+    volume: 1
+  - audioClip: {fileID: 8300000, guid: 928623ca78b342c4fbdca2fa89277847, type: 3}
+    audioEnum: 0
+    minPitch: 0
+    maxPitch: 0
+    volume: 1
+  - audioClip: {fileID: 8300000, guid: 02942dd1c2024e94b917da82ed1e65df, type: 3}
+    audioEnum: 0
+    minPitch: 0
+    maxPitch: 0
+    volume: 1
+  - audioClip: {fileID: 8300000, guid: 15ac649eb34829e45b10666aea973892, type: 3}
+    audioEnum: 0
+    minPitch: 0
+    maxPitch: 0
+    volume: 1
+  - audioClip: {fileID: 8300000, guid: 55a86989cb2372e46be5f21cdcf74841, type: 3}
+    audioEnum: 0
+    minPitch: 0
+    maxPitch: 0
+    volume: 1
+  - audioClip: {fileID: 8300000, guid: b55c8c52c5db34948becb326ca06ad46, type: 3}
+    audioEnum: 0
+    minPitch: 0
+    maxPitch: 0
+    volume: 1
 --- !u!4 &367536018
 Transform:
   m_ObjectHideFlags: 0

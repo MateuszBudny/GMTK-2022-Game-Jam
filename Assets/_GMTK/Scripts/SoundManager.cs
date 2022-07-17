@@ -19,6 +19,8 @@ public class SoundManager : SingleBehaviour<SoundManager>
     [Header("Other sounds")]
     [SerializeField]
     private List<AudioRecord> sounds;
+    [SerializeField]
+    private List<AudioRecord> satanTalking;
 
     protected override void Awake()
     {
@@ -48,6 +50,12 @@ public class SoundManager : SingleBehaviour<SoundManager>
     {
         AudioRecord audioRecordToPlay = sounds.Find(sound => sound.audioEnum == audioEnum);
         soundsSources.GetRandomElement().PlayOneShot(audioRecordToPlay.audioClip, audioRecordToPlay.volume);
+    }
+
+    public void PlaySatanTalking()
+    {
+        AudioRecord satanTalkingChosen = satanTalking.GetRandomElement();
+        soundsSources.GetRandomElement().PlayOneShot(satanTalkingChosen.audioClip, satanTalkingChosen.volume);
     }
     
     private void PlayRareAmbient()

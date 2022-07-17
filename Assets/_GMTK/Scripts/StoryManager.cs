@@ -47,6 +47,7 @@ public class StoryManager : SingleBehaviour<StoryManager>
     public void ShowLines(SatanLines lines)
     {
         textLabel.ShowLines(lines);
+        SoundManager.Instance.PlaySatanTalking();
     }
 
     public void ShowNextSatanWinLines()
