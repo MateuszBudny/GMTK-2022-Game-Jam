@@ -79,9 +79,6 @@ MonoBehaviour:
       satanFaceType: 0
   satanWinOrderedLines:
   - lines:
-    - text: "Beginner\u2019s luck."
-      satanFaceType: 0
-  - lines:
     - text: Time to do your duty.
       satanFaceType: 0
   - lines:

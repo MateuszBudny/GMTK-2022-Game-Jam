@@ -34,7 +34,12 @@ public class Player : DicePlayer
             {
                 gun.TryToShoot();
             }
-            else if(GameplayManager.Instance.State != GameState.SatanMonolog && GameplayManager.Instance.State != GameState.SatanThrewDices && GameplayManager.Instance.State != GameState.SatanTurn)
+            else if(GameplayManager.Instance.State == GameState.PlayerAsSatan)
+            {
+                diceThrowing.SpawnAndThrowDices();
+                TryToInteract();
+            }
+            else if(GameplayManager.Instance.State != GameState.SatanMonolog && GameplayManager.Instance.State != GameState.SatanThrewDices && GameplayManager.Instance.State != GameState.SatanTurn && GameplayManager.Instance.State != GameState.GameOver)
             {
                 TryToInteract();
             }

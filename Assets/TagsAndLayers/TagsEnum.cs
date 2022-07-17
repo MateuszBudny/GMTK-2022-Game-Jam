@@ -8,5 +8,6 @@ public enum Tags {
 	MainCamera,
 	Player,
 	Respawn,
+	Satan,
 	Untagged,
 }

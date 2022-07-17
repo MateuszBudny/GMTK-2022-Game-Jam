@@ -5,6 +5,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameplayManager : SingleBehaviour<GameplayManager>
 {
@@ -23,6 +25,10 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
     private Transform hulkDoorLeft;
     [SerializeField]
     private Transform hulkDoorRight;
+    [SerializeField]
+    private Image blackScreen;
+    [SerializeField]
+    private TextMeshProUGUI thankYou;
 
     public GameState State { get; private set; }
 
@@ -55,6 +61,41 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
         Debug.Log("Previous state: " + State + ", new state: " + newState);
         cursor.SetActive(newState == GameState.PlayerCanInteract || newState == GameState.PlayerCanInteractNoDice);
         State = newState;
+    }
+
+    internal void Suicide()
+    {
+        SoundManager.Instance.StopAllMusic();
+        blackScreen.gameObject.SetActive(true);
+        StartCoroutine(ThankYouAfterDelay());
+    }
+
+    private IEnumerator ThankYouAfterDelay()
+    {
+        yield return new WaitForSeconds(3f);
+        ChangeState(GameState.GameOver);
+        thankYou.gameObject.SetActive(true);
+    }
+
+    public void BurzaEnding()
+    {
+        blackScreen.color = new Color(0f, 0f, 0f, 0f);
+        DOTween.To(() => blackScreen.color.a, setter => blackScreen.color = new Color(0f, 0f, 0f, setter), 1f, 6f)
+            .OnComplete(() => {
+                satan.gameObject.SetActive(false);
+                ChangeState(GameState.PlayerAsSatan);
+            });
+        blackScreen.gameObject.SetActive(true);
+        StartCoroutine(FadeInAfterDelay());
+    }
+
+    private IEnumerator FadeInAfterDelay()
+    {
+        yield return new WaitForSeconds(8f);
+        DOTween.To(() => blackScreen.color.a, setter => blackScreen.color = new Color(0f, 0f, 0f, setter), 0f, 6f);
+        yield return new WaitForSeconds(10f);
+        DOTween.To(() => blackScreen.color.a, setter => blackScreen.color = new Color(0f, 0f, 0f, setter), 1f, 10f)
+            .OnComplete(() => StartCoroutine(ThankYouAfterDelay()));
     }
 
     public void PlayerThrewDices()
@@ -173,4 +214,6 @@ public enum GameState
     ResultOfSingleGame,
     BombsAreFalling,
     PlayerHoldingGun,
+    PlayerAsSatan,
+    GameOver,
 }

@@ -48,22 +48,50 @@ public class StoryManager : SingleBehaviour<StoryManager>
 
     public void ShowNextSatanWinLines()
     {
-        ShowLines(SatanWinLinesQueue.Dequeue());
+        if(SatanWinLinesQueue.Count > 0)
+        {
+            ShowLines(SatanWinLinesQueue.Dequeue());
+        }
+        else
+        {
+            GameplayManager.Instance.BurzaEnding();
+        }
     }
 
     public void ShowNextSatanLoseLines()
     {
-        ShowLines(SatanLoseLinesQueue.Dequeue());
+        if(SatanLoseLinesQueue.Count > 0)
+        {
+            ShowLines(SatanLoseLinesQueue.Dequeue());
+        }
+        else
+        {
+            ShowLines(satanLoseOrderedLines.GetRandomElement());
+        }
     }
 
     public void ShowNextSatanDrawLines()
     {
-        ShowLines(SatanDrawLinesQueue.Dequeue());
+        if(SatanDrawLinesQueue.Count > 0)
+        {
+            ShowLines(SatanDrawLinesQueue.Dequeue());
+        }
+        else
+        {
+            ShowLines(satanDrawOrderedLines.GetRandomElement());
+        }
     }
 
     public void ShowNextSatanSuggestion()
     {
-        ShowLines(SatanSuggestionsQueue.Dequeue());
+        if(SatanSuggestionsQueue.Count > 0)
+        {
+            ShowLines(SatanSuggestionsQueue.Dequeue());
+        } 
+        else
+        {
+            ShowLines(satanSuggestions.GetRandomElement());
+        }
     }
 
     public void ShowNextPlayerShootingAtSatanLines()

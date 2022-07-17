@@ -184,6 +184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a50c27396fe5341408b50fea310cde34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionMaxDistance: 10
+  gunHolder: {fileID: 0}
 --- !u!114 &8616685848737228371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,6 +215,7 @@ MonoBehaviour:
   CinemachineCameraTarget: {fileID: 4135013735270702863}
   TopClamp: 89
   BottomClamp: -89
+  SideClamp: 90
 --- !u!114 &1978471637655604388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,3 +372,5 @@ MonoBehaviour:
   throwTorqueMax: {x: 20, y: 20, z: 20}
   showDicesPosition: {fileID: 0}
   throwDicesPosition: {fileID: 0}
+  dicesGroupToSpawnPrefab: {fileID: 2301711976843078849, guid: fbb9db9fbac196c499e01f61085b180b,
+    type: 3}

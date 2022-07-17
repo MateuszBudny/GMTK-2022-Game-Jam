@@ -24,6 +24,8 @@ public class DiceThrowing : MonoBehaviour
     private Transform showDicesPosition;
     [SerializeField]
     private Transform throwDicesPosition;
+    [SerializeField]
+    private DicesGroup dicesGroupToSpawnPrefab;
 
     public int CurrentScore => dicesGroup.CurrentValue;
 
@@ -34,6 +36,12 @@ public class DiceThrowing : MonoBehaviour
         {
             dicesGroup.Roll(throwRangeMin.forward * throwForceScaleMin, throwRangeMax.forward * throwForceScaleMax, throwTorqueMin, throwTorqueMax);
         });
+    }
+
+    public void SpawnAndThrowDices()
+    {
+        DicesGroup spawned = Instantiate(dicesGroupToSpawnPrefab, throwDicesPosition.position, Quaternion.identity);
+        spawned.Roll(throwRangeMin.forward * throwForceScaleMin, throwRangeMax.forward * throwForceScaleMax, throwTorqueMin, throwTorqueMax);
     }
 
     [Button(enabledMode: EButtonEnableMode.Playmode)]

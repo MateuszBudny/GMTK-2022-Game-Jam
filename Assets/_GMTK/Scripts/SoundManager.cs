@@ -55,6 +55,12 @@ public class SoundManager : SingleBehaviour<SoundManager>
         rareAmbientSource.Play();
         rareAmbientPlayedTimestamp = Time.time;
     }
+
+    public void StopAllMusic()
+    {
+        ambientSource.Stop();
+        rareAmbientSource.Stop();
+    }
 }
 
 public enum Audio
