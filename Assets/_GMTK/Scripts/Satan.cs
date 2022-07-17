@@ -33,8 +33,7 @@ public class Satan : DicePlayer
         Vector3 endRotationValue = new Vector3(facesTransform.eulerAngles.x, currentRotation - 90f * diff, facesTransform.eulerAngles.z);
         if(diff == 0)
         {
-            diff = 4;
-            facesTransform.DORotate(new Vector3(0f, 360f, 0f), 2f, RotateMode.FastBeyond360).SetRelative(true);
+            facesTransform.DORotate(new Vector3(0f, 360f, 0f), 3f, RotateMode.FastBeyond360).SetRelative(true);
         }
         else
         {

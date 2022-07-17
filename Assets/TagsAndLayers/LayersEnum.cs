@@ -9,6 +9,7 @@ public enum Layers {
 	IgnoreRaycast = 1 << 2,
 	Water = 1 << 4,
 	UI = 1 << 5,
+	Interactable = 1 << 6,
 	Character = 1 << 8,
 	Ground = 1 << 9,
 }
