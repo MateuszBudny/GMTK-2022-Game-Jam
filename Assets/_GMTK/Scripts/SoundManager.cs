@@ -64,6 +64,8 @@ public enum Audio
     DiceBounce,
     NoAmmo,
     Gunshot,
+    CrankHullOpening,
+    BombsFalling,
 }
 
 [Serializable]
