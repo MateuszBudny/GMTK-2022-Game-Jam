@@ -18,7 +18,6 @@ public class Gun : MonoBehaviour, IInteractable
     public Rigidbody Rigid { get; private set; }
 
     private int noAmmoCounter = 0;
-    private GameState stateBeforeTakingGun;
 
     private void Awake()
     {
@@ -28,7 +27,6 @@ public class Gun : MonoBehaviour, IInteractable
 
     public void Interact(Player player)
     {
-        stateBeforeTakingGun = GameplayManager.Instance.State;
         player.TakeGun(this);
     }
 
@@ -88,7 +86,6 @@ public class Gun : MonoBehaviour, IInteractable
         Rigid.isKinematic = false;
         Rigid.AddForce(transform.forward * throwForce);
         Rigid.AddTorque(new Vector3(throwTorque, 0f, 0f));
-        GameplayManager.Instance.ChangeState(stateBeforeTakingGun);
         Destroy(this);
     }
 }

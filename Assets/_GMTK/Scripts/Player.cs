@@ -4,12 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.InputSystem;
+using StarterAssets;
 
 public class Player : DicePlayer
 {
     [SerializeField]
     private float interactionMaxDistance = 10f;
     public Transform gunHolder;
+    [SerializeField]
+    private FirstPersonController playerController;
+
+    public bool IsPlayerHoldingGun => gun;
 
     private Gun gun;
 
@@ -17,7 +22,11 @@ public class Player : DicePlayer
     {
         if(inputValue.isPressed)
         {
-            if(GameplayManager.Instance.State == GameState.PlayerTurn)
+            if(IsPlayerHoldingGun)
+            {
+                gun.TryToShoot();
+            }
+            else if(GameplayManager.Instance.State == GameState.PlayerTurn)
             {
                 diceThrowing.ThrowDices();
                 GameplayManager.Instance.PlayerThrewDices();
@@ -29,10 +38,6 @@ public class Player : DicePlayer
                     PrepareForGame();
                     GameplayManager.Instance.ChangeState(GameState.PlayerTurn);
                 }
-            }
-            else if(GameplayManager.Instance.State == GameState.PlayerHoldingGun)
-            {
-                gun.TryToShoot();
             }
             else if(GameplayManager.Instance.State == GameState.PlayerAsSatan)
             {
@@ -48,12 +53,17 @@ public class Player : DicePlayer
 
     public void TakeGun(Gun gun)
     {
-        this.gun = gun;
+        playerController.FreezeCameraRotation = true;
         gun.Rigid.isKinematic = true;
         gun.transform.SetParent(gunHolder);
         gun.transform.DOLocalMove(Vector3.zero, 1f);
         gun.transform.DOLocalRotate(Vector3.zero, 1f);
-        GameplayManager.Instance.ChangeState(GameState.PlayerHoldingGun);
+        Tweener gunHolderTweener = gunHolder.transform.DOLocalRotate(new Vector3(0f, transform.localEulerAngles.y, 0f), 1f)
+            .OnComplete(() =>
+            {
+                this.gun = gun;
+                playerController.FreezeCameraRotation = false;
+            });
     }
 
     private bool TryToInteract()

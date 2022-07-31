@@ -6,6 +6,9 @@ public class Crank : MonoBehaviour, IInteractable
 {
     public void Interact(Player player)
     {
-        GameplayManager.Instance.OpenHullDoor();
+        if(GameplayManager.Instance.State != GameState.BombsAreFalling)
+        {
+            GameplayManager.Instance.OpenHullDoor();
+        }
     }
 }

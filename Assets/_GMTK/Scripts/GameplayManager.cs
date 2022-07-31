@@ -119,6 +119,7 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
         hulkDoorRight.DOLocalRotate(new Vector3(0f, 0f, 120f), 4f).SetRelative(true);
         crankToRoll.DOLocalRotate(new Vector3(-3600f, 0f, 0f), 4f, RotateMode.FastBeyond360).SetRelative(true);
         Debug.Log("Hull opened, bombs are falling");
+        ChangeState(GameState.BombsAreFalling);
         StartCoroutine(DropBombsAfterDelay());
     }
 
@@ -135,8 +136,10 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
         bombs.ForEach(bomb => {
             bomb.GetComponent<Rigidbody>().isKinematic = false;
             bomb.transform.SetParent(null);
-            SoundManager.Instance.Play(Audio.BombsFalling);
+            SoundManager.Instance.Play(Audio.BombsFalling); // play for every bomb or just once for them all?
         });
+
+        StartCoroutine(CloseHullDoorAfterBombing());
         StartCoroutine(PlayTheGameAfterBombsFallen());
     }
 
@@ -194,10 +197,20 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
     private IEnumerator PlayTheGameAfterBombsFallen()
     {
         yield return new WaitForSeconds(4f);
-        StoryManager.Instance.ShowNextSatanSuggestion();
-        yield return new WaitForSeconds(6f);
+
+        if(State == GameState.BombsAreFalling)
+        {
+            StoryManager.Instance.ShowNextSatanSuggestion();
+        }
+        yield return new WaitForSeconds(3f);
+
+        if(State == GameState.BombsAreFalling)
+        {
+            PlayTheGame();
+        }
+        yield return new WaitForSeconds(3f);
+
         bombs.ForEach(bomb => bomb.ResetPos());
-        PlayTheGame();
     }
 
     private IEnumerator ReleaseTheCameraAfterDelay()
@@ -220,7 +233,6 @@ public enum GameState
     SatanThrewDices,
     ResultOfSingleGame,
     BombsAreFalling,
-    PlayerHoldingGun,
     PlayerAsSatan,
     GameOver,
 }

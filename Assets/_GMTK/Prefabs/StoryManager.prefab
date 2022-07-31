@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366239294153220962}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -66,11 +66,11 @@ MonoBehaviour:
     - text: Pathetic.
       satanFaceType: 2
   - lines:
-    - text: '-'
-      satanFaceType: 1
-  - lines:
     - text: Will you finally make some use of this weapon and aim it at yourself?
       satanFaceType: 3
+  - lines:
+    - text: ...
+      satanFaceType: 1
   - lines:
     - text: So this is desperation.
       satanFaceType: 0
@@ -145,36 +145,53 @@ MonoBehaviour:
     - text: It's a problem you're here.
       satanFaceType: 0
   - lines:
-    - text: "Some creatures are like zeros. They need a number to precede them, and
-        then their nothingness takes on ten times its value and\u2026"
+    - text: Some creatures are like zeros.
       satanFaceType: 0
-    - text: ' a burden. How much already weighs your being here? 20, 300, 1000 human
-        lives?'
+    - text: They need a number to precede them, and then
+      satanFaceType: 0
+    - text: 'their nothingness takes on ten times its value and  a burden. '
+      satanFaceType: 0
+    - text: How much already weighs your being here? 20, 300, 1000 human lives?
       satanFaceType: 0
   - lines:
     - text: A little mold that will crush into the tissue of this planet. What else
         they are. What are you?
       satanFaceType: 3
   - lines:
-    - text: 'You have been sitting here with me for a long time. You sit down a little
-        longer, and you will stay forever. You will close your eyes. And when you
-        open them, the world will be gone. '
+    - text: 'You have been sitting here with me for a long time. '
       satanFaceType: 0
-    - text: You will find yourself in an infinite void that would not be filled by
-        all the resurrected dead of all time, and you will be in it like a grain
-        of sand in the middle of the steppe.
+    - text: You sit down a little longer, and
+      satanFaceType: 0
+    - text: you will stay forever.
+      satanFaceType: 0
+    - text: You will close your eyes.
+      satanFaceType: 0
+    - text: 'And when you open them, the world will be gone. '
+      satanFaceType: 0
+    - text: 'You will find yourself in an infinite void that would not be filled
+        by all the resurrected dead of all time, '
+      satanFaceType: 0
+    - text: and you will be in it like a grain of sand in the middle of the steppe.
       satanFaceType: 0
   - lines:
     - text: To die is nothing but to convey nothingness to nothingness. Do you see
-        the nothingness beneath you? Do you think you are more than that?
+        the nothingness beneath you?
+      satanFaceType: 0
+    - text: Do you think you are more than that?
       satanFaceType: 0
   - lines:
-    - text: People have given themselves all their good and bad. They did not seize
-        it, and they did not find it, and it did not fall as a voice from heaven.
-        You're giving yours a name now.
+    - text: People have given themselves all their good and bad.
+      satanFaceType: 0
+    - text: They did not seize it,
+      satanFaceType: 0
+    - text: and they did not find it,
+      satanFaceType: 0
+    - text: and it did not fall as a voice from heaven.
+      satanFaceType: 0
+    - text: You're giving yours a name now.
       satanFaceType: 0
   - lines:
-    - text: Everything has its time. Suicide also has its time
+    - text: Everything has its time. Suicide also has its time.
       satanFaceType: 0
   - lines:
     - text: How do you count down to death? Years or left corpses?

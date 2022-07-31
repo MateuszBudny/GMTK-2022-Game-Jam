@@ -52,6 +52,8 @@ namespace StarterAssets
 		public float BottomClamp = -90.0f;
 		public float SideClamp = 90f;
 
+		public bool FreezeCameraRotation { get; set; } = false;
+
 		// cinemachine
 		private float _cinemachineTargetPitch;
 
@@ -133,7 +135,7 @@ namespace StarterAssets
 		private void CameraRotation()
 		{
 			// if there is an input
-			if (_input.look.sqrMagnitude >= _threshold)
+			if (!FreezeCameraRotation && _input.look.sqrMagnitude >= _threshold)
 			{
 				//Don't multiply mouse input by Time.deltaTime
 				float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
@@ -154,7 +156,7 @@ namespace StarterAssets
             }
 		}
 
-		private float gunRotation;
+		private float additionalGunRotation;
 
 		private float ClampAngleGun(float angle, float min, float max)
         {
@@ -163,36 +165,36 @@ namespace StarterAssets
 				angle -= 360f;
             }
 
-			if(GameplayManager.Instance.State == GameState.PlayerHoldingGun)
+			if(GameplayManager.Instance.player.IsPlayerHoldingGun)
             {
-				if(gunRotation < 0.01f && gunRotation > -0.01f)
+				if(additionalGunRotation < 0.01f && additionalGunRotation > -0.01f)
                 {
 					if(angle > max)
                     {
-						gunRotation += angle - max;
+						additionalGunRotation += angle - max;
                     }
 					else if(angle < min)
                     {
-						gunRotation += angle - min;
+						additionalGunRotation += angle - min;
                     }
                 }
-				else if(gunRotation > 0.01f)
+				else if(additionalGunRotation > 0.01f)
                 {
-					gunRotation += angle - max;
-					if(gunRotation < 0f)
+					additionalGunRotation += angle - max;
+					if(additionalGunRotation < 0f)
                     {
-						gunRotation = 0f;
+						additionalGunRotation = 0f;
                     } 
                 }
-				else if(gunRotation < -0.01f)
+				else if(additionalGunRotation < -0.01f)
                 {
-					gunRotation += angle - min;
-					if(gunRotation > 0f)
+					additionalGunRotation += angle - min;
+					if(additionalGunRotation > 0f)
                     {
-						gunRotation = 0f;
+						additionalGunRotation = 0f;
                     }
                 }
-				GameplayManager.Instance.player.gunHolder.transform.localRotation = Quaternion.Euler(0f, gunRotation, 0f);
+				GameplayManager.Instance.player.gunHolder.transform.localRotation = Quaternion.Euler(0f, angle + additionalGunRotation, 0f);
 			}
 
 			return Mathf.Clamp(angle, min, max);
