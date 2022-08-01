@@ -151,10 +151,10 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
             SoundManager.Instance.Play(Audio.BombsFalling); // play for every bomb or just once for them all?
         });
 
-        player.CurrentBombingsDone++;
-
         StartCoroutine(CloseHullDoorAfterBombing());
-        StartCoroutine(PlayTheGameAfterBombsFallen());
+        StartCoroutine(PlayTheGameAfterBombsFallen(player.IsGonnaSnap));
+
+        player.CurrentBombingsDone++;
     }
 
     private IEnumerator CloseHullDoorAfterBombing()
@@ -208,11 +208,11 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
         PlayTheGame();
     }
 
-    private IEnumerator PlayTheGameAfterBombsFallen()
+    private IEnumerator PlayTheGameAfterBombsFallen(bool isPlayerGonnaSnap)
     {
         yield return new WaitForSeconds(4f);
 
-        if(State == GameState.BombsAreFalling && !player.IsGonnaSnap)
+        if(State == GameState.BombsAreFalling && !isPlayerGonnaSnap)
         {
             StoryManager.Instance.ShowNextSatanSuggestion();
         }
