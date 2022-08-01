@@ -10,6 +10,7 @@ public class StoryManager : SingleBehaviour<StoryManager>
     public SatanLines waitingLine;
     public SatanLines playerAimingWithGunAtHimself;
     public SatanLines playerAimingWithGunAtSatan;
+    public SatanLines burzaEndingStarts;
     [SerializeField]
     private List<SatanLines> playerShootingAtSatanOrderedLines;
     [SerializeField]
@@ -31,10 +32,8 @@ public class StoryManager : SingleBehaviour<StoryManager>
     private Queue<SatanLines> SatanSuggestionsQueue { get; set; }
     private Queue<SatanLines> PlayerShootingAtSatanLinesQueue { get; set; } 
 
-    protected override void Awake()
+    protected void Start()
     {
-        base.Awake();
-
         SatanLines firstSatanWinLines = satanWinOrderedLines[0];
         int satanWinLinesToRemoveNum = satanWinOrderedLines.Count - GameplayManager.Instance.player.droppingBombsNumToGoIntoMadness;
         for(int i = 0; i < satanWinLinesToRemoveNum; i++)

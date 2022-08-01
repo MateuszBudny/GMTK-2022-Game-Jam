@@ -58,6 +58,11 @@ MonoBehaviour:
       satanFaceType: 0
   playerAimingWithGunAtSatan:
     lines: []
+  burzaEndingStarts:
+    lines:
+    - text: The land of the dead is not a place of punishment or reward. It is a
+        place of nothingness.
+      satanFaceType: 3
   playerShootingAtSatanOrderedLines:
   - lines:
     - text: You really thought you could shoot me?
@@ -149,7 +154,7 @@ MonoBehaviour:
       satanFaceType: 0
     - text: They need a number to precede them, and then
       satanFaceType: 0
-    - text: 'their nothingness takes on ten times its value and  a burden. '
+    - text: 'their nothingness takes on ten times its value and a burden. '
       satanFaceType: 0
     - text: How much already weighs your being here? 20, 300, 1000 human lives?
       satanFaceType: 0

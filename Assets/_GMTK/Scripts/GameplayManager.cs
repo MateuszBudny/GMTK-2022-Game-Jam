@@ -19,6 +19,9 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
     private CinemachineVirtualCamera vcamFollowMouse;
     [SerializeField]
     private CinemachineVirtualCamera vcamCrank;
+    public PostProcessController postProcessController;
+
+    [Header("Other")]
     [SerializeField]
     private Transform crankToRoll;
     [SerializeField]
@@ -94,8 +97,11 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
     private IEnumerator FadeInAfterDelay()
     {
         yield return new WaitForSeconds(8f);
+
         DOTween.To(() => blackScreen.color.a, setter => blackScreen.color = new Color(0f, 0f, 0f, setter), 0f, 6f);
+        postProcessController.SetVignetteSmoothly(0.6f, 6f);
         yield return new WaitForSeconds(10f);
+
         DOTween.To(() => blackScreen.color.a, setter => blackScreen.color = new Color(0f, 0f, 0f, setter), 1f, 10f)
             .OnComplete(() => StartCoroutine(ThankYouAfterDelay()));
     }
@@ -120,6 +126,12 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
         crankToRoll.DOLocalRotate(new Vector3(-3600f, 0f, 0f), 4f, RotateMode.FastBeyond360).SetRelative(true);
         Debug.Log("Hull opened, bombs are falling");
         ChangeState(GameState.BombsAreFalling);
+
+        if(player.IsGonnaSnap)
+        {
+            StoryManager.Instance.ShowLines(StoryManager.Instance.burzaEndingStarts);
+        }
+
         StartCoroutine(DropBombsAfterDelay());
     }
 
@@ -200,7 +212,7 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
     {
         yield return new WaitForSeconds(4f);
 
-        if(State == GameState.BombsAreFalling)
+        if(State == GameState.BombsAreFalling && !player.IsGonnaSnap)
         {
             StoryManager.Instance.ShowNextSatanSuggestion();
         }

@@ -10,9 +10,13 @@ public class Player : DicePlayer
 {
     [SerializeField]
     private float interactionMaxDistance = 10f;
-    public Transform gunHolder;
     [SerializeField]
     private FirstPersonController playerController;
+    [SerializeField]
+    [Range(0f, 1f)]
+    private float maxVignetteValue = 0.8f;
+
+    public Transform gunHolder;
     public int droppingBombsNumToGoIntoMadness = 5;
 
     private int currentBombingsDone = 0;
@@ -27,6 +31,7 @@ public class Player : DicePlayer
     }
     
     public bool IsPlayerHoldingGun => gun;
+    public bool IsGonnaSnap => CurrentBombingsDone + 1 >= droppingBombsNumToGoIntoMadness;
 
     private Gun gun;
 
@@ -96,11 +101,13 @@ public class Player : DicePlayer
 
     private void LoseALittleBitOfSanity()
     {
+        float oneBombDropVignetteValue = maxVignetteValue / droppingBombsNumToGoIntoMadness;
+        float vignetteEndValueForNow = oneBombDropVignetteValue * CurrentBombingsDone;
+        GameplayManager.Instance.postProcessController.SetVignetteSmoothly(vignetteEndValueForNow, 1.5f);
+
         if(CurrentBombingsDone >= droppingBombsNumToGoIntoMadness)
         {
             GameplayManager.Instance.BurzaEnding();
         }
-
-        // TODO
     }
 }
