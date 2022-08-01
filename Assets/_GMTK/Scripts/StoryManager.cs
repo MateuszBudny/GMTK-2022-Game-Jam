@@ -34,10 +34,14 @@ public class StoryManager : SingleBehaviour<StoryManager>
     protected override void Awake()
     {
         base.Awake();
+
         SatanLines firstSatanWinLines = satanWinOrderedLines[0];
-        satanWinOrderedLines.Remove(satanWinOrderedLines.GetRandomElement());
-        satanWinOrderedLines.Remove(satanWinOrderedLines.GetRandomElement());
-        satanWinOrderedLines.Remove(satanWinOrderedLines.GetRandomElement());
+        int satanWinLinesToRemoveNum = satanWinOrderedLines.Count - GameplayManager.Instance.player.droppingBombsNumToGoIntoMadness;
+        for(int i = 0; i < satanWinLinesToRemoveNum; i++)
+        {
+            satanWinOrderedLines.Remove(satanWinOrderedLines.GetRandomElement());
+        }
+
         if(!satanWinOrderedLines.Contains(firstSatanWinLines))
         {
             satanWinOrderedLines.Remove(satanWinOrderedLines.GetRandomElement());
@@ -59,54 +63,38 @@ public class StoryManager : SingleBehaviour<StoryManager>
 
     public void ShowNextSatanWinLines()
     {
-        if(SatanWinLinesQueue.Count > 0)
-        {
-            ShowLines(SatanWinLinesQueue.Dequeue());
-        }
-        else
-        {
-            GameplayManager.Instance.BurzaEnding();
-        }
+        ShowNextSatanLines(SatanWinLinesQueue, satanWinOrderedLines);
     }
 
     public void ShowNextSatanLoseLines()
     {
-        if(SatanLoseLinesQueue.Count > 0)
-        {
-            ShowLines(SatanLoseLinesQueue.Dequeue());
-        }
-        else
-        {
-            ShowLines(satanLoseOrderedLines.GetRandomElement());
-        }
+        ShowNextSatanLines(SatanLoseLinesQueue, satanLoseOrderedLines);
     }
 
     public void ShowNextSatanDrawLines()
     {
-        if(SatanDrawLinesQueue.Count > 0)
-        {
-            ShowLines(SatanDrawLinesQueue.Dequeue());
-        }
-        else
-        {
-            ShowLines(satanDrawOrderedLines.GetRandomElement());
-        }
+        ShowNextSatanLines(SatanDrawLinesQueue, satanDrawOrderedLines);
     }
 
     public void ShowNextSatanSuggestion()
     {
-        if(SatanSuggestionsQueue.Count > 0)
-        {
-            ShowLines(SatanSuggestionsQueue.Dequeue());
-        } 
-        else
-        {
-            ShowLines(satanSuggestions.GetRandomElement());
-        }
+        ShowNextSatanLines(SatanSuggestionsQueue, satanSuggestions);
     }
 
     public void ShowNextPlayerShootingAtSatanLines()
     {
-        ShowLines(PlayerShootingAtSatanLinesQueue.Dequeue());
+        ShowNextSatanLines(PlayerShootingAtSatanLinesQueue, playerShootingAtSatanOrderedLines);
+    }
+
+    private void ShowNextSatanLines(Queue<SatanLines> queueWithLines, List<SatanLines> baseListWithLines)
+    {
+        if(queueWithLines.Count > 0)
+        {
+            ShowLines(queueWithLines.Dequeue());
+        }
+        else
+        {
+            ShowLines(baseListWithLines.GetRandomElement());
+        }
     }
 }

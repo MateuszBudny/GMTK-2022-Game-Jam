@@ -139,6 +139,8 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
             SoundManager.Instance.Play(Audio.BombsFalling); // play for every bomb or just once for them all?
         });
 
+        player.CurrentBombingsDone++;
+
         StartCoroutine(CloseHullDoorAfterBombing());
         StartCoroutine(PlayTheGameAfterBombsFallen());
     }

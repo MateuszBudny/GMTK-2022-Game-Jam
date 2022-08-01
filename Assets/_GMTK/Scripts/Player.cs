@@ -13,7 +13,19 @@ public class Player : DicePlayer
     public Transform gunHolder;
     [SerializeField]
     private FirstPersonController playerController;
+    public int droppingBombsNumToGoIntoMadness = 5;
 
+    private int currentBombingsDone = 0;
+    public int CurrentBombingsDone 
+    {
+        get => currentBombingsDone;
+        set
+        {
+            currentBombingsDone = value;
+            LoseALittleBitOfSanity();
+        }
+    }
+    
     public bool IsPlayerHoldingGun => gun;
 
     private Gun gun;
@@ -78,7 +90,17 @@ public class Player : DicePlayer
                 return true;
             }
         }
-        
+
         return false;
+    }
+
+    private void LoseALittleBitOfSanity()
+    {
+        if(CurrentBombingsDone >= droppingBombsNumToGoIntoMadness)
+        {
+            GameplayManager.Instance.BurzaEnding();
+        }
+
+        // TODO
     }
 }
