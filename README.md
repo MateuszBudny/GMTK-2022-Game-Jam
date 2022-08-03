@@ -1,4 +1,4 @@
-# GMTK 2022 Game Jam
+# GMTK 2022 - 48h Game Jam
 Theme: Roll of the Dice
 ## Links
 itch.io link:<br>
