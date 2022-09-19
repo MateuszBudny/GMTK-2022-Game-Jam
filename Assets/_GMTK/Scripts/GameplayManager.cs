@@ -145,11 +145,7 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
     private IEnumerator DropBombsAfterDelay()
     {
         yield return new WaitForSeconds(2f);
-        bombs.ForEach(bomb => {
-            bomb.GetComponent<Rigidbody>().isKinematic = false;
-            bomb.transform.SetParent(null);
-            SoundManager.Instance.Play(Audio.BombsFalling); // play for every bomb or just once for them all?
-        });
+        bombs.ForEach(bomb => bomb.Fall());
 
         StartCoroutine(CloseHullDoorAfterBombing());
         StartCoroutine(PlayTheGameAfterBombsFallen(player.IsGonnaSnap));
@@ -216,14 +212,12 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
         {
             StoryManager.Instance.ShowNextSatanSuggestion();
         }
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
 
         if(State == GameState.BombsAreFalling)
         {
             PlayTheGame();
         }
-        yield return new WaitForSeconds(3f);
-
         bombs.ForEach(bomb => bomb.ResetPos());
     }
 
