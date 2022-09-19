@@ -7,24 +7,24 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DIABOL_MASKA
-  m_Shader: {fileID: 4800000, guid: 1c0fb61ae41bca24e992547caf825155, type: 3}
+  m_Name: Ammo
+  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_ValidKeywords: []
-  m_InvalidKeywords:
-  - _WARPEFFECT_OFF
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 124ec8d0268796940a42519a9f82f6d6, type: 3}
-        m_Scale: {x: 0.2, y: 0.2}
-        m_Offset: {x: 0.48, y: 0}
+        m_Texture: {fileID: 2800000, guid: 8977c51bbcc75f3498562197fd8cc534, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -106,8 +106,8 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
+    - _TexScale: 0.2
     - _UVSec: 0
-    - _WarpEffect: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
