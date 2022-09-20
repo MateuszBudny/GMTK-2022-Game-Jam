@@ -70,15 +70,18 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
 
     internal void Suicide()
     {
-        SoundManager.Instance.StopAllMusic();
+        player.Die();
+        SoundManager.Instance.StopAllMusicAndSounds();
+        SoundManager.Instance.Play(Audio.Gunshot);
         blackScreen.gameObject.SetActive(true);
         StartCoroutine(ThankYouAfterDelay());
     }
 
     private IEnumerator ThankYouAfterDelay()
     {
-        yield return new WaitForSeconds(3f);
         ChangeState(GameState.GameOver);
+        yield return new WaitForSeconds(3f);
+     
         thankYou.gameObject.SetActive(true);
     }
 
@@ -88,6 +91,7 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
         DOTween.To(() => blackScreen.color.a, setter => blackScreen.color = new Color(0f, 0f, 0f, setter), 1f, 6f)
             .OnComplete(() => {
                 satan.gameObject.SetActive(false);
+                player.BecomeSatan();
                 ChangeState(GameState.PlayerAsSatan);
             });
         blackScreen.gameObject.SetActive(true);

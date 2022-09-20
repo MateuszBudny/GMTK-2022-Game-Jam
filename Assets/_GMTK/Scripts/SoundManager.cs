@@ -30,18 +30,21 @@ public class SoundManager : SingleBehaviour<SoundManager>
 
     private void Update()
     {
-        if(!rareAmbientPlayedAlready)
+        if(GameplayManager.Instance.State != GameState.GameOver)
         {
-            if(Time.time - rareAmbientPlayedTimestamp > firstPlayDelay)
+            if(!rareAmbientPlayedAlready)
             {
-                PlayRareAmbient();
+                if(Time.time - rareAmbientPlayedTimestamp > firstPlayDelay)
+                {
+                    PlayRareAmbient();
+                }
             }
-        }
-        else
-        {
-            if(Time.time - rareAmbientPlayedTimestamp > anotherPlayDelayAfterFirst)
+            else
             {
-                PlayRareAmbient();
+                if(Time.time - rareAmbientPlayedTimestamp > anotherPlayDelayAfterFirst)
+                {
+                    PlayRareAmbient();
+                }
             }
         }
     }
@@ -64,10 +67,11 @@ public class SoundManager : SingleBehaviour<SoundManager>
         rareAmbientPlayedTimestamp = Time.time;
     }
 
-    public void StopAllMusic()
+    public void StopAllMusicAndSounds()
     {
         ambientSource.Stop();
         rareAmbientSource.Stop();
+        soundsSources.ForEach(source => source.Stop());
     }
 }
 

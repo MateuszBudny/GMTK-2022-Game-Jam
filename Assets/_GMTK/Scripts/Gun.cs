@@ -42,6 +42,16 @@ public class Gun : MonoBehaviour, IInteractable
         }
     }
 
+    public void Throw()
+    {
+        transform.SetParent(null);
+        Rigid.isKinematic = false;
+        Rigid.AddForce(transform.forward * throwForce);
+        Rigid.AddTorque(new Vector3(throwTorque, 0f, 0f));
+        Destroy(this);
+    }
+
+
     private void Shoot()
     {
         CurrentAmmo--;
@@ -62,9 +72,6 @@ public class Gun : MonoBehaviour, IInteractable
                 StoryManager.Instance.ShowNextPlayerShootingAtSatanLines();
             }
         }
-
-
-        Debug.LogWarning("bang");
     }
 
     private void NoAmmo()
@@ -78,14 +85,5 @@ public class Gun : MonoBehaviour, IInteractable
             noAmmoCounter++;
             SoundManager.Instance.Play(Audio.NoAmmo);
         }
-    }
-
-    private void Throw()
-    {
-        transform.SetParent(null);
-        Rigid.isKinematic = false;
-        Rigid.AddForce(transform.forward * throwForce);
-        Rigid.AddTorque(new Vector3(throwTorque, 0f, 0f));
-        Destroy(this);
     }
 }

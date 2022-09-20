@@ -37,7 +37,7 @@ public class Player : DicePlayer
 
     public void OnPlayerAction(InputValue inputValue)
     {
-        if(inputValue.isPressed)
+        if(inputValue.isPressed && GameplayManager.Instance.State != GameState.GameOver)
         {
             if(IsPlayerHoldingGun)
             {
@@ -60,7 +60,7 @@ public class Player : DicePlayer
             {
                 diceThrowing.SpawnAndThrowDices();
             }
-            else if(GameplayManager.Instance.State != GameState.SatanMonolog && GameplayManager.Instance.State != GameState.SatanThrewDices && GameplayManager.Instance.State != GameState.SatanTurn && GameplayManager.Instance.State != GameState.GameOver)
+            else if(GameplayManager.Instance.State != GameState.SatanMonolog && GameplayManager.Instance.State != GameState.SatanThrewDices && GameplayManager.Instance.State != GameState.SatanTurn)
             {
                 TryToInteract();
             }
@@ -80,6 +80,16 @@ public class Player : DicePlayer
                 this.gun = gun;
                 playerController.FreezeCameraRotation = false;
             });
+    }
+
+    public void BecomeSatan()
+    {
+        TryToThrowGun();
+    }
+
+    public void Die()
+    {
+        TryToThrowGun();
     }
 
     private bool TryToInteract()
@@ -107,6 +117,14 @@ public class Player : DicePlayer
         if(CurrentBombingsDone >= droppingBombsNumToGoIntoMadness)
         {
             GameplayManager.Instance.BurzaEnding();
+        }
+    }
+
+    private void TryToThrowGun()
+    {
+        if(gun)
+        {
+            gun.Throw();
         }
     }
 }
