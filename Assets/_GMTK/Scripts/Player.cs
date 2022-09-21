@@ -70,16 +70,11 @@ public class Player : DicePlayer
     public void TakeGun(Gun gun)
     {
         playerController.FreezeCameraRotation = true;
-        gun.Rigid.isKinematic = true;
-        gun.transform.SetParent(gunHolder);
-        gun.transform.DOLocalMove(Vector3.zero, 1f);
-        gun.transform.DOLocalRotate(Vector3.zero, 1f);
-        Tweener gunHolderTweener = gunHolder.transform.DOLocalRotate(new Vector3(0f, transform.localEulerAngles.y, 0f), 1f)
-            .OnComplete(() =>
-            {
-                this.gun = gun;
-                playerController.FreezeCameraRotation = false;
-            });
+        gun.Take(gunHolder, () =>
+        {
+            this.gun = gun;
+            playerController.FreezeCameraRotation = false;
+        });
     }
 
     public void BecomeSatan()
