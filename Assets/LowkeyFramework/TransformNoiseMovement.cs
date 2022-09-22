@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class TransformNoiseMovement : MonoBehaviour
 {
@@ -8,32 +10,15 @@ public class TransformNoiseMovement : MonoBehaviour
     private Transform transformToNoiseMove;
     [SerializeField]
     private bool isActive = true;
-    [SerializeField]
-    private float movementAmplitudeGain = 1f;
-    [SerializeField]
-    private float movementFrequencyGain = 1f;
-    [SerializeField]
-    private float rotationAmplitudeGain = 0.1f;
-    [SerializeField]
-    private float rotationFrequencyGain = 0.1f;
+    public NoiseShake3D movementNoiseShake;
+    public NoiseShake3D rotationNoiseShake;
 
     public bool IsActive { get => isActive; private set => isActive = value; }
-    public float MovementAmplitudeGain { get => movementAmplitudeGain; set => movementAmplitudeGain = value; }
-    public float MovementFrequencyGain { get => movementFrequencyGain; set => movementFrequencyGain = value; }
-    public float RotationAmplitudeGain { get => rotationAmplitudeGain; set => rotationAmplitudeGain = value; }
-    public float RotationFrequencyGain { get => rotationFrequencyGain; set => rotationFrequencyGain = value; }
-
-    private Vector3 previousNoiseMovement = Vector3.zero;
-    private Vector3 previousNoiseRotation = Vector3.zero;
-    private Vector3 movementSeeds = Vector3.zero;
-    private Vector3 rotationSeeds = Vector3.zero;
-    private float movementElapsedTime = 0f;
-    private float rotationElapsedTime = 0f;
 
     private void Awake()
     {
-        movementSeeds = Random.insideUnitSphere;
-        rotationSeeds = Random.insideUnitSphere;
+        movementNoiseShake.Init();
+        rotationNoiseShake.Init();
     }
 
     private void Update()
@@ -41,27 +26,36 @@ public class TransformNoiseMovement : MonoBehaviour
         if(!IsActive)
             return;
 
-        movementElapsedTime += Time.deltaTime * movementFrequencyGain;
-        rotationElapsedTime += Time.deltaTime * rotationFrequencyGain;
-
-        Vector3 currentNoiseMovement = MathUtils.RandomSmoothOffsetNoise(movementElapsedTime, MovementAmplitudeGain, 1f, movementSeeds.x, movementSeeds.y, movementSeeds.z);
-        Vector3 currentNoiseRotation = MathUtils.RandomSmoothOffsetNoise(rotationElapsedTime, RotationAmplitudeGain, 1f, rotationSeeds.x, rotationSeeds.y, rotationSeeds.z);
-        transformToNoiseMove.Translate(currentNoiseMovement - previousNoiseMovement);
-        transformToNoiseMove.Rotate(currentNoiseRotation - previousNoiseRotation);
-        previousNoiseMovement = currentNoiseMovement;
-        previousNoiseRotation = currentNoiseRotation;
+        movementNoiseShake.ApplyCalculatedNoiseOffset(transformToNoiseMove.Translate);
+        rotationNoiseShake.ApplyCalculatedNoiseOffset(transformToNoiseMove.Rotate);
     }
 
     public void SetActive(bool active)
     {
-        if(IsActive && !active)
+        IsActive = active;
+    }
+
+    [Serializable]
+    public class NoiseShake3D
+    {
+        public float amplitudeGain = 1f;
+        public float frequencyGain = 1f;
+
+        private Vector3 axisSeeds = Vector3.zero;
+        private float elapsedTime = 0f;
+        private Vector3 previousNoiseOffset = Vector3.zero;
+
+        public void Init()
         {
-            transformToNoiseMove.Translate(-previousNoiseMovement);
-            transformToNoiseMove.Rotate(-previousNoiseRotation);
-            previousNoiseMovement = Vector3.zero;
-            previousNoiseRotation = Vector3.zero;
+            axisSeeds = Random.insideUnitSphere;
         }
 
-        IsActive = active;
+        public void ApplyCalculatedNoiseOffset(Action<Vector3> applyNoiseAction)
+        {
+            elapsedTime += Time.deltaTime * frequencyGain;
+            Vector3 currentNoiseOffset = MathUtils.RandomSmoothOffsetNoise3D(elapsedTime, amplitudeGain, 1f, axisSeeds.x, axisSeeds.y, axisSeeds.z);
+            applyNoiseAction(currentNoiseOffset - previousNoiseOffset);
+            previousNoiseOffset = currentNoiseOffset;
+        }
     }
 }

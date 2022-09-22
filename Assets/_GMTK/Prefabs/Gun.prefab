@@ -118,72 +118,74 @@ MonoBehaviour:
   spawnShotPosition: {fileID: 8220153752424476406}
   shotEffectPrefab: {fileID: 4447823294922298611, guid: 2b3fd11cab686b3469b0dc5afc5e58da,
     type: 3}
-  noiseShakeAmplitudeProgression:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0.021777561
-      outSlope: 0.021777561
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.17622416
-    - serializedVersion: 3
-      time: 0.20242056
-      value: -0.021187982
-      inSlope: 0.028923828
-      outSlope: 0.028923828
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.26451972
-    - serializedVersion: 3
-      time: 0.49868223
-      value: -0.000019594037
-      inSlope: 0.18518126
-      outSlope: 0.024564046
-      tangentMode: 1
-      weightedMode: 0
-      inWeight: 0.46140647
-      outWeight: 0.11350247
-    - serializedVersion: 3
-      time: 1.010075
-      value: 0.008848574
-      inSlope: 0.027070262
-      outSlope: 0.0231423
-      tangentMode: 1
-      weightedMode: 0
-      inWeight: 0.08103643
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  noiseShakeFrequencyProgression:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1.0800781
-      value: 10.033752
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  noiseAmplitudeGainOffset:
+    progression:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0.021777561
+        outSlope: 0.021777561
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.17622416
+      - serializedVersion: 3
+        time: 0.20242056
+        value: -0.021187982
+        inSlope: 0.028923828
+        outSlope: 0.028923828
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.26451972
+      - serializedVersion: 3
+        time: 0.49868223
+        value: -0.000019594037
+        inSlope: 0.18518126
+        outSlope: 0.024564046
+        tangentMode: 1
+        weightedMode: 0
+        inWeight: 0.46140647
+        outWeight: 0.11350247
+      - serializedVersion: 3
+        time: 1.010075
+        value: 0.008848574
+        inSlope: 0.027070262
+        outSlope: 0.0231423
+        tangentMode: 1
+        weightedMode: 0
+        inWeight: 0.08103643
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  noiseFrequencyGainOffset:
+    progression:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1.0800781
+        value: 10.033752
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
 --- !u!65 &8220153752870670991
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -227,10 +229,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transformToNoiseMove: {fileID: 8220153752870670990}
   isActive: 0
-  movementAmplitudeGain: 0.03
-  movementFrequencyGain: 0.5
-  rotationAmplitudeGain: 10
-  rotationFrequencyGain: 0.5
+  movementNoiseShake:
+    amplitudeGain: 0.03
+    frequencyGain: 0.5
+  rotationNoiseShake:
+    amplitudeGain: 10
+    frequencyGain: 0.5
 --- !u!1001 &8220153752052999781
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -22,9 +22,9 @@ public static class MathUtils
         return recalculatedAngle;
     }
 
-    public static Vector3 RandomSmoothOffsetNoise(float amplitude = 1f, float constFrequency = 1f, float xSeed = 0f, float ySeed = 1f, float zSeed = 2f) => RandomSmoothOffsetNoise(Time.time, amplitude, constFrequency, xSeed, ySeed, zSeed);
+    public static Vector3 RandomSmoothOffsetNoise3D(float amplitude = 1f, float constFrequency = 1f, float xSeed = 0f, float ySeed = 1f, float zSeed = 2f) => RandomSmoothOffsetNoise3D(Time.time, amplitude, constFrequency, xSeed, ySeed, zSeed);
 
-    public static Vector3 RandomSmoothOffsetNoise(float time, float amplitude = 1f, float constFrequency = 1f, float xSeed = 0f, float ySeed = 1f, float zSeed = 2f)
+    public static Vector3 RandomSmoothOffsetNoise3D(float time, float amplitude = 1f, float constFrequency = 1f, float xSeed = 0f, float ySeed = 1f, float zSeed = 2f)
     {
         float adjustedTime = time * constFrequency;
         return new Vector3(
