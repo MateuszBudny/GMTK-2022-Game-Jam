@@ -424,6 +424,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac619183fe5f724b935e6ea2ab80827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backForceWhenFalling: 1000
+  minRandomRotationForceOnFall: {x: -5, y: -5, z: -5}
+  maxRandomRotationForceOnFall: {x: 5, y: 5, z: 5}
+  minTipDownRotationForceOnFall: 10
+  maxTipDownRotationForceOnFall: 15
 --- !u!1 &241596854 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9021558762142358373, guid: 90896261534ba7e43808e17b740f0882,
@@ -2035,6 +2040,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac619183fe5f724b935e6ea2ab80827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backForceWhenFalling: 1000
+  minRandomRotationForceOnFall: {x: -5, y: -5, z: -5}
+  maxRandomRotationForceOnFall: {x: 5, y: 5, z: 5}
+  minTipDownRotationForceOnFall: 10
+  maxTipDownRotationForceOnFall: 15
 --- !u!1001 &1041460437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2259,6 +2269,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac619183fe5f724b935e6ea2ab80827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backForceWhenFalling: 1000
+  minRandomRotationForceOnFall: {x: -5, y: -5, z: -5}
+  maxRandomRotationForceOnFall: {x: 5, y: 5, z: 5}
+  minTipDownRotationForceOnFall: 10
+  maxTipDownRotationForceOnFall: 15
 --- !u!1 &1261465220 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8313641909937497362, guid: 43b07c30298b2ff44a57362ed4acaa79,
@@ -2402,6 +2417,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac619183fe5f724b935e6ea2ab80827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backForceWhenFalling: 1000
+  minRandomRotationForceOnFall: {x: -5, y: -5, z: -5}
+  maxRandomRotationForceOnFall: {x: 5, y: 5, z: 5}
+  minTipDownRotationForceOnFall: 10
+  maxTipDownRotationForceOnFall: 15
 --- !u!1 &1549987376 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7955790086967878477, guid: 43b07c30298b2ff44a57362ed4acaa79,
@@ -2456,6 +2476,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac619183fe5f724b935e6ea2ab80827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backForceWhenFalling: 1000
+  minRandomRotationForceOnFall: {x: -5, y: -5, z: -5}
+  maxRandomRotationForceOnFall: {x: 5, y: 5, z: 5}
+  minTipDownRotationForceOnFall: 10
+  maxTipDownRotationForceOnFall: 15
 --- !u!1 &1599099698
 GameObject:
   m_ObjectHideFlags: 0
@@ -3060,6 +3085,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac619183fe5f724b935e6ea2ab80827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backForceWhenFalling: 1000
+  minRandomRotationForceOnFall: {x: -5, y: -5, z: -5}
+  maxRandomRotationForceOnFall: {x: 5, y: 5, z: 5}
+  minTipDownRotationForceOnFall: 10
+  maxTipDownRotationForceOnFall: 15
 --- !u!1001 &1979352518
 PrefabInstance:
   m_ObjectHideFlags: 0
