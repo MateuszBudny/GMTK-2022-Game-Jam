@@ -12,7 +12,8 @@ public class DicesGroup : MonoBehaviour
     [SerializeField]
     private List<DiceRecord> dicesRecords;
 
-    public int CurrentValue => dicesRecords.Sum(record => record.dice.CurrentValue);
+    public (int sumValue, int dicesNum) CurrentValue => (dicesRecords.Sum(record => record.dice.CurrentValue), dicesRecords.Where(dice => dice.dice.CurrentValue > 0).Count());
+    public int AllDicesNum => dicesRecords.Count;
 
     private float dicesSoundTimestamp = -1f;
 

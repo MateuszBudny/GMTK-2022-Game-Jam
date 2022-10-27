@@ -211,4 +211,11 @@ MonoBehaviour:
   - lines:
     - text: "I guess it's better to die than remember. Isn\u2019t it?"
       satanFaceType: 0
+  satanReaccToPlayerDiceNotFallingOnTheCrate:
+  - lines:
+    - text: "hehe nupek se nie trafi\u0142"
+      satanFaceType: 0
+  - lines:
+    - text: "ogarnij dupsko i traf se w ten st\xF3\u0142 wreszcie xdddd"
+      satanFaceType: 0
   textLabel: {fileID: 0}

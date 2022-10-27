@@ -21,6 +21,8 @@ public class StoryManager : SingleBehaviour<StoryManager>
     private List<SatanLines> satanDrawOrderedLines;
     [SerializeField]
     private List<SatanLines> satanSuggestions;
+    [SerializeField]
+    private List<SatanLines> satanReaccToPlayerDiceNotFallingOnTheCrate;
 
     [Header("Other")]
     [SerializeField]
@@ -30,6 +32,7 @@ public class StoryManager : SingleBehaviour<StoryManager>
     private Queue<SatanLines> SatanLoseLinesQueue { get; set; }
     private Queue<SatanLines> SatanDrawLinesQueue { get; set; } 
     private Queue<SatanLines> SatanSuggestionsQueue { get; set; }
+    private Queue<SatanLines> SatanReaccToPlayerDiceNotFallingOnTheCrate { get; set; }
     private Queue<SatanLines> PlayerShootingAtSatanLinesQueue { get; set; } 
 
     protected void Start()
@@ -52,6 +55,7 @@ public class StoryManager : SingleBehaviour<StoryManager>
         SatanDrawLinesQueue = new Queue<SatanLines>(satanDrawOrderedLines);
         SatanSuggestionsQueue = new Queue<SatanLines>(satanSuggestions);
         PlayerShootingAtSatanLinesQueue = new Queue<SatanLines>(playerShootingAtSatanOrderedLines);
+        SatanReaccToPlayerDiceNotFallingOnTheCrate = new Queue<SatanLines>(satanReaccToPlayerDiceNotFallingOnTheCrate);
     }
 
     public void ShowLines(SatanLines lines)
@@ -83,6 +87,11 @@ public class StoryManager : SingleBehaviour<StoryManager>
     public void ShowNextPlayerShootingAtSatanLines()
     {
         ShowNextSatanLines(PlayerShootingAtSatanLinesQueue, playerShootingAtSatanOrderedLines);
+    }
+
+    public void ShowNextSatanReaccToPlayerDiceNotFallingOnTheCrate()
+    {
+        ShowNextSatanLines(SatanReaccToPlayerDiceNotFallingOnTheCrate, satanReaccToPlayerDiceNotFallingOnTheCrate);
     }
 
     private void ShowNextSatanLines(Queue<SatanLines> queueWithLines, List<SatanLines> baseListWithLines)

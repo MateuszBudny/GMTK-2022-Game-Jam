@@ -173,13 +173,13 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
         yield return new WaitForSeconds(2f);
         Debug.Log("Satan score: " + satan.CurrentScore);
 
-        if(player.CurrentScore > satan.CurrentScore)
+        if(player.CurrentScore.sumValue > satan.CurrentScore.sumValue)
         {
             StoryManager.Instance.ShowNextSatanLoseLines();
             Debug.Log("The weather is so bad, that the bombing was canceled.");
             PlayTheGame();
         }
-        else if(satan.CurrentScore > player.CurrentScore)
+        else if(satan.CurrentScore.sumValue > player.CurrentScore.sumValue)
         {
             StoryManager.Instance.ShowNextSatanWinLines();
             Debug.Log("Aaand there goes the bombs.");

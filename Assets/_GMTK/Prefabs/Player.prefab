@@ -375,5 +375,6 @@ MonoBehaviour:
   throwTorqueMax: {x: 20, y: 20, z: 20}
   showDicesPosition: {fileID: 0}
   throwDicesPosition: {fileID: 0}
+  moveFromDicesShowToThrowPosition: 0.01
   dicesGroupToSpawnPrefab: {fileID: 2301711976843078849, guid: fbb9db9fbac196c499e01f61085b180b,
     type: 3}

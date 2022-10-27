@@ -52,7 +52,14 @@ public class Satan : DicePlayer
     private IEnumerator AfterPlayerThrewDicesEnumerator()
     {
         yield return new WaitForSeconds(2f);
+
         Debug.Log("Your score: " + GameplayManager.Instance.player.CurrentScore);
+        if(GameplayManager.Instance.player.CurrentScore.dicesNum < GameplayManager.Instance.player.AllDicesNum)
+        {
+            StoryManager.Instance.ShowNextSatanReaccToPlayerDiceNotFallingOnTheCrate();
+            yield return new WaitForSeconds(3f);
+        }
+
         GameplayManager.Instance.ChangeState(GameState.SatanTurn);
         diceThrowing.ThrowDices();
         GameplayManager.Instance.SatanThrewDices();
