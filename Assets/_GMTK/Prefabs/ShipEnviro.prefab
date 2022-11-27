@@ -278,6 +278,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 302635721697991581, guid: 84bdc20f066f00e42ac84b3d02bd9c63,
         type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 302635721697991581, guid: 84bdc20f066f00e42ac84b3d02bd9c63,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0ac547a4737e9654ea2da5dde0e9e978, type: 2}
@@ -366,6 +371,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6952520449624810893, guid: ce66e2c864ec6f94596a7c496498815a,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -3086980335673544065, guid: ce66e2c864ec6f94596a7c496498815a,
         type: 3}
       propertyPath: m_IsActive
@@ -380,6 +390,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: statek
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282040287499680643, guid: ce66e2c864ec6f94596a7c496498815a,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce66e2c864ec6f94596a7c496498815a, type: 3}
@@ -458,6 +473,57 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5e13e7caaaca3f43b78782933460b67, type: 3}
+--- !u!1 &407816906447027310 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c5e13e7caaaca3f43b78782933460b67,
+    type: 3}
+  m_PrefabInstance: {fileID: 678269486924644671}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &2221664240067930614
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407816906447027310}
+  serializedVersion: 2
+  m_Mass: 1000
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!75 &7643236101742450375
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407816906447027310}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 1000}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
+--- !u!114 &1593978386207128108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407816906447027310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac619183fe5f724b935e6ea2ab80827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backForceWhenFalling: 1000
+  minRandomRotationForceOnFall: {x: -5, y: -5, z: -5}
+  maxRandomRotationForceOnFall: {x: 5, y: 5, z: 5}
+  minTipDownRotationForceOnFall: 10
+  maxTipDownRotationForceOnFall: 15
 --- !u!4 &1072714314422167252 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c5e13e7caaaca3f43b78782933460b67,
@@ -709,6 +775,57 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1422791394972191560}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2269722873855866393 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c5e13e7caaaca3f43b78782933460b67,
+    type: 3}
+  m_PrefabInstance: {fileID: 1422791394972191560}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &2903922524351170816
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2269722873855866393}
+  serializedVersion: 2
+  m_Mass: 1000
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!75 &5517846927590870223
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2269722873855866393}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 1000}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
+--- !u!114 &843234467437266809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2269722873855866393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac619183fe5f724b935e6ea2ab80827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backForceWhenFalling: 1000
+  minRandomRotationForceOnFall: {x: -5, y: -5, z: -5}
+  maxRandomRotationForceOnFall: {x: 5, y: 5, z: 5}
+  minTipDownRotationForceOnFall: 10
+  maxTipDownRotationForceOnFall: 15
 --- !u!1001 &3735273013650515422
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -784,6 +901,57 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3735273013650515422}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4546158226809346191 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c5e13e7caaaca3f43b78782933460b67,
+    type: 3}
+  m_PrefabInstance: {fileID: 3735273013650515422}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1512933513094534672
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4546158226809346191}
+  serializedVersion: 2
+  m_Mass: 1000
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!75 &2339877427345048790
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4546158226809346191}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 1000}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
+--- !u!114 &2231064514676535989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4546158226809346191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac619183fe5f724b935e6ea2ab80827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backForceWhenFalling: 1000
+  minRandomRotationForceOnFall: {x: -5, y: -5, z: -5}
+  maxRandomRotationForceOnFall: {x: 5, y: 5, z: 5}
+  minTipDownRotationForceOnFall: 10
+  maxTipDownRotationForceOnFall: 15
 --- !u!1001 &4754244681187504961
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -859,6 +1027,57 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4754244681187504961}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5565061043873746448 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c5e13e7caaaca3f43b78782933460b67,
+    type: 3}
+  m_PrefabInstance: {fileID: 4754244681187504961}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &7873999949644352282
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5565061043873746448}
+  serializedVersion: 2
+  m_Mass: 1000
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!75 &3661438015317583967
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5565061043873746448}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 1000}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
+--- !u!114 &2485403916814405522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5565061043873746448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac619183fe5f724b935e6ea2ab80827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backForceWhenFalling: 1000
+  minRandomRotationForceOnFall: {x: -5, y: -5, z: -5}
+  maxRandomRotationForceOnFall: {x: 5, y: 5, z: 5}
+  minTipDownRotationForceOnFall: 10
+  maxTipDownRotationForceOnFall: 15
 --- !u!1001 &6022684228880747962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -934,6 +1153,57 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6022684228880747962}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6869597692658839787 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c5e13e7caaaca3f43b78782933460b67,
+    type: 3}
+  m_PrefabInstance: {fileID: 6022684228880747962}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &5629007208281363468
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6869597692658839787}
+  serializedVersion: 2
+  m_Mass: 1000
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!75 &1447491866476182414
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6869597692658839787}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 1000}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
+--- !u!114 &3298104855870462430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6869597692658839787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac619183fe5f724b935e6ea2ab80827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backForceWhenFalling: 1000
+  minRandomRotationForceOnFall: {x: -5, y: -5, z: -5}
+  maxRandomRotationForceOnFall: {x: 5, y: 5, z: 5}
+  minTipDownRotationForceOnFall: 10
+  maxTipDownRotationForceOnFall: 15
 --- !u!1001 &6985832234878773273
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1009,3 +1279,54 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6985832234878773273}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7796787269173581128 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c5e13e7caaaca3f43b78782933460b67,
+    type: 3}
+  m_PrefabInstance: {fileID: 6985832234878773273}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &6963902689233533956
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7796787269173581128}
+  serializedVersion: 2
+  m_Mass: 1000
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!75 &665740978240116732
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7796787269173581128}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 1000}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
+--- !u!114 &2945207584563325464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7796787269173581128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac619183fe5f724b935e6ea2ab80827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backForceWhenFalling: 1000
+  minRandomRotationForceOnFall: {x: -5, y: -5, z: -5}
+  maxRandomRotationForceOnFall: {x: 5, y: 5, z: 5}
+  minTipDownRotationForceOnFall: 10
+  maxTipDownRotationForceOnFall: 15
