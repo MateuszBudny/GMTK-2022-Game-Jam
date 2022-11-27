@@ -1,4 +1,4 @@
-Shader "LowkeyShadersURP/Unlit/EmptyUnlitShader"
+Shader "LowkeyShadersURP/Unlit/EmptyUnlit"
 {
     Properties
     {
