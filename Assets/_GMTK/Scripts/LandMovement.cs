@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,28 +6,38 @@ using UnityEngine;
 public class LandMovement : MonoBehaviour
 {
     [SerializeField]
-    private float maxZPosition = 600f;
-    [SerializeField]
-    private float minZPosition = -600f;
+    private List<Transform> landsLayers;
     [SerializeField]
     private float zSpeed = 1f;
 
     void Update()
     {
-        if(transform.position.z < minZPosition)
+        ForEveryLandsLayer(landsLayer =>
         {
-            AdjustZPosition(maxZPosition);
-        }
-        else if(transform.position.z > maxZPosition)
-        {
-            AdjustZPosition(minZPosition);
-        }
+            if(landsLayer.localPosition.z < -10)
+            {
+                // move this lands layer to the back
+                AdjustZPosition(landsLayer, 2 * landsLayer.localPosition.z * landsLayer.parent.localScale.z);
+            } 
+        });
 
-        AdjustZPosition(transform.position.z + zSpeed * Time.deltaTime);
+        float zChange = zSpeed * Time.deltaTime;
+        ForEveryLandsLayer(landsLayer =>
+        {
+            AdjustZPosition(landsLayer, zChange);
+        });
     }
 
-    private void AdjustZPosition(float zPosition)
+    private void ForEveryLandsLayer(Action<Transform> action)
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y, zPosition);
+        foreach(Transform landsLayer in landsLayers)
+        {
+            action(landsLayer);
+        }
+    }
+
+    private void AdjustZPosition(Transform transformToAdjust, float zChange)
+    {
+        transformToAdjust.position = new Vector3(transformToAdjust.position.x, transformToAdjust.position.y, transformToAdjust.position.z - zChange);
     }
 }
