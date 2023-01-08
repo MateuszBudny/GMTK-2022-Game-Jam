@@ -420,8 +420,8 @@ MonoBehaviour:
   vcamCrank: {fileID: 52608827}
   postProcessController: {fileID: 1652348368}
   crankToRoll: {fileID: 148272246}
-  hulkDoorLeft: {fileID: 1270723670}
-  hulkDoorRight: {fileID: 541264709}
+  hulkDoorLeft: {fileID: 678269486666009666}
+  hulkDoorRight: {fileID: 678269486666009665}
   blackScreen: {fileID: 1652687947}
   thankYou: {fileID: 657309148}
   bombs:
@@ -1247,12 +1247,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 60889539378096550}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &541264709 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 678269486133266181, guid: 0a20b37f9d767ac4b8eb958ee41639e3,
-    type: 3}
-  m_PrefabInstance: {fileID: 678269486666009664}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &657309146
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,12 +2035,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2762484353620214315, guid: 43b07c30298b2ff44a57362ed4acaa79, type: 3}
---- !u!4 &1270723670 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 678269487845963798, guid: 0a20b37f9d767ac4b8eb958ee41639e3,
-    type: 3}
-  m_PrefabInstance: {fileID: 678269486666009664}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1384353467
 GameObject:
   m_ObjectHideFlags: 0
@@ -3156,6 +3144,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a20b37f9d767ac4b8eb958ee41639e3, type: 3}
+--- !u!4 &678269486666009665 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1478811067843825449, guid: 0a20b37f9d767ac4b8eb958ee41639e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 678269486666009664}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &678269486666009666 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7037795169487676266, guid: 0a20b37f9d767ac4b8eb958ee41639e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 678269486666009664}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1366239294714061626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3247,6 +3247,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lighting
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096095695231433458, guid: cf977be8e4dfc8d41a186290d3187105,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4096095695231433459, guid: cf977be8e4dfc8d41a186290d3187105,
         type: 3}
