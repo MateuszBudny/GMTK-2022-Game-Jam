@@ -21,6 +21,14 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
     private CinemachineVirtualCamera vcamCrank;
     public PostProcessController postProcessController;
 
+    [Header("UI")]
+    [SerializeField]
+    private BlackScreen blackScreen;
+    [SerializeField]
+    private float onStartFadeOutDuration = 4f;
+    [SerializeField]
+    private TextMeshProUGUI thankYou;
+
     [Header("Other")]
     [SerializeField]
     private Transform crankToRoll;
@@ -28,10 +36,6 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
     private Transform hulkDoorLeft;
     [SerializeField]
     private Transform hulkDoorRight;
-    [SerializeField]
-    private Image blackScreen;
-    [SerializeField]
-    private TextMeshProUGUI thankYou;
     [SerializeField]
     private List<Bomb> bombs;
 
@@ -44,6 +48,7 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
 
     private void Start()
     {
+        blackScreen.FadeOut(onStartFadeOutDuration, true);
         StartCoroutine(PlayTheGameWithDelay());
         currentVcam = vcamFollowMouse;
     }
@@ -73,7 +78,7 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
         player.Die();
         SoundManager.Instance.StopAllMusicAndSounds();
         SoundManager.Instance.Play(Audio.Gunshot);
-        blackScreen.gameObject.SetActive(true);
+        blackScreen.FadeIn(0f);
         StartCoroutine(ThankYouAfterDelay());
     }
 
@@ -87,14 +92,12 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
 
     public void BurzaEnding()
     {
-        blackScreen.color = new Color(0f, 0f, 0f, 0f);
-        DOTween.To(() => blackScreen.color.a, setter => blackScreen.color = new Color(0f, 0f, 0f, setter), 1f, 6f)
-            .OnComplete(() => {
-                satan.gameObject.SetActive(false);
-                player.BecomeSatan();
-                ChangeState(GameState.PlayerAsSatan);
-            });
-        blackScreen.gameObject.SetActive(true);
+        blackScreen.FadeIn(6f, true, () =>
+        {
+            satan.gameObject.SetActive(false);
+            player.BecomeSatan();
+            ChangeState(GameState.PlayerAsSatan);
+        });
         StartCoroutine(FadeInAfterDelay());
     }
 
@@ -102,12 +105,11 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
     {
         yield return new WaitForSeconds(8f);
 
-        DOTween.To(() => blackScreen.color.a, setter => blackScreen.color = new Color(0f, 0f, 0f, setter), 0f, 6f);
+        blackScreen.FadeOut(6f);
         postProcessController.SetVignetteSmoothly(0.6f, 6f);
         yield return new WaitForSeconds(10f);
 
-        DOTween.To(() => blackScreen.color.a, setter => blackScreen.color = new Color(0f, 0f, 0f, setter), 1f, 10f)
-            .OnComplete(() => StartCoroutine(ThankYouAfterDelay()));
+        blackScreen.FadeIn(10f, false, () => StartCoroutine(ThankYouAfterDelay()));
     }
 
     public void PlayerThrewDices()
