@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +8,8 @@ public class SoundManager : SingleBehaviour<SoundManager>
 {
     public AudioSource ambientSource;
     public List<AudioSource> soundsSources;
+    [SerializeField]
+    private float audioFadeInDuration = 3f;
 
     [Header("Rare ambient")]
     public AudioSource rareAmbientSource;
@@ -26,6 +29,11 @@ public class SoundManager : SingleBehaviour<SoundManager>
     {
         base.Awake();
         rareAmbientPlayedTimestamp = Time.time;
+    }
+
+    private void Start()
+    {
+        AudioFadeIn();
     }
 
     private void Update()
@@ -67,11 +75,22 @@ public class SoundManager : SingleBehaviour<SoundManager>
         rareAmbientPlayedTimestamp = Time.time;
     }
 
-    public void StopAllMusicAndSounds()
+    private void AudioFadeIn()
     {
-        ambientSource.Stop();
-        rareAmbientSource.Stop();
-        soundsSources.ForEach(source => source.Stop());
+        DoOnAllSoundsSources(source =>
+        {
+            source.volume = 0f;
+            DOTween.To(() => source.volume, value => source.volume = value, 1f, audioFadeInDuration).SetEase(Ease.Linear);
+        });
+    }
+
+    public void StopAllMusicAndSounds() => DoOnAllSoundsSources(source => source.Stop());
+
+    private void DoOnAllSoundsSources(Action<AudioSource> action)
+    {
+        action(ambientSource);
+        action(rareAmbientSource);
+        soundsSources.ForEach(source => action(source));
     }
 }
 

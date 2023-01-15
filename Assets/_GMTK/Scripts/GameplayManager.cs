@@ -27,6 +27,8 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
     [SerializeField]
     private float onStartFadeOutDuration = 4f;
     [SerializeField]
+    private GameObject openEyesText;
+    [SerializeField]
     private TextMeshProUGUI thankYou;
 
     [Header("Other")]
@@ -48,14 +50,20 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
 
     private void Start()
     {
-        blackScreen.FadeOut(onStartFadeOutDuration, true);
-        StartCoroutine(PlayTheGameWithDelay());
-        currentVcam = vcamFollowMouse;
+        State = GameState.ClosedEyes;
     }
 
     private void OnEnable()
     {
         OnSatanThrewDices += ShowResultAfterSomeSeconds;
+    }
+
+    public void OpenEyes()
+    {
+        openEyesText.SetActive(false);
+        blackScreen.FadeOut(onStartFadeOutDuration, true);
+        StartCoroutine(PlayTheGameWithDelay());
+        currentVcam = vcamFollowMouse;
     }
 
     [Button(enabledMode: EButtonEnableMode.Playmode)]
@@ -237,7 +245,7 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
 
 public enum GameState
 {
-    Intro,
+    ClosedEyes,
     SatanMonolog,
     PlayerCanInteractNoDice,
     PlayerCanInteract,

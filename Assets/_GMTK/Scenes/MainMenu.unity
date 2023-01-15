@@ -855,7 +855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackScreen: {fileID: 2105658790}
-  fadeOutDuration: 4
+  fadeOutDuration: 3
   fadeInDuration: 3
 --- !u!4 &1969373935
 Transform:

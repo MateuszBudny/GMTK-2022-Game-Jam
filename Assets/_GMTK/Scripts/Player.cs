@@ -35,11 +35,21 @@ public class Player : DicePlayer
 
     private Gun gun;
 
+    private void Start()
+    {
+        playerController.FreezeCameraRotation = true;
+    }
+
     public void OnPlayerAction(InputValue inputValue)
     {
         if(inputValue.isPressed && GameplayManager.Instance.State != GameState.GameOver)
         {
-            if(IsPlayerHoldingGun)
+            if(GameplayManager.Instance.State == GameState.ClosedEyes)
+            {
+                GameplayManager.Instance.OpenEyes();
+                playerController.FreezeCameraRotation = false;
+            }
+            else if(IsPlayerHoldingGun)
             {
                 gun.TryToShoot();
             }
