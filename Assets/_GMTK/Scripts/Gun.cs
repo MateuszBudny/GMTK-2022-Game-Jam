@@ -8,6 +8,8 @@ public class Gun : MonoBehaviour, IInteractable
 {
     public int startingAmmo = 6;
     [SerializeField]
+    private Animator animator;
+    [SerializeField]
     private float throwForce = 500f;
     [SerializeField]
     private float throwTorque = 20f;
@@ -26,6 +28,7 @@ public class Gun : MonoBehaviour, IInteractable
 
     private int noAmmoCounter = 0;
     private Transform gunHolder;
+    private bool isUnloaded = false;
     private float previousNoiseShakeFrequencyOffset = 0f;
     private float previousNoiseShakeAmplitudeOffset = 0f;
 
@@ -98,8 +101,12 @@ public class Gun : MonoBehaviour, IInteractable
         Destroy(this);
     }
 
-
-    private void Shoot()
+    public void OnUnloadingFinished()
+    {
+        isUnloaded = true;
+    }
+    
+    public void FireTheBullet()
     {
         CurrentAmmo--;
         Instantiate(shotEffectPrefab, spawnShotPosition.transform.position, Quaternion.identity, transform);
@@ -121,11 +128,23 @@ public class Gun : MonoBehaviour, IInteractable
         }
     }
 
+    private void Shoot()
+    {
+        animator.SetTrigger("Shoot");
+    }
+
     private void NoAmmo()
     {
         if(noAmmoCounter == 2)
         {
-            Throw();
+            if(!isUnloaded)
+            {
+                animator.SetTrigger("Unload");
+            }
+            else
+            {
+                Throw();
+            } 
         }
         else
         {
