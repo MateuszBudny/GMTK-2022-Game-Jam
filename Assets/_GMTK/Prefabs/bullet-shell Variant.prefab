@@ -15,17 +15,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 919f3bbe53d4cc746a7fb58d506adcaa,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.8
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 919f3bbe53d4cc746a7fb58d506adcaa,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.8
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 919f3bbe53d4cc746a7fb58d506adcaa,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.8
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 919f3bbe53d4cc746a7fb58d506adcaa,
         type: 3}
@@ -77,11 +77,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: 919f3bbe53d4cc746a7fb58d506adcaa,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 374170d0d81d47e498fb7584e9474d16, type: 2}
     - target: {fileID: 919132149155446097, guid: 919f3bbe53d4cc746a7fb58d506adcaa,
         type: 3}
       propertyPath: m_Name
@@ -134,7 +129,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -4974468161004867859, guid: 919f3bbe53d4cc746a7fb58d506adcaa, type: 3}
+  m_Mesh: {fileID: 2762484353620214315, guid: 919f3bbe53d4cc746a7fb58d506adcaa, type: 3}
 --- !u!114 &792737427449144573
 MonoBehaviour:
   m_ObjectHideFlags: 0
