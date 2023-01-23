@@ -103,7 +103,8 @@ public class Player : DicePlayer
         //int interactabeLayerMask = 1 << (int)Layers.Interactable;
         if(Physics.Raycast(cameraRay, out RaycastHit hit, interactionMaxDistance))
         {
-            if(hit.collider.TryGetComponent(out IInteractable interactable))
+            IInteractable interactable = hit.collider.GetComponentInParent<IInteractable>();
+            if(interactable != null)
             {
                 interactable.Interact(this);
                 return true;

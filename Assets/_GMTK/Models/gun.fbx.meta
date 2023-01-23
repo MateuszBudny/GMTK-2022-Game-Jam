@@ -4,20 +4,17 @@ ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
-      74: -3704289112126983070
-    second: Shoot
+      74: 3683132913304491854
+    second: PoseLib
   - first:
-      74: -7438459554692113765
+      74: -8486737461655728562
+    second: Revolver|Revolver|Revolver|Shoot
+  - first:
+      74: 1801146505639627381
     second: Unload
   - first:
-      74: 272721589890736990
-    second: Revolver|PoseLib
-  - first:
-      74: 7783479936243344299
-    second: Revolver|Shoot
-  - first:
-      74: -2682401723850732239
-    second: Revolver|Unload
+      74: -3704289112126983070
+    second: Shoot
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -48,8 +45,8 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Revolver|PoseLib
-      takeName: Revolver|PoseLib
+      name: PoseLib
+      takeName: Revolver|Revolver|Revolver|PoseLib
       internalID: 0
       firstFrame: 0
       lastFrame: 1
@@ -77,8 +74,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Revolver|Shoot
-      takeName: Revolver|Shoot
+      name: Shoot
+      takeName: Revolver|Revolver|Revolver|Shoot
       internalID: 0
       firstFrame: 0
       lastFrame: 17
@@ -101,7 +98,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.069148935
+      - time: 0.04255319
         functionName: FireTheBullet
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -113,8 +110,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Revolver|Unload
-      takeName: Revolver|Unload
+      name: Unload
+      takeName: Revolver|Revolver|Revolver|Unload
       internalID: 0
       firstFrame: 0
       lastFrame: 75
@@ -137,6 +134,13 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0.35106385
+        functionName: UnloadingShellsDrop
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 1
         functionName: UnloadingFinished
         data: 
@@ -156,7 +160,7 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importVisibility: 0
+    importVisibility: 1
     importBlendShapes: 0
     importCameras: 0
     importLights: 0

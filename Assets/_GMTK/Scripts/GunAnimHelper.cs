@@ -6,6 +6,8 @@ public class GunAnimHelper : MonoBehaviour
 {
     [SerializeField]
     private Gun gun;
+    [SerializeField]
+    private List<BulletShell> bulletShells;
 
     public void FireTheBullet()
     {
@@ -15,5 +17,10 @@ public class GunAnimHelper : MonoBehaviour
     public void UnloadingFinished()
     {
         gun.OnUnloadingFinished();
+    }
+
+    public void UnloadingShellsDrop()
+    {
+        bulletShells.ForEach(shell => shell.OnUnloadingDrop());
     }
 }

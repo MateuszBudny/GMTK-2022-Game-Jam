@@ -112,7 +112,7 @@ public class Gun : MonoBehaviour, IInteractable
         Instantiate(shotEffectPrefab, spawnShotPosition.transform.position, Quaternion.identity, transform);
         SoundManager.Instance.Play(Audio.Gunshot);
 
-        if(Physics.Raycast(transform.position, transform.forward, out RaycastHit hit))
+        if(Physics.Raycast(spawnShotPosition.position, spawnShotPosition.forward, out RaycastHit hit))
         {
             if(hit.collider.CompareTag(Tags.Player.ToString()))
             {
