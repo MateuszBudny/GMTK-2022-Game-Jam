@@ -8,12 +8,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Mask Material
-    second: {fileID: 2100000, guid: b3851156bf119ae4caea2144be166bc2, type: 2}
+    second: {fileID: 2100000, guid: c13584d3adc36a14e8ad484e30b00ca4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Mask Material.001
-    second: {fileID: 2100000, guid: 3a011236697d85f4f91efa7acb1e3e0d, type: 2}
+      name: Test
+    second: {fileID: 2100000, guid: 9290002c35576f44e86f2d81a2dce56c, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Bake test
+    second: {fileID: 2800000, guid: d04423ab6745ab6448f8e73fa3dbbb6f, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
