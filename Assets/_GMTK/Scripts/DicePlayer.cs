@@ -9,7 +9,7 @@ public class DicePlayer : MonoBehaviour
 
     protected DiceThrowing diceThrowing;
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         diceThrowing = GetComponent<DiceThrowing>();
     }

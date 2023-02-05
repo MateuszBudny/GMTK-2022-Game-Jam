@@ -5,6 +5,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.InputSystem;
 using StarterAssets;
+using AetherEvents;
 
 public class Player : DicePlayer
 {
@@ -19,21 +20,18 @@ public class Player : DicePlayer
     public Transform gunHolder;
     public int droppingBombsNumToGoIntoMadness = 5;
 
-    private int currentBombingsDone = 0;
-    public int CurrentBombingsDone 
-    {
-        get => currentBombingsDone;
-        set
-        {
-            currentBombingsDone = value;
-            LoseALittleBitOfSanity();
-        }
-    }
-    
+    public int CurrentBombingsDone { get; set; } = 0;
+
     public bool IsPlayerHoldingGun => gun;
     public bool IsGonnaSnap => CurrentBombingsDone + 1 >= droppingBombsNumToGoIntoMadness;
 
     private Gun gun;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        BombsDropped.AddListener(OnBombsDropping);
+    }
 
     private void Start()
     {
@@ -112,6 +110,11 @@ public class Player : DicePlayer
         }
 
         return false;
+    }
+
+    private void OnBombsDropping(BombsDropped eventData)
+    {
+        LoseALittleBitOfSanity();
     }
 
     private void LoseALittleBitOfSanity()

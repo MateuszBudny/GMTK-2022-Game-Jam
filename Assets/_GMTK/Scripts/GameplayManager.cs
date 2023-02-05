@@ -7,6 +7,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 using TMPro;
+using AetherEvents;
 
 public class GameplayManager : SingleBehaviour<GameplayManager>
 {
@@ -165,6 +166,8 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
         StartCoroutine(PlayTheGameAfterBombsFallen(player.IsGonnaSnap));
 
         player.CurrentBombingsDone++;
+
+        new BombsDropped(player.CurrentBombingsDone).Invoke();
     }
 
     private IEnumerator CloseHullDoorAfterBombing()
