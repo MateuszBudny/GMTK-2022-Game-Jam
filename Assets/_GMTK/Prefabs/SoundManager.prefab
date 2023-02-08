@@ -64,8 +64,8 @@ MonoBehaviour:
   firstPlayDelay: 60
   anotherPlayDelayAfterFirst: 300
   burzaEndingMusicSource: {fileID: 2266438420632722513}
-  startPlayingBurzaMusicAfterThisNumberOfDrops: 3
-  burzaMusicIncreaseDuration: 3
+  startPlayingBurzaMusicAfterThisNumberOfDrops: 2
+  burzaMusicIncreaseDuration: 5
   sounds:
   - audioClip: {fileID: 8300000, guid: 9646e40bb2221e043bfb744c587b7376, type: 3}
     audioEnum: 0
@@ -825,7 +825,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6fb41a72b9549a14f9e8feb0f8585164, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 783a632d2c5dd914bb56a26b969412a3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -833,7 +833,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

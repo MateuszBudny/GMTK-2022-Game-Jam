@@ -26,7 +26,7 @@ public class BlackScreen : MonoBehaviour
 
     private void Fade(float duration, float toAlphaValue, bool forceStartFromBeginning, Action onComplete)
     {
-        DOTween.KillAll();
+        DOTween.Kill(this);
 
         if(forceStartFromBeginning)
         {
@@ -35,6 +35,7 @@ public class BlackScreen : MonoBehaviour
 
         DOTween.To(() => blackImage.color.a, setter => blackImage.color = new Color(0f, 0f, 0f, setter), toAlphaValue, duration)
             .SetEase(Ease.InOutSine)
+            .SetTarget(this)
             .OnComplete(() => onComplete?.Invoke());
     }
 }

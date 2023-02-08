@@ -34,10 +34,13 @@ public class SoundManager : SingleBehaviour<SoundManager>
     [SerializeField]
     private List<AudioRecord> satanTalking;
 
+    private Dictionary<AudioSource, float> audioSourcesDefaultVolumes = new Dictionary<AudioSource, float>();
+
     protected override void Awake()
     {
         base.Awake();
         rareAmbientPlayedTimestamp = Time.time;
+        DoOnAllSoundsSources(source => audioSourcesDefaultVolumes.Add(source, source.volume));
         BombsDropped.AddListener(OnBombsDrop);
     }
 
@@ -104,7 +107,7 @@ public class SoundManager : SingleBehaviour<SoundManager>
             AdjustVolumeByTweening(burzaEndingMusicSource, newTargetVolume, burzaMusicIncreaseDuration);
         }
 
-        float burzaMusicVolumeAmountToAdjustOnBombsDrop() => 1f / (GameplayManager.Instance.player.droppingBombsNumToGoIntoMadness - startPlayingBurzaMusicAfterThisNumberOfDrops + 1);
+        float burzaMusicVolumeAmountToAdjustOnBombsDrop() => 1f / (GameplayManager.Instance.player.droppingBombsNumToGoIntoMadness - startPlayingBurzaMusicAfterThisNumberOfDrops);
     }
 
     private void AudioFadeIn()
@@ -112,7 +115,7 @@ public class SoundManager : SingleBehaviour<SoundManager>
         DoOnAllSoundsSources(source =>
         {
             source.volume = 0f;
-            AdjustVolumeByTweening(source, 1f, audioFadeInDuration);
+            AdjustVolumeByTweening(source, audioSourcesDefaultVolumes[source], audioFadeInDuration);
         });
     }
 
