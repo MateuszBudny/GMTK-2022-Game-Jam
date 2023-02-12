@@ -20,14 +20,6 @@ public class SoundManager : SingleBehaviour<SoundManager>
     private float rareAmbientPlayedTimestamp = -1f;
     private bool rareAmbientPlayedAlready = false;
 
-    [Header("Burza ending music")]
-    [SerializeField]
-    private AudioSource burzaEndingMusicSource;
-    [SerializeField]
-    private int startPlayingBurzaMusicAfterThisNumberOfDrops = 3;
-    [SerializeField]
-    private float burzaMusicIncreaseDuration = 3f;
-
     [Header("Other sounds")]
     [SerializeField]
     private List<AudioRecord> sounds;
@@ -41,7 +33,6 @@ public class SoundManager : SingleBehaviour<SoundManager>
         base.Awake();
         rareAmbientPlayedTimestamp = Time.time;
         DoOnAllSoundsSources(source => audioSourcesDefaultVolumes.Add(source, source.volume));
-        BombsDropped.AddListener(OnBombsDrop);
     }
 
     private void Start()
@@ -88,50 +79,29 @@ public class SoundManager : SingleBehaviour<SoundManager>
         rareAmbientPlayedTimestamp = Time.time;
     }
 
-    private void OnBombsDrop(BombsDropped eventData)
-    {
-        TryToAdjustBurzaMusicVolume(eventData.WhichDroppingIsThis);
-    }
-
-    private void TryToAdjustBurzaMusicVolume(int currentDropsDone)
-    {
-        if(currentDropsDone == startPlayingBurzaMusicAfterThisNumberOfDrops)
-        {
-            burzaEndingMusicSource.volume = 0f;
-            burzaEndingMusicSource.Play();
-        }
-
-        if(currentDropsDone >= startPlayingBurzaMusicAfterThisNumberOfDrops)
-        {
-            float newTargetVolume = burzaEndingMusicSource.volume + burzaMusicVolumeAmountToAdjustOnBombsDrop();
-            AdjustVolumeByTweening(burzaEndingMusicSource, newTargetVolume, burzaMusicIncreaseDuration);
-        }
-
-        float burzaMusicVolumeAmountToAdjustOnBombsDrop() => 1f / (GameplayManager.Instance.player.droppingBombsNumToGoIntoMadness - startPlayingBurzaMusicAfterThisNumberOfDrops);
-    }
-
     private void AudioFadeIn()
     {
         DoOnAllSoundsSources(source =>
         {
+            float targetDefaultVolume = source.volume;
             source.volume = 0f;
-            AdjustVolumeByTweening(source, audioSourcesDefaultVolumes[source], audioFadeInDuration);
+            AdjustVolumeByTweening(source, targetDefaultVolume, audioFadeInDuration);
         });
     }
 
     public void StopAllMusicAndSounds() => DoOnAllSoundsSources(source => source.Stop());
 
+    public void AdjustVolumeByTweening(AudioSource source, float targetVolume, float duration)
+    {
+        DOTween.To(() => source.volume, value => source.volume = value, targetVolume, duration).SetEase(Ease.Linear);
+    }
+
     private void DoOnAllSoundsSources(Action<AudioSource> action)
     {
         action(ambientSource);
         action(rareAmbientSource);
-        action(burzaEndingMusicSource);
         soundsSources.ForEach(source => action(source));
-    }
-
-    private void AdjustVolumeByTweening(AudioSource source, float targetVolume, float duration)
-    {
-        DOTween.To(() => source.volume, value => source.volume = value, targetVolume, duration).SetEase(Ease.Linear);
+        new DoOnAllAudioControllers(action).Invoke();
     }
 }
 
