@@ -158,29 +158,29 @@ namespace StarterAssets
 
 		private float additionalGunRotation;
 
-		private float ClampAngleGun(float angle, float min, float max)
+		private float ClampAngleGun(float cameraAngle, float minCameraAngle, float maxCameraAngle)
         {
-			if(angle > 180f)
+			if(cameraAngle > 180f)
             {
-				angle -= 360f;
+				cameraAngle -= 360f;
             }
 
 			if(GameplayManager.Instance.player.IsPlayerHoldingGun)
             {
 				if(additionalGunRotation < 0.01f && additionalGunRotation > -0.01f)
                 {
-					if(angle > max)
+					if(cameraAngle > maxCameraAngle)
                     {
-						additionalGunRotation += angle - max;
+						additionalGunRotation += cameraAngle - maxCameraAngle;
                     }
-					else if(angle < min)
+					else if(cameraAngle < minCameraAngle)
                     {
-						additionalGunRotation += angle - min;
+						additionalGunRotation += cameraAngle - minCameraAngle;
                     }
                 }
 				else if(additionalGunRotation > 0.01f)
                 {
-					additionalGunRotation += angle - max;
+					additionalGunRotation += cameraAngle - maxCameraAngle;
 					if(additionalGunRotation < 0f)
                     {
 						additionalGunRotation = 0f;
@@ -188,16 +188,16 @@ namespace StarterAssets
                 }
 				else if(additionalGunRotation < -0.01f)
                 {
-					additionalGunRotation += angle - min;
+					additionalGunRotation += cameraAngle - minCameraAngle;
 					if(additionalGunRotation > 0f)
                     {
 						additionalGunRotation = 0f;
                     }
                 }
-				GameplayManager.Instance.player.gunHolder.transform.localRotation = Quaternion.Euler(0f, angle + additionalGunRotation, 0f);
+				GameplayManager.Instance.player.gunHolder.transform.localRotation = Quaternion.Euler(0f, cameraAngle + additionalGunRotation, 0f);
 			}
 
-			return Mathf.Clamp(angle, min, max);
+			return Mathf.Clamp(cameraAngle, minCameraAngle, maxCameraAngle);
         }
 
 		private void Move()
