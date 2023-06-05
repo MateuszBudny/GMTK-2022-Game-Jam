@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 7906713657626142419}
   - component: {fileID: 7906713657626142416}
   - component: {fileID: 5642640404812007006}
+  - component: {fileID: 6801898917406072102}
   m_Layer: 0
   m_Name: Satan
   m_TagString: Untagged
@@ -96,7 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 442b16de30fc2fd4c8591357ccbcc4cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  facesTransform: {fileID: 7906713658328552531}
 --- !u!114 &7906713657626142416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,6 +133,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.6833062, y: 4.736877, z: 1}
   m_Center: {x: -0.07, y: -0.82, z: 0}
+--- !u!114 &6801898917406072102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7906713657626142422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38216be470dafca428d08510628c43ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  facesTransform: {fileID: 7906713658328552531}
 --- !u!1 &7906713657926949362
 GameObject:
   m_ObjectHideFlags: 0
