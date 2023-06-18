@@ -2,6 +2,7 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Graphs;
 using UnityEngine;
 
 public class Gun : MonoBehaviour, IInteractable
@@ -17,10 +18,6 @@ public class Gun : MonoBehaviour, IInteractable
     private Transform spawnShotPosition;
     [SerializeField]
     private GameObject shotEffectPrefab;
-    [SerializeField]
-    private GunNoiseShakeSingleGainOffset noiseAmplitudeGainOffset;
-    [SerializeField]
-    private GunNoiseShakeSingleGainOffset noiseFrequencyGainOffset;
 
     public int CurrentAmmo { get; private set; }
     public Rigidbody Rigid { get; private set; }
@@ -29,8 +26,6 @@ public class Gun : MonoBehaviour, IInteractable
     private int noAmmoCounter = 0;
     private Transform gunHolder;
     private bool isUnloaded = false;
-    private float previousNoiseShakeFrequencyOffset = 0f;
-    private float previousNoiseShakeAmplitudeOffset = 0f;
 
     private void Awake()
     {
@@ -38,24 +33,14 @@ public class Gun : MonoBehaviour, IInteractable
         Rigid = GetComponent<Rigidbody>();
 
         NoiseMovement = GetComponent<TransformNoiseMovement>();
-        noiseAmplitudeGainOffset.Init(NoiseMovement,
-            noise => noise.movementNoiseShake.amplitudeGain,
-            (noise, value) => noise.movementNoiseShake.amplitudeGain = value,
-            noise => noise.rotationNoiseShake.amplitudeGain,
-            (noise, value) => noise.rotationNoiseShake.amplitudeGain = value);
-        noiseFrequencyGainOffset.Init(NoiseMovement,
-            noise => noise.movementNoiseShake.frequencyGain,
-            (noise, value) => noise.movementNoiseShake.frequencyGain = value,
-            noise => noise.rotationNoiseShake.frequencyGain,
-            (noise, value) => noise.rotationNoiseShake.frequencyGain = value);
     }
 
     private void Update()
     {
         if(NoiseMovement.IsActive)
         {
-            noiseAmplitudeGainOffset.UpdateGainOffsetValue(gunHolder);
-            noiseFrequencyGainOffset.UpdateGainOffsetValue(gunHolder);
+            float noiseProgress = Mathf.InverseLerp(0f, 170f, Mathf.Abs(MathUtils.RecalculateAngleToBetweenMinus180And180(gunHolder.localEulerAngles.y)));
+            NoiseMovement.UpdateProgress(noiseProgress);
         }
     }
 
@@ -150,36 +135,6 @@ public class Gun : MonoBehaviour, IInteractable
         {
             noAmmoCounter++;
             SoundManager.Instance.Play(Audio.NoAmmo);
-        }
-    }
-
-    [Serializable]
-    private class GunNoiseShakeSingleGainOffset
-    {
-        [SerializeField]
-        private AnimationCurve progression;
-
-        private TransformNoiseMovement noiseMovement;
-        private Func<TransformNoiseMovement, float> movementNoiseGainOffsetGetter;
-        private Action<TransformNoiseMovement, float> movementNoiseGainOffsetSetter;
-        private Func<TransformNoiseMovement, float> rotationNoiseGainOffsetGetter;
-        private Action<TransformNoiseMovement, float> rotationNoiseGainOffsetSetter;
-        private float previousOffset = 0f;
-
-        public void Init(TransformNoiseMovement noiseMovement, Func<TransformNoiseMovement, float> movementNoiseGainOffsetGetter, Action<TransformNoiseMovement, float> movementNoiseGainOffsetSetter, Func<TransformNoiseMovement, float> rotationNoiseGainOffsetGetter, Action<TransformNoiseMovement, float> rotationNoiseGainOffsetSetter)
-        {
-            this.noiseMovement = noiseMovement;
-            this.movementNoiseGainOffsetGetter = movementNoiseGainOffsetGetter;
-            this.movementNoiseGainOffsetSetter = movementNoiseGainOffsetSetter;
-            this.rotationNoiseGainOffsetGetter = rotationNoiseGainOffsetGetter;
-            this.rotationNoiseGainOffsetSetter = rotationNoiseGainOffsetSetter;
-        }
-
-        public void UpdateGainOffsetValue(Transform gunHolder)
-        {
-            float currentOffset = progression.Evaluate(Mathf.InverseLerp(0f, 170f, Mathf.Abs(MathUtils.RecalculateAngleToBetweenMinus180And180(gunHolder.localEulerAngles.y))));
-            movementNoiseGainOffsetSetter(noiseMovement, movementNoiseGainOffsetGetter(noiseMovement) + currentOffset - previousOffset);
-            previousOffset = currentOffset;
         }
     }
 }

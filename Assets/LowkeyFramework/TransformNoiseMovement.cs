@@ -1,17 +1,27 @@
+using NaughtyAttributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class TransformNoiseMovement : MonoBehaviour
+public class TransformNoiseMovement : MonoBehaviour, INoiseMovement
 {
     [SerializeField]
     private Transform transformToNoiseMove;
     [SerializeField]
     private bool isActive = true;
-    public NoiseShake3D movementNoiseShake;
-    public NoiseShake3D rotationNoiseShake;
+    [Header("Movement Gain Offset Progression. Starting values in those fields do not matter (they are feed from movementNoiseShake)")]
+    [SerializeField]
+    private ValueProgressedByOffset movementAmplitudeGainOffsetProgression;
+    [SerializeField]
+    private ValueProgressedByOffset movementFrequencyGainOffsetProgression;
+
+    [Header("Noise Shakes")]
+    [SerializeField]
+    private NoiseShake3D movementNoiseShake;
+    [SerializeField]
+    private NoiseShake3D rotationNoiseShake;
 
     public bool IsActive { get => isActive; private set => isActive = value; }
 
@@ -19,6 +29,9 @@ public class TransformNoiseMovement : MonoBehaviour
     {
         movementNoiseShake.Init();
         rotationNoiseShake.Init();
+
+        movementAmplitudeGainOffsetProgression.StartingValue = movementNoiseShake.amplitudeGain;
+        movementFrequencyGainOffsetProgression.StartingValue = movementNoiseShake.frequencyGain;
     }
 
     private void Update()
@@ -33,6 +46,12 @@ public class TransformNoiseMovement : MonoBehaviour
     public void SetActive(bool active)
     {
         IsActive = active;
+    }
+
+    public void UpdateProgress(float noiseProgress)
+    {
+        movementNoiseShake.amplitudeGain = movementAmplitudeGainOffsetProgression.GetValue(noiseProgress);
+        movementNoiseShake.frequencyGain = movementFrequencyGainOffsetProgression.GetValue(noiseProgress);
     }
 
     [Serializable]

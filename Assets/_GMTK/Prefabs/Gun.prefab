@@ -380,8 +380,39 @@ MonoBehaviour:
   spawnShotPosition: {fileID: 8220153752424476406}
   shotEffectPrefab: {fileID: 4447823294922298611, guid: 2b3fd11cab686b3469b0dc5afc5e58da,
     type: 3}
-  noiseAmplitudeGainOffset:
-    progression:
+--- !u!54 &8220153752870670977
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8220153752870670989}
+  serializedVersion: 2
+  m_Mass: 2
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &8220153752870670978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8220153752870670989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be19ae56fd921eb449fafdfde8ac73c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformToNoiseMove: {fileID: 8220153752870670990}
+  isActive: 0
+  movementAmplitudeGainOffsetProgression:
+    startingValue: 0
+    offsetProgression:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -423,8 +454,9 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  noiseFrequencyGainOffset:
-    progression:
+  movementFrequencyGainOffsetProgression:
+    startingValue: 0
+    offsetProgression:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -448,36 +480,6 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
---- !u!54 &8220153752870670977
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8220153752870670989}
-  serializedVersion: 2
-  m_Mass: 2
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &8220153752870670978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8220153752870670989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be19ae56fd921eb449fafdfde8ac73c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transformToNoiseMove: {fileID: 8220153752870670990}
-  isActive: 0
   movementNoiseShake:
     amplitudeGain: 0.03
     frequencyGain: 0.5

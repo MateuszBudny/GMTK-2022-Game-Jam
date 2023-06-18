@@ -189,8 +189,10 @@ GameObject:
   - component: {fileID: 299098919782769620}
   - component: {fileID: 3218346303219200691}
   - component: {fileID: 3083793090576666371}
+  - component: {fileID: 3428364288571165756}
+  - component: {fileID: 207860975846091352}
   m_Layer: 0
-  m_Name: GlobalVolume
+  m_Name: GlobalVolumePostProcess
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -241,6 +243,86 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: {fileID: 3218346303219200691}
+  maxVignetteValue: 1
+  vignetteDefaultChangeDuration: 1.5
+  vCamNoiseMovement: {fileID: 3428364288571165756}
+--- !u!114 &3428364288571165756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7262409078096878388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc5b7b50250eb8c4eaacff557ec654b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitudeGainOffsetProgression:
+    startingValue: 0.75
+    offsetProgression:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  frequencyGainOffsetProgression:
+    startingValue: 0.5
+    offsetProgression:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+--- !u!114 &207860975846091352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7262409078096878388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74b5b1075839ba24c92b2b6036ff1f3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 3083793090576666371}
 --- !u!1 &8818690942983462849
 GameObject:
   m_ObjectHideFlags: 0
