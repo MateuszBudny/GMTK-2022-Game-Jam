@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8464897885163155062}
   - component: {fileID: 4876228545510362919}
   - component: {fileID: 7303449754098482008}
+  - component: {fileID: 4216266284917725579}
   m_Layer: 7
   m_Name: Land
   m_TagString: Untagged
@@ -98,3 +99,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &4216266284917725579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4675222671446162482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55a137294f5dbf5498287707fdc1f3e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burninglandMaterial: {fileID: 2100000, guid: a068a011f45ba634bafd281c43b8a71d, type: 2}
+  onAfterWhichDroppingChangeToBurning: -1

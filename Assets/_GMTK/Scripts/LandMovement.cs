@@ -14,7 +14,7 @@ public class LandMovement : MonoBehaviour
     {
         ForEveryLandsLayer(landsLayer =>
         {
-            if(landsLayer.localPosition.z < -10)
+            if(landsLayer.localPosition.z > 10)
             {
                 // move this lands layer to the back
                 AdjustZPosition(landsLayer, 2 * landsLayer.localPosition.z * landsLayer.parent.localScale.z);
@@ -38,6 +38,6 @@ public class LandMovement : MonoBehaviour
 
     private void AdjustZPosition(Transform transformToAdjust, float zChange)
     {
-        transformToAdjust.position = new Vector3(transformToAdjust.position.x, transformToAdjust.position.y, transformToAdjust.position.z - zChange);
+        transformToAdjust.position = new Vector3(transformToAdjust.position.x, transformToAdjust.position.y, transformToAdjust.position.z + zChange);
     }
 }

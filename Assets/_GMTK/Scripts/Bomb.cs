@@ -63,7 +63,6 @@ public class Bomb : MonoBehaviour
 
     private void ApplyAirResistanceOneTimeForce()
     {
-        Debug.Log("apply force");
         rigid.AddForce(new Vector3(0f, 0f, airResistanceOneTimeForce), ForceMode.VelocityChange);
     }
 }

@@ -149,6 +149,7 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
 
     public void OpenHullDoor()
     {
+        new HullOpeningForBombsDroppingStarted(player.CurrentBombingsDone + 1, player.droppingBombsNumToGoIntoMadness).Invoke();
         SoundManager.Instance.Play(Audio.CrankHullOpening);
         hulkDoorLeft.DOLocalRotate(new Vector3(0f, 0f, -120f), 4f).SetRelative(true);
         hulkDoorRight.DOLocalRotate(new Vector3(0f, 0f, 120f), 4f).SetRelative(true);
@@ -181,7 +182,7 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
 
         player.CurrentBombingsDone++;
 
-        new BombsDropped(player.CurrentBombingsDone).Invoke();
+        new BombsDropped(player.CurrentBombingsDone, player.droppingBombsNumToGoIntoMadness).Invoke();
     }
 
     private IEnumerator CloseHullDoorAfterBombing()

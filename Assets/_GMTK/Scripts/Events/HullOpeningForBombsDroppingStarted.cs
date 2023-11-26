@@ -2,12 +2,12 @@ using Aether;
 
 namespace AetherEvents
 {
-    public class BombsDropped : Event<BombsDropped>
+    public class HullOpeningForBombsDroppingStarted : Event<HullOpeningForBombsDroppingStarted>
     {
         public int WhichDroppingIsThis { get; }
         public int DroppingsNumToGoIntoMadness { get; }
 
-        public BombsDropped(int whichDroppingIsThis, int droppingsNumToGoIntoMadness)
+        public HullOpeningForBombsDroppingStarted(int whichDroppingIsThis, int droppingsNumToGoIntoMadness)
         {
             WhichDroppingIsThis = whichDroppingIsThis;
             DroppingsNumToGoIntoMadness = droppingsNumToGoIntoMadness;
