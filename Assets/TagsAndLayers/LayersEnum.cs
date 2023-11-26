@@ -10,6 +10,9 @@ public enum Layers {
 	Water = 1 << 4,
 	UI = 1 << 5,
 	Interactable = 1 << 6,
+	Land = 1 << 7,
 	Character = 1 << 8,
 	Ground = 1 << 9,
+	Gun = 1 << 10,
+	Shell = 1 << 11,
 }

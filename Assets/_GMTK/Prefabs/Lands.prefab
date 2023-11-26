@@ -49,7 +49,7 @@ MonoBehaviour:
   landsLayers:
   - {fileID: 1206463507846481803}
   - {fileID: 364989200243257906}
-  zSpeed: 5
+  zSpeed: -5
 --- !u!1001 &706460451789132421
 PrefabInstance:
   m_ObjectHideFlags: 0
