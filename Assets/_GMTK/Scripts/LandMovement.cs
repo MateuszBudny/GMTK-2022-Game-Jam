@@ -17,7 +17,7 @@ public class LandMovement : MonoBehaviour
             if(landsLayer.localPosition.z > 10)
             {
                 // move this lands layer to the back
-                AdjustZPosition(landsLayer, 2 * landsLayer.localPosition.z * landsLayer.parent.localScale.z);
+                AdjustZPosition(landsLayer, -2 * landsLayer.localPosition.z * landsLayer.parent.localScale.z);
             } 
         });
 

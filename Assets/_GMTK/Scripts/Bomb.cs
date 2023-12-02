@@ -15,11 +15,12 @@ public class Bomb : MonoBehaviour
     [SerializeField]
     private float maxTipDownRotationForceOnFall;
     [SerializeField]
-    private float airResistanceOneTimeForce = 10f;
+    private float airResistanceForce = 1f;
 
     private Rigidbody rigid;
     private Vector3 worldPositionArmed;
     private Quaternion worldRotationArmed;
+    private bool isAirResistancePresent = false;
 
     private void Awake()
     {
@@ -32,11 +33,16 @@ public class Bomb : MonoBehaviour
         worldRotationArmed = transform.rotation;
     }
 
+    private void FixedUpdate()
+    {
+        TryToApplyAirResistance();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag(Tags.AirResistanceTrigger.ToString()))
         {
-            ApplyAirResistanceOneTimeForce();
+            isAirResistancePresent = true;
         }
     }
 
@@ -45,6 +51,7 @@ public class Bomb : MonoBehaviour
         rigid.isKinematic = true;
         transform.position = worldPositionArmed;
         transform.rotation = worldRotationArmed;
+        isAirResistancePresent = false;
     }
 
     public void Fall()
@@ -61,8 +68,16 @@ public class Bomb : MonoBehaviour
         SoundManager.Instance.Play(Audio.BombsFalling); // play for every bomb or just once for them all?
     }
 
-    private void ApplyAirResistanceOneTimeForce()
+    private void TryToApplyAirResistance()
     {
-        rigid.AddForce(new Vector3(0f, 0f, airResistanceOneTimeForce), ForceMode.VelocityChange);
+        if (!isAirResistancePresent)
+            return;
+
+        ApplyAirResistance();
+    }
+
+    private void ApplyAirResistance()
+    {
+        rigid.AddForce(new Vector3(0f, 0f, airResistanceForce), ForceMode.Acceleration);
     }
 }

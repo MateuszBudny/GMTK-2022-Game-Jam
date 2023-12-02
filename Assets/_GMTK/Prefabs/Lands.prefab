@@ -49,7 +49,7 @@ MonoBehaviour:
   landsLayers:
   - {fileID: 1206463507846481803}
   - {fileID: 364989200243257906}
-  zSpeed: -5
+  zSpeed: 5
 --- !u!1001 &706460451789132421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -75,7 +75,7 @@ PrefabInstance:
     - target: {fileID: 927013336759574711, guid: 39b905e9d9b17e14bb8a22887d4bd844,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 927013336759574711, guid: 39b905e9d9b17e14bb8a22887d4bd844,
         type: 3}
