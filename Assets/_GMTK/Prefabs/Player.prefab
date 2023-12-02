@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 5393215578589016655}
   - component: {fileID: 6104869599574257388}
   m_Layer: 8
-  m_Name: Capsule
+  m_Name: ColliderToBeShot
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,7 +201,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionMaxDistance: 10
   playerController: {fileID: 8616685848737228371}
-  maxVignetteValue: 1
   gunHolder: {fileID: 0}
   droppingBombsNumToGoIntoMadness: 5
 --- !u!114 &8616685848737228371

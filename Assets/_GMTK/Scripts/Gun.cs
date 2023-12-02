@@ -98,16 +98,10 @@ public class Gun : MonoBehaviour, IInteractable
 
         if(Physics.Raycast(spawnShotPosition.position, spawnShotPosition.forward, out RaycastHit hit))
         {
-            if(hit.collider.CompareTag(Tags.Player.ToString()))
+            IShootable shootable = hit.collider.GetComponentInParent<IShootable>();
+            if (shootable != null)
             {
-                if(GameplayManager.Instance.State != GameState.PlayerAsSatan)
-                {
-                    GameplayManager.Instance.Suicide();
-                }
-            }
-            if(hit.collider.CompareTag(Tags.Satan.ToString()))
-            {
-                StoryManager.Instance.ShowNextPlayerShootingAtSatanLines();
+                shootable.GetShot(this);
             }
         }
     }

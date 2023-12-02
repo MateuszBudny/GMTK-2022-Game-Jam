@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 using StarterAssets;
 using AetherEvents;
 
-public class Player : DicePlayer
+public class Player : DicePlayer, IShootable
 {
     [SerializeField]
     private float interactionMaxDistance = 10f;
@@ -80,6 +80,14 @@ public class Player : DicePlayer
             this.gun = gun;
             playerController.FreezeCameraRotation = false;
         });
+    }
+
+    public void GetShot(Gun gunShooting)
+    {
+        if (GameplayManager.Instance.State != GameState.PlayerAsSatan)
+        {
+            GameplayManager.Instance.Suicide();
+        }
     }
 
     public void BecomeSatan()

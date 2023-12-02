@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Satan : DicePlayer
+public class Satan : DicePlayer, IShootable
 {
     private SatanFaces satanFaces;
 
@@ -47,5 +47,10 @@ public class Satan : DicePlayer
         GameplayManager.Instance.ChangeState(GameState.SatanTurn);
         diceThrowing.ThrowDices();
         GameplayManager.Instance.SatanThrewDices();
+    }
+
+    public void GetShot(Gun gunShooting)
+    {
+        StoryManager.Instance.ShowNextPlayerShootingAtSatanLines();
     }
 }
