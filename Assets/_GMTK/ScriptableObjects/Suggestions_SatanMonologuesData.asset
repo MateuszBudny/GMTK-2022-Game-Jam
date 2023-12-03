@@ -1,0 +1,473 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e065704c61c88140bebfcd6324f8de6, type: 3}
+  m_Name: Suggestions_SatanMonologuesData
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: lines
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[SatanLineRecord,
+        GMTK]], mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 11
+    - Name: 
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[SatanLineRecord, GMTK]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 2|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: It's a problem you're here.
+    - Name: satanFaceType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|System.Collections.Generic.List`1[[SatanLineRecord, GMTK]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 7
+      Data: 4|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: Some creatures are like zeros.
+    - Name: satanFaceType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 5|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: They need a number to precede them, and then
+    - Name: satanFaceType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 6|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: 'their nothingness takes on ten times its value and a burden. '
+    - Name: satanFaceType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 7|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: How much already weighs your being here? 20, 300, 1000 human lives?
+    - Name: satanFaceType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 8|System.Collections.Generic.List`1[[SatanLineRecord, GMTK]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 9|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: A little mold that will crush into the tissue of this planet. What else
+        they are. What are you?
+    - Name: satanFaceType
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 10|System.Collections.Generic.List`1[[SatanLineRecord, GMTK]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 7
+    - Name: 
+      Entry: 7
+      Data: 11|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: 'You have been sitting here with me for a long time. '
+    - Name: satanFaceType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 12|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: You sit down a little longer, and
+    - Name: satanFaceType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 13|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: you will stay forever.
+    - Name: satanFaceType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 14|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: You will close your eyes.
+    - Name: satanFaceType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 15|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: 'And when you open them, the world will be gone. '
+    - Name: satanFaceType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 16|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: 'You will find yourself in an infinite void that would not be filled
+        by all the resurrected dead of all time, '
+    - Name: satanFaceType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 17|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: and you will be in it like a grain of sand in the middle of the steppe.
+    - Name: satanFaceType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 18|System.Collections.Generic.List`1[[SatanLineRecord, GMTK]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 19|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: To die is nothing but to convey nothingness to nothingness. Do you see
+        the nothingness beneath you?
+    - Name: satanFaceType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 20|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: Do you think you are more than that?
+    - Name: satanFaceType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 21|System.Collections.Generic.List`1[[SatanLineRecord, GMTK]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 5
+    - Name: 
+      Entry: 7
+      Data: 22|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: People have given themselves all their good and bad.
+    - Name: satanFaceType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 23|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: They did not seize it,
+    - Name: satanFaceType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 24|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: and they did not find it,
+    - Name: satanFaceType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 25|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: and it did not fall as a voice from heaven.
+    - Name: satanFaceType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 26|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: You're giving yours a name now.
+    - Name: satanFaceType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 27|System.Collections.Generic.List`1[[SatanLineRecord, GMTK]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 28|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: Everything has its time. Suicide also has its time.
+    - Name: satanFaceType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 29|System.Collections.Generic.List`1[[SatanLineRecord, GMTK]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 30|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: How do you count down to death? Years or left corpses?
+    - Name: satanFaceType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 31|System.Collections.Generic.List`1[[SatanLineRecord, GMTK]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 32|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: Life is a miracle. Your Life. I have never seen a life worth so many
+        lost lives as your.
+    - Name: satanFaceType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 33|System.Collections.Generic.List`1[[SatanLineRecord, GMTK]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 34|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: Where is a soldier's honor? In obedience or sacrifice?
+    - Name: satanFaceType
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 35|System.Collections.Generic.List`1[[SatanLineRecord, GMTK]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 36|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: "I guess it's better to die than remember. Isn\u2019t it?"
+    - Name: satanFaceType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  initType: 0

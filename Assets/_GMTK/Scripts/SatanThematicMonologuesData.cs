@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewSatanMonologueData", menuName = "AleaIactaEst/SatanMonologueData")]
+[CreateAssetMenu(fileName = "_SatanMonologuesData", menuName = "AleaIactaEst/SatanThematicMonologuesData")]
 public class SatanThematicMonologuesData : ThematicMonologuesData<SatanLineRecord>
 {
 }

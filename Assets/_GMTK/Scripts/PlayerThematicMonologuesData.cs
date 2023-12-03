@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewPlayerMonologueData", menuName = "AleaIactaEst/PlayerMonologueData")]
+[CreateAssetMenu(fileName = "_PlayerMonologuesData", menuName = "AleaIactaEst/PlayerThematicMonologuesData")]
 public class PlayerThematicMonologuesData : ThematicMonologuesData<PlayerLineRecord>
 {
 }
