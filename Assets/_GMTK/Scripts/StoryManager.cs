@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class StoryManager : SingleBehaviour<StoryManager>
 {
+    [SerializeField]
+    private List<AbstractThematicMonologuesData> thematicMonologuesDataList;
+
     [Header("Lines")]
     public SatanLines introLine;
     public SatanLines waitingLine;
@@ -35,8 +38,12 @@ public class StoryManager : SingleBehaviour<StoryManager>
     private Queue<SatanLines> SatanReaccToPlayerDiceNotFallingOnTheCrate { get; set; }
     private Queue<SatanLines> PlayerShootingAtSatanLinesQueue { get; set; } 
 
-    protected void Start()
+    protected override void Awake()
     {
+        base.Awake();
+
+        thematicMonologuesDataList.ForEach(monologues => monologues.Init());
+
         SatanLines firstSatanWinLines = satanWinOrderedLines[0];
         int satanWinLinesToRemoveNum = satanWinOrderedLines.Count - GameplayManager.Instance.player.droppingBombsNumToGoIntoMadness;
         for(int i = 0; i < satanWinLinesToRemoveNum; i++)
@@ -58,10 +65,15 @@ public class StoryManager : SingleBehaviour<StoryManager>
         SatanReaccToPlayerDiceNotFallingOnTheCrate = new Queue<SatanLines>(satanReaccToPlayerDiceNotFallingOnTheCrate);
     }
 
+    public void PlayNextMonologue(AbstractThematicMonologuesData monologuesData)
+    {
+        monologuesData.PlayNextMonologue(textLabel);
+    }
+
     public void ShowLines(SatanLines lines)
     {
-        textLabel.ShowLines(lines);
-        SoundManager.Instance.PlaySatanTalking();
+        //textLabel.ShowLines(lines);
+        
     }
 
     public void ShowNextSatanWinLines()

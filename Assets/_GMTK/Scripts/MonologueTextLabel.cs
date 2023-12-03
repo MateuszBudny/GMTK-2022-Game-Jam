@@ -5,27 +5,24 @@ using UnityEngine;
 
 public class MonologueTextLabel : MonoBehaviour
 {
-    [SerializeField]
-    private TextMeshProUGUI textLabel;
+    public TextMeshProUGUI textLabel;
     [SerializeField]
     private float showDuration = 4f;
 
     private float showStartedTimestamp = -1f;
-    private SatanLines currentLines;
+    private Queue<MonologueLineRecord> currentLinesQueue;
 
-    public void ShowLines(SatanLines lines)
+    public void ShowLines<T>(ThematicMonologuesData<T> linesData) where T : MonologueLineRecord
     {
         textLabel.enabled = true;
-        currentLines = lines;
-        currentLines.Prepare();
+        currentLinesQueue = new Queue<MonologueLineRecord>(linesData.CreateLinesQueue);
 
-        ShowSingleLine(lines.LinesQueue.Dequeue());
+        ShowSingleLine(linesData.CreateLinesQueue.Dequeue());
     }
 
-    private void ShowSingleLine(SatanLineRecord singleLine)
+    private void ShowSingleLine(MonologueLineRecord singleLine)
     {
-        textLabel.text = singleLine.text;
-        GameplayManager.Instance.satan.SetFace(singleLine.satanFaceType);
+        singleLine.Play(this);
         showStartedTimestamp = Time.time;
     }
 
@@ -35,9 +32,9 @@ public class MonologueTextLabel : MonoBehaviour
         {
             if(Time.time - showStartedTimestamp > showDuration)
             {
-                if(currentLines.LinesQueue.Count > 0)
+                if(currentLinesQueue.Count > 0)
                 {
-                    ShowSingleLine(currentLines.LinesQueue.Dequeue());
+                    ShowSingleLine(currentLinesQueue.Dequeue());
                 }
                 else
                 {
