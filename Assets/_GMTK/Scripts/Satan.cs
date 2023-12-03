@@ -6,9 +6,15 @@ using UnityEngine;
 
 public class Satan : DicePlayer, IShootable
 {
-    private SatanFaces satanFaces;
+    [Header("Satan monologues")]
+    [SerializeField]
+    private SatanThematicMonologuesData reaccToPlayerMissingCrateWithDiceMonologues;
+    [SerializeField]
+    private SatanThematicMonologuesData playerShootingAtSatanMonologues;
 
     public SatanFaceType CurrentFace => satanFaces.CurrentFace;
+
+    private SatanFaces satanFaces;
 
     protected override void Awake()
     {
@@ -40,7 +46,7 @@ public class Satan : DicePlayer, IShootable
         Debug.Log("Your score: " + GameplayManager.Instance.player.CurrentScore);
         if(GameplayManager.Instance.player.CurrentScore.dicesNum < GameplayManager.Instance.player.AllDicesNum)
         {
-            StoryManager.Instance.ShowNextSatanReaccToPlayerDiceNotFallingOnTheCrate();
+            StoryManager.Instance.PlayNextMonologue(reaccToPlayerMissingCrateWithDiceMonologues);
             yield return new WaitForSeconds(3f);
         }
 
@@ -51,6 +57,6 @@ public class Satan : DicePlayer, IShootable
 
     public void GetShot(Gun gunShooting)
     {
-        StoryManager.Instance.ShowNextPlayerShootingAtSatanLines();
+        StoryManager.Instance.PlayNextMonologue(playerShootingAtSatanMonologues);
     }
 }

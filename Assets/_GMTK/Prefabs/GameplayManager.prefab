@@ -54,6 +54,16 @@ MonoBehaviour:
   onStartFadeOutDuration: 7
   openEyesText: {fileID: 0}
   thankYou: {fileID: 0}
+  introMonologues: {fileID: 11400000, guid: 52ec1d3445b15bf47a221e2da2fdc1a9, type: 2}
+  burzaEndingMonologues: {fileID: 11400000, guid: 7c35f77cc0640d644a2b7707c74703f8,
+    type: 2}
+  suggestionsMonologues: {fileID: 11400000, guid: 3fd8a0d221a12b4478121c00075712c9,
+    type: 2}
+  satanDiceWinMonologues: {fileID: 11400000, guid: c73e6a9cdd846bc449b6ff6d9e5ec7be,
+    type: 2}
+  satanDiceLoseMonologues: {fileID: 11400000, guid: 7b2be3b4fcc149e46b9b25be66d8af75,
+    type: 2}
+  drawMonologues: {fileID: 11400000, guid: 7a0e9aca3e255ac4e9a45829c417df60, type: 2}
   crankToRoll: {fileID: 0}
   hulkDoorLeft: {fileID: 0}
   hulkDoorRight: {fileID: 0}

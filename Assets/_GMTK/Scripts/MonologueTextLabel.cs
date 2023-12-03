@@ -17,7 +17,7 @@ public class MonologueTextLabel : MonoBehaviour
         textLabel.enabled = true;
         currentLinesQueue = new Queue<MonologueLineRecord>(linesData.CreateLinesQueue);
 
-        ShowSingleLine(linesData.CreateLinesQueue.Dequeue());
+        ShowSingleLine(currentLinesQueue.Dequeue());
     }
 
     private void ShowSingleLine(MonologueLineRecord singleLine)

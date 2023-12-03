@@ -44,6 +44,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f96ed517e5cbfd4384aa7f69ad53a55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thematicMonologuesDataList:
+  - {fileID: 11400000, guid: 7c35f77cc0640d644a2b7707c74703f8, type: 2}
+  - {fileID: 11400000, guid: 7a0e9aca3e255ac4e9a45829c417df60, type: 2}
+  - {fileID: 11400000, guid: 52ec1d3445b15bf47a221e2da2fdc1a9, type: 2}
+  - {fileID: 11400000, guid: 3581c56725724024b89b9ab2204115c7, type: 2}
+  - {fileID: 11400000, guid: b86ff3a74ab91b148925fe51c8a7e57d, type: 2}
+  - {fileID: 11400000, guid: 5c5320e2342ea2e49b885199cb08ad14, type: 2}
+  - {fileID: 11400000, guid: 15b90aaaf12477143b98701d654c12bc, type: 2}
+  - {fileID: 11400000, guid: 7b2be3b4fcc149e46b9b25be66d8af75, type: 2}
+  - {fileID: 11400000, guid: c73e6a9cdd846bc449b6ff6d9e5ec7be, type: 2}
+  - {fileID: 11400000, guid: 3fd8a0d221a12b4478121c00075712c9, type: 2}
+  - {fileID: 11400000, guid: 5a85539129d99e04cb130779b972dac4, type: 2}
   introLine:
     lines:
     - text: Your turn.

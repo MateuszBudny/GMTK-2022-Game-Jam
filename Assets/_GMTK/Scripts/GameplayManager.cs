@@ -33,6 +33,21 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
     [SerializeField]
     private TextMeshProUGUI thankYou;
 
+    [Header("Satan Monologues")]
+    [SerializeField]
+    private SatanThematicMonologuesData introMonologues;
+    [SerializeField]
+    private SatanThematicMonologuesData burzaEndingMonologues;
+    [SerializeField]
+    private SatanThematicMonologuesData suggestionsMonologues;
+    [SerializeField]
+    private SatanThematicMonologuesData satanDiceWinMonologues;
+    [SerializeField]
+    private SatanThematicMonologuesData satanDiceLoseMonologues;
+    [SerializeField]
+    private SatanThematicMonologuesData drawMonologues;
+
+
     [Header("Other")]
     [SerializeField]
     private Transform crankToRoll;
@@ -159,7 +174,7 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
 
         if (player.IsGonnaSnap)
         {
-            StoryManager.Instance.ShowLines(StoryManager.Instance.burzaEndingStarts);
+            StoryManager.Instance.PlayNextMonologue(burzaEndingMonologues);
         }
 
         StartCoroutine(DropBombsAfterDelay());
@@ -203,20 +218,20 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
 
         if (player.CurrentScore.sumValue > satan.CurrentScore.sumValue)
         {
-            StoryManager.Instance.ShowNextSatanLoseLines();
+            StoryManager.Instance.PlayNextMonologue(satanDiceLoseMonologues);
             Debug.Log("The weather is so bad, that the bombing was canceled.");
             PlayTheGame();
         }
         else if (satan.CurrentScore.sumValue > player.CurrentScore.sumValue)
         {
-            StoryManager.Instance.ShowNextSatanWinLines();
+            StoryManager.Instance.PlayNextMonologue(satanDiceWinMonologues);
             Debug.Log("Aaand there goes the bombs.");
             ChangeState(GameState.PlayerCanInteractNoDice);
             LookAtCrank();
         }
         else
         {
-            StoryManager.Instance.ShowNextSatanDrawLines();
+            StoryManager.Instance.PlayNextMonologue(drawMonologues);
             Debug.Log("One more time, then.");
             PlayTheGame();
         }
@@ -232,7 +247,7 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
     private IEnumerator PlayTheGameWithDelay()
     {
         yield return new WaitForSeconds(1f);
-        StoryManager.Instance.ShowLines(StoryManager.Instance.introLine);
+        StoryManager.Instance.PlayNextMonologue(introMonologues);
         PlayTheGame();
     }
 
@@ -242,7 +257,7 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
 
         if (State == GameState.BombsAreFalling && !isPlayerGonnaSnap)
         {
-            StoryManager.Instance.ShowNextSatanSuggestion();
+            StoryManager.Instance.PlayNextMonologue(suggestionsMonologues);
         }
         yield return new WaitForSeconds(5f);
 

@@ -11,7 +11,20 @@ public class ThematicMonologuesData<TLineRecord> : AbstractThematicMonologuesDat
     [SerializeField]
     private List<List<TLineRecord>> lines;
 
-    public Queue<TLineRecord> CreateLinesQueue => new Queue<TLineRecord>(monologuesCurrentQueue.Dequeue());
+    public Queue<TLineRecord> CreateLinesQueue
+    {
+        get
+        {
+            if (monologuesCurrentQueue.Count > 0)
+            {
+                return new Queue<TLineRecord>(monologuesCurrentQueue.Dequeue());
+            }
+            else
+            {
+                return new Queue<TLineRecord>(lines.GetRandomElement());
+            }
+        }
+    }
 
     private Queue<List<TLineRecord>> monologuesCurrentQueue;
 
@@ -22,16 +35,14 @@ public class ThematicMonologuesData<TLineRecord> : AbstractThematicMonologuesDat
             case ThematicMonologuesInitType.Normal:
                 monologuesCurrentQueue = new Queue<List<TLineRecord>>(lines);
                 break;
+            case ThematicMonologuesInitType.Shuffle:
+                Debug.LogError("init");
+                monologuesCurrentQueue = new Queue<List<TLineRecord>>(lines.Shuffle());
+                break;
             case ThematicMonologuesInitType.FirstMonologueNormalShuffleOthers:
-                monologuesCurrentQueue = new Queue<List<TLineRecord>>();
-                monologuesCurrentQueue.Enqueue(lines[0]);
-                List<List<TLineRecord>> linesWithoutFirst = lines.TakeLast(lines.Count - 1).ToList();
-                for(int i = 0; i < linesWithoutFirst.Count; i++)
-                {
-                    List<TLineRecord> monologueDrawn = linesWithoutFirst.GetRandomElement();
-                    monologuesCurrentQueue.Enqueue(monologueDrawn);
-                    linesWithoutFirst.Remove(monologueDrawn);
-                }
+                List<List<TLineRecord>> shuffledLines = lines.TakeLast(lines.Count - 1).ToList().Shuffle();
+                shuffledLines.Insert(0, lines[0]);
+                monologuesCurrentQueue = new Queue<List<TLineRecord>>(shuffledLines);
                 break;
 
         }
@@ -52,5 +63,6 @@ public abstract class AbstractThematicMonologuesData : SerializedScriptableObjec
 public enum ThematicMonologuesInitType
 {
     Normal,
+    Shuffle,
     FirstMonologueNormalShuffleOthers,
 }

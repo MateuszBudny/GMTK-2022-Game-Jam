@@ -97,6 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 442b16de30fc2fd4c8591357ccbcc4cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reaccToPlayerMissingCrateWithDiceMonologues: {fileID: 11400000, guid: 15b90aaaf12477143b98701d654c12bc,
+    type: 2}
+  playerShootingAtSatanMonologues: {fileID: 11400000, guid: 5c5320e2342ea2e49b885199cb08ad14,
+    type: 2}
 --- !u!114 &7906713657626142416
 MonoBehaviour:
   m_ObjectHideFlags: 0
