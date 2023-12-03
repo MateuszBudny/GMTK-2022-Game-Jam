@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,7 +43,7 @@ public class ThematicMonologuesData<TLineRecord> : AbstractThematicMonologuesDat
     }
 }
 
-public abstract class AbstractThematicMonologuesData : ScriptableObject
+public abstract class AbstractThematicMonologuesData : SerializedScriptableObject
 {
     public abstract void Init();
     public abstract void PlayNextMonologue(MonologueTextLabel textLabel);
