@@ -39,7 +39,7 @@ MonoBehaviour:
       Data: 2|SatanLineRecord, GMTK
     - Name: text
       Entry: 1
-      Data: 
+      Data: "Jo nie chcio\u0142, jo nie wiedzio\u0142"
     - Name: satanFaceType
       Entry: 3
       Data: 0

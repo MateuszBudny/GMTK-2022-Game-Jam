@@ -101,6 +101,8 @@ MonoBehaviour:
     type: 2}
   playerShootingAtSatanMonologues: {fileID: 11400000, guid: 5c5320e2342ea2e49b885199cb08ad14,
     type: 2}
+  playerAimingAtSatanMonologues: {fileID: 11400000, guid: 3581c56725724024b89b9ab2204115c7,
+    type: 2}
 --- !u!114 &7906713657626142416
 MonoBehaviour:
   m_ObjectHideFlags: 0

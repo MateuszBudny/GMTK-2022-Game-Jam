@@ -4,13 +4,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Satan : DicePlayer, IShootable
+public class Satan : DicePlayer, IShootable, IAimable
 {
     [Header("Satan monologues")]
     [SerializeField]
     private SatanThematicMonologuesData reaccToPlayerMissingCrateWithDiceMonologues;
     [SerializeField]
     private SatanThematicMonologuesData playerShootingAtSatanMonologues;
+    [SerializeField]
+    private SatanThematicMonologuesData playerAimingAtSatanMonologues;
 
     public SatanFaceType CurrentFace => satanFaces.CurrentFace;
 
@@ -53,6 +55,11 @@ public class Satan : DicePlayer, IShootable
         GameplayManager.Instance.ChangeState(GameState.SatanTurn);
         diceThrowing.ThrowDices();
         GameplayManager.Instance.SatanThrewDices();
+    }
+
+    public void IsAimedAt(Gun gunAiming)
+    {
+        StoryManager.Instance.PlayNextMonologue(playerAimingAtSatanMonologues);
     }
 
     public void GetShot(Gun gunShooting)

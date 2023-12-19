@@ -7,12 +7,14 @@ using UnityEngine.InputSystem;
 using StarterAssets;
 using AetherEvents;
 
-public class Player : DicePlayer, IShootable
+public class Player : DicePlayer, IShootable, IAimable
 {
     [SerializeField]
     private float interactionMaxDistance = 10f;
     [SerializeField]
     private FirstPersonController playerController;
+    [SerializeField]
+    private SatanThematicMonologuesData playerAimingAtHimself;
 
     public Transform gunHolder;
     public int droppingBombsNumToGoIntoMadness = 5;
@@ -80,6 +82,11 @@ public class Player : DicePlayer, IShootable
             this.gun = gun;
             playerController.FreezeCameraRotation = false;
         });
+    }
+
+    public void IsAimedAt(Gun gunAiming)
+    {
+        StoryManager.Instance.PlayNextMonologue(playerAimingAtHimself);
     }
 
     public void GetShot(Gun gunShooting)
