@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bomb : MonoBehaviour
+public class Bomb : MonoBehaviour, IShootable
 {
+    [SerializeField]
+    private SatanThematicMonologuesData playerShootingAtBombs;
     [SerializeField]
     private float backForceWhenFalling;
     [SerializeField]
@@ -79,5 +81,10 @@ public class Bomb : MonoBehaviour
     private void ApplyAirResistance()
     {
         rigid.AddForce(new Vector3(0f, 0f, airResistanceForce), ForceMode.Acceleration);
+    }
+
+    public void GetShot(Gun gunShooting)
+    {
+        StoryManager.Instance.PlayNextMonologue(playerShootingAtBombs);
     }
 }
