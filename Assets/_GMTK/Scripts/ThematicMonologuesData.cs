@@ -11,6 +11,8 @@ public class ThematicMonologuesData<TLineRecord> : AbstractThematicMonologuesDat
     [SerializeField]
     private List<List<TLineRecord>> lines;
 
+    public bool HasUsedAllLinesOnce { get; private set; }
+
     public Queue<TLineRecord> CreateLinesQueue
     {
         get
@@ -30,6 +32,8 @@ public class ThematicMonologuesData<TLineRecord> : AbstractThematicMonologuesDat
 
     public override void Init()
     {
+        HasUsedAllLinesOnce = false;
+
         switch(initType)
         {
             case ThematicMonologuesInitType.Normal:
@@ -51,6 +55,7 @@ public class ThematicMonologuesData<TLineRecord> : AbstractThematicMonologuesDat
     public override void PlayNextMonologue(MonologueTextLabel textLabel)
     {
         textLabel.ShowLines(this);
+        HasUsedAllLinesOnce = true;
     }
 }
 

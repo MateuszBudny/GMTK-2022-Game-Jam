@@ -763,12 +763,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac619183fe5f724b935e6ea2ab80827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerShootingAtBombs: {fileID: 11400000, guid: b620408a107acdc4899196402ea65621,
+    type: 2}
   backForceWhenFalling: 1000
   minRandomRotationForceOnFall: {x: -5, y: -5, z: -5}
   maxRandomRotationForceOnFall: {x: 5, y: 5, z: 5}
   minTipDownRotationForceOnFall: 10
   maxTipDownRotationForceOnFall: 15
-  airResistanceOneTimeForce: 2
+  airResistanceForce: 1
 --- !u!4 &1072714314422167252 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c5e13e7caaaca3f43b78782933460b67,
@@ -1094,12 +1096,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac619183fe5f724b935e6ea2ab80827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerShootingAtBombs: {fileID: 11400000, guid: b620408a107acdc4899196402ea65621,
+    type: 2}
   backForceWhenFalling: 1000
   minRandomRotationForceOnFall: {x: -5, y: -5, z: -5}
   maxRandomRotationForceOnFall: {x: 5, y: 5, z: 5}
   minTipDownRotationForceOnFall: 10
   maxTipDownRotationForceOnFall: 15
-  airResistanceOneTimeForce: 2
+  airResistanceForce: 1
 --- !u!1001 &3735273013650515422
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1234,12 +1238,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac619183fe5f724b935e6ea2ab80827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerShootingAtBombs: {fileID: 11400000, guid: b620408a107acdc4899196402ea65621,
+    type: 2}
   backForceWhenFalling: 1000
   minRandomRotationForceOnFall: {x: -5, y: -5, z: -5}
   maxRandomRotationForceOnFall: {x: 5, y: 5, z: 5}
   minTipDownRotationForceOnFall: 10
   maxTipDownRotationForceOnFall: 15
-  airResistanceOneTimeForce: 2
+  airResistanceForce: 1
 --- !u!1001 &4754244681187504961
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1374,12 +1380,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac619183fe5f724b935e6ea2ab80827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerShootingAtBombs: {fileID: 11400000, guid: b620408a107acdc4899196402ea65621,
+    type: 2}
   backForceWhenFalling: 1000
   minRandomRotationForceOnFall: {x: -5, y: -5, z: -5}
   maxRandomRotationForceOnFall: {x: 5, y: 5, z: 5}
   minTipDownRotationForceOnFall: 10
   maxTipDownRotationForceOnFall: 15
-  airResistanceOneTimeForce: 2
+  airResistanceForce: 1
 --- !u!1001 &6022684228880747962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1514,12 +1522,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac619183fe5f724b935e6ea2ab80827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerShootingAtBombs: {fileID: 11400000, guid: b620408a107acdc4899196402ea65621,
+    type: 2}
   backForceWhenFalling: 1000
   minRandomRotationForceOnFall: {x: -5, y: -5, z: -5}
   maxRandomRotationForceOnFall: {x: 5, y: 5, z: 5}
   minTipDownRotationForceOnFall: 10
   maxTipDownRotationForceOnFall: 15
-  airResistanceOneTimeForce: 2
+  airResistanceForce: 1
 --- !u!1001 &6985832234878773273
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1654,12 +1664,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac619183fe5f724b935e6ea2ab80827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerShootingAtBombs: {fileID: 11400000, guid: b620408a107acdc4899196402ea65621,
+    type: 2}
   backForceWhenFalling: 1000
   minRandomRotationForceOnFall: {x: -5, y: -5, z: -5}
   maxRandomRotationForceOnFall: {x: 5, y: 5, z: 5}
   minTipDownRotationForceOnFall: 10
   maxTipDownRotationForceOnFall: 15
-  airResistanceOneTimeForce: 2
+  airResistanceForce: 1
 --- !u!1001 &7749085389206114343
 PrefabInstance:
   m_ObjectHideFlags: 0

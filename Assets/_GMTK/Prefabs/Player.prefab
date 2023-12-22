@@ -201,7 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionMaxDistance: 10
   playerController: {fileID: 8616685848737228371}
-  playerAimingAtHimself: {fileID: 11400000, guid: b86ff3a74ab91b148925fe51c8a7e57d,
+  playerAimingAtHimselfMonologues: {fileID: 11400000, guid: b86ff3a74ab91b148925fe51c8a7e57d,
     type: 2}
   gunHolder: {fileID: 0}
   droppingBombsNumToGoIntoMadness: 5

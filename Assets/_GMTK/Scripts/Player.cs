@@ -14,7 +14,7 @@ public class Player : DicePlayer, IShootable, IAimable
     [SerializeField]
     private FirstPersonController playerController;
     [SerializeField]
-    private SatanThematicMonologuesData playerAimingAtHimself;
+    private SatanThematicMonologuesData playerAimingAtHimselfMonologues;
 
     public Transform gunHolder;
     public int droppingBombsNumToGoIntoMadness = 5;
@@ -86,7 +86,11 @@ public class Player : DicePlayer, IShootable, IAimable
 
     public void IsAimedAt(Gun gunAiming)
     {
-        StoryManager.Instance.PlayNextMonologue(playerAimingAtHimself);
+        if (!StoryManager.Instance.isDuringDialog && !playerAimingAtHimselfMonologues.HasUsedAllLinesOnce)
+        {
+            StoryManager.Instance.PlayNextMonologue(playerAimingAtHimselfMonologues);
+        }
+
     }
 
     public void GetShot(Gun gunShooting)

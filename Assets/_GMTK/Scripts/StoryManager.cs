@@ -11,6 +11,8 @@ public class StoryManager : SingleBehaviour<StoryManager>
     [SerializeField]
     private MonologueTextLabel textLabel;
 
+    public bool isDuringDialog { get; private set; }
+
     protected override void Awake()
     {
         base.Awake();
@@ -20,6 +22,8 @@ public class StoryManager : SingleBehaviour<StoryManager>
 
     public void PlayNextMonologue(AbstractThematicMonologuesData monologuesData)
     {
+        isDuringDialog = true;
         monologuesData.PlayNextMonologue(textLabel);
+        isDuringDialog = false;
     }
 }

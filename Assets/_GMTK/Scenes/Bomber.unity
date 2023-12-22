@@ -925,42 +925,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 843234467437266809, guid: 0a20b37f9d767ac4b8eb958ee41639e3,
-        type: 3}
-      propertyPath: playerShootingAtBombs
-      value: 
-      objectReference: {fileID: 11400000, guid: b620408a107acdc4899196402ea65621,
-        type: 2}
-    - target: {fileID: 1593978386207128108, guid: 0a20b37f9d767ac4b8eb958ee41639e3,
-        type: 3}
-      propertyPath: playerShootingAtBombs
-      value: 
-      objectReference: {fileID: 11400000, guid: b620408a107acdc4899196402ea65621,
-        type: 2}
-    - target: {fileID: 2231064514676535989, guid: 0a20b37f9d767ac4b8eb958ee41639e3,
-        type: 3}
-      propertyPath: playerShootingAtBombs
-      value: 
-      objectReference: {fileID: 11400000, guid: b620408a107acdc4899196402ea65621,
-        type: 2}
-    - target: {fileID: 2485403916814405522, guid: 0a20b37f9d767ac4b8eb958ee41639e3,
-        type: 3}
-      propertyPath: playerShootingAtBombs
-      value: 
-      objectReference: {fileID: 11400000, guid: b620408a107acdc4899196402ea65621,
-        type: 2}
-    - target: {fileID: 2945207584563325464, guid: 0a20b37f9d767ac4b8eb958ee41639e3,
-        type: 3}
-      propertyPath: playerShootingAtBombs
-      value: 
-      objectReference: {fileID: 11400000, guid: b620408a107acdc4899196402ea65621,
-        type: 2}
-    - target: {fileID: 3298104855870462430, guid: 0a20b37f9d767ac4b8eb958ee41639e3,
-        type: 3}
-      propertyPath: playerShootingAtBombs
-      value: 
-      objectReference: {fileID: 11400000, guid: b620408a107acdc4899196402ea65621,
-        type: 2}
     - target: {fileID: 8138099324407240641, guid: 0a20b37f9d767ac4b8eb958ee41639e3,
         type: 3}
       propertyPath: m_AmplitudeGain

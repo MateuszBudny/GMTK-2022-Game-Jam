@@ -2,7 +2,6 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
 
@@ -27,7 +26,6 @@ public class Gun : MonoBehaviour, IInteractable
     private int noAmmoCounter = 0;
     private Transform gunHolder;
     private bool isUnloaded = false;
-    private bool isShootingCalled = false;
 
     private void Awake()
     {
@@ -44,7 +42,7 @@ public class Gun : MonoBehaviour, IInteractable
             float noiseProgress = Mathf.InverseLerp(0f, 170f, Mathf.Abs(MathUtils.RecalculateAngleToBetweenMinus180And180(gunHolder.localEulerAngles.y)));
             NoiseMovement.UpdateProgress(noiseProgress);
         }
-        if(!isShootingCalled && Physics.Raycast(spawnShotPosition.position, spawnShotPosition.forward, out RaycastHit hit))
+        if(Physics.Raycast(spawnShotPosition.position, spawnShotPosition.forward, out RaycastHit hit))
         {
             IAimable aimable = hit.collider.GetComponentInParent<IAimable>();
             if (aimable != null)
@@ -101,23 +99,19 @@ public class Gun : MonoBehaviour, IInteractable
         isUnloaded = true;
     }
 
-    public async void FireTheBullet()
+    public void FireTheBullet()
     {
-        isShootingCalled = true;
         CurrentAmmo--;
         Instantiate(shotEffectPrefab, spawnShotPosition.transform.position, Quaternion.identity, transform);
         SoundManager.Instance.Play(Audio.Gunshot);
-        if(isShootingCalled && Physics.Raycast(spawnShotPosition.position, spawnShotPosition.forward, out RaycastHit hit))
+        if(Physics.Raycast(spawnShotPosition.position, spawnShotPosition.forward, out RaycastHit hit))
         {
             IShootable shootable = hit.collider.GetComponentInParent<IShootable>();
             if (shootable != null)
             {
                 shootable.GetShot(this);
-
             }
         }
-        await Task.Delay(1500);
-        isShootingCalled = false;
     }
 
     private void Shoot()
