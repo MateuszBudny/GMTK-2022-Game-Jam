@@ -26,6 +26,7 @@ public class Gun : MonoBehaviour, IInteractable
     private int noAmmoCounter = 0;
     private Transform gunHolder;
     private bool isUnloaded = false;
+    private bool isHoldingGun = false;
 
     private void Awake()
     {
@@ -42,7 +43,7 @@ public class Gun : MonoBehaviour, IInteractable
             float noiseProgress = Mathf.InverseLerp(0f, 170f, Mathf.Abs(MathUtils.RecalculateAngleToBetweenMinus180And180(gunHolder.localEulerAngles.y)));
             NoiseMovement.UpdateProgress(noiseProgress);
         }
-        if(Physics.Raycast(spawnShotPosition.position, spawnShotPosition.forward, out RaycastHit hit))
+        if(isHoldingGun && Physics.Raycast(spawnShotPosition.position, spawnShotPosition.forward, out RaycastHit hit))
         {
             IAimable aimable = hit.collider.GetComponentInParent<IAimable>();
             if (aimable != null)
@@ -82,6 +83,7 @@ public class Gun : MonoBehaviour, IInteractable
                 NoiseMovement.SetActive(true);
                 onTakingAnimationFinished();
             });
+        isHoldingGun = true;
     }
 
     public void Throw()
@@ -92,6 +94,7 @@ public class Gun : MonoBehaviour, IInteractable
         Rigid.AddTorque(new Vector3(throwTorque, 0f, 0f));
         NoiseMovement.SetActive(false);
         Destroy(this);
+        isHoldingGun = false;
     }
 
     public void OnUnloadingFinished()

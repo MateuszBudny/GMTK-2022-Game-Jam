@@ -59,7 +59,7 @@ public class Satan : DicePlayer, IShootable, IAimable
 
     public void IsAimedAt(Gun gunAiming)
     {
-        if (!StoryManager.Instance.isDuringDialog && !playerAimingAtSatanMonologues.HasUsedAllLinesOnce)
+        if (!StoryManager.Instance.IsDuringDialogue && !playerAimingAtSatanMonologues.HasUsedAllLinesOnce)
         {
             StoryManager.Instance.PlayNextMonologue(playerAimingAtSatanMonologues);
         }

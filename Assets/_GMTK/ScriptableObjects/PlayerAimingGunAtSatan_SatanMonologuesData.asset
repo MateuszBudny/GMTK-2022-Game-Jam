@@ -27,19 +27,79 @@ MonoBehaviour:
         GMTK]], mscorlib]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 3
     - Name: 
       Entry: 7
       Data: 1|System.Collections.Generic.List`1[[SatanLineRecord, GMTK]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
       Data: 2|SatanLineRecord, GMTK
     - Name: text
       Entry: 1
-      Data: "Jo nie chcio\u0142, jo nie wiedzio\u0142"
+      Data: "no to pot\u0119zny ch\u0142op jeste\u015B co celuje do mnie "
+    - Name: satanFaceType
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: "no to niez\u0142e celowanie robisz do mnie ch\u0142opie\n"
+    - Name: satanFaceType
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|System.Collections.Generic.List`1[[SatanLineRecord, GMTK]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 5|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: chuj dupa i kamieni kupa xD
+    - Name: satanFaceType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 6|System.Collections.Generic.List`1[[SatanLineRecord, GMTK]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 7|SatanLineRecord, GMTK
+    - Name: text
+      Entry: 1
+      Data: "Kurczak ma\u0142y by lepiej celowa\u0142 od Ciebie"
     - Name: satanFaceType
       Entry: 3
       Data: 0

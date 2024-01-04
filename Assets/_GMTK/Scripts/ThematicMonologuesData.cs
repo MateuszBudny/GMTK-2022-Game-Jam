@@ -54,8 +54,11 @@ public class ThematicMonologuesData<TLineRecord> : AbstractThematicMonologuesDat
 
     public override void PlayNextMonologue(MonologueTextLabel textLabel)
     {
+        if (monologuesCurrentQueue.Count == 0 && !HasUsedAllLinesOnce)
+        {
+            HasUsedAllLinesOnce = true;
+        }
         textLabel.ShowLines(this);
-        HasUsedAllLinesOnce = true;
     }
 }
 

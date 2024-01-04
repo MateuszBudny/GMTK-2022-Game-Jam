@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -11,7 +12,13 @@ public class StoryManager : SingleBehaviour<StoryManager>
     [SerializeField]
     private MonologueTextLabel textLabel;
 
-    public bool isDuringDialog { get; private set; }
+    public bool IsDuringDialogue
+    {
+        get
+        {
+            return textLabel != null && textLabel.IsTextLabelActiveAndEnabled;
+        }
+    }
 
     protected override void Awake()
     {
@@ -22,8 +29,6 @@ public class StoryManager : SingleBehaviour<StoryManager>
 
     public void PlayNextMonologue(AbstractThematicMonologuesData monologuesData)
     {
-        isDuringDialog = true;
         monologuesData.PlayNextMonologue(textLabel);
-        isDuringDialog = false;
     }
 }

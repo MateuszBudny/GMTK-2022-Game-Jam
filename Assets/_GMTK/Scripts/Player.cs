@@ -86,11 +86,10 @@ public class Player : DicePlayer, IShootable, IAimable
 
     public void IsAimedAt(Gun gunAiming)
     {
-        if (!StoryManager.Instance.isDuringDialog && !playerAimingAtHimselfMonologues.HasUsedAllLinesOnce)
+        if (!StoryManager.Instance.IsDuringDialogue && !playerAimingAtHimselfMonologues.HasUsedAllLinesOnce)
         {
             StoryManager.Instance.PlayNextMonologue(playerAimingAtHimselfMonologues);
         }
-
     }
 
     public void GetShot(Gun gunShooting)
