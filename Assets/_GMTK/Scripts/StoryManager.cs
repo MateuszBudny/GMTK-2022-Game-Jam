@@ -12,13 +12,7 @@ public class StoryManager : SingleBehaviour<StoryManager>
     [SerializeField]
     private MonologueTextLabel textLabel;
 
-    public bool IsDuringDialogue
-    {
-        get
-        {
-            return textLabel != null && textLabel.IsTextLabelActiveAndEnabled;
-        }
-    }
+    public bool IsDuringDialogue => textLabel != null && textLabel.IsTextLabelActiveAndEnabled;
 
     protected override void Awake()
     {

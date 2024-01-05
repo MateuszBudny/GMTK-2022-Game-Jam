@@ -93,8 +93,8 @@ public class Gun : MonoBehaviour, IInteractable
         Rigid.AddForce(transform.forward * throwForce);
         Rigid.AddTorque(new Vector3(throwTorque, 0f, 0f));
         NoiseMovement.SetActive(false);
-        Destroy(this);
         isHoldingGun = false;
+        Destroy(this);
     }
 
     public void OnUnloadingFinished()
