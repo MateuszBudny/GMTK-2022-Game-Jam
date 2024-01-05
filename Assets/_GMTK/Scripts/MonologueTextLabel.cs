@@ -12,6 +12,8 @@ public class MonologueTextLabel : MonoBehaviour
     private float showStartedTimestamp = -1f;
     private Queue<MonologueLineRecord> currentLinesQueue;
 
+    public bool IsTextLabelActiveAndEnabled => textLabel != null && textLabel.isActiveAndEnabled;
+
     public void ShowLines<T>(ThematicMonologuesData<T> linesData) where T : MonologueLineRecord
     {
         textLabel.enabled = true;

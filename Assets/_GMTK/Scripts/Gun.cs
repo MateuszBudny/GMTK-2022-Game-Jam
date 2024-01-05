@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.HID;
 
 public class Gun : MonoBehaviour, IInteractable
 {
@@ -25,6 +26,7 @@ public class Gun : MonoBehaviour, IInteractable
     private int noAmmoCounter = 0;
     private Transform gunHolder;
     private bool isUnloaded = false;
+    private bool isHoldingGun = false;
 
     private void Awake()
     {
@@ -40,6 +42,14 @@ public class Gun : MonoBehaviour, IInteractable
         {
             float noiseProgress = Mathf.InverseLerp(0f, 170f, Mathf.Abs(MathUtils.RecalculateAngleToBetweenMinus180And180(gunHolder.localEulerAngles.y)));
             NoiseMovement.UpdateProgress(noiseProgress);
+        }
+        if(isHoldingGun && Physics.Raycast(spawnShotPosition.position, spawnShotPosition.forward, out RaycastHit hit))
+        {
+            IAimable aimable = hit.collider.GetComponentInParent<IAimable>();
+            if (aimable != null)
+            {
+                aimable.IsAimedAt(this);
+            }
         }
     }
 
@@ -73,6 +83,7 @@ public class Gun : MonoBehaviour, IInteractable
                 NoiseMovement.SetActive(true);
                 onTakingAnimationFinished();
             });
+        isHoldingGun = true;
     }
 
     public void Throw()
@@ -82,6 +93,7 @@ public class Gun : MonoBehaviour, IInteractable
         Rigid.AddForce(transform.forward * throwForce);
         Rigid.AddTorque(new Vector3(throwTorque, 0f, 0f));
         NoiseMovement.SetActive(false);
+        isHoldingGun = false;
         Destroy(this);
     }
 
@@ -89,13 +101,12 @@ public class Gun : MonoBehaviour, IInteractable
     {
         isUnloaded = true;
     }
-    
+
     public void FireTheBullet()
     {
         CurrentAmmo--;
         Instantiate(shotEffectPrefab, spawnShotPosition.transform.position, Quaternion.identity, transform);
         SoundManager.Instance.Play(Audio.Gunshot);
-
         if(Physics.Raycast(spawnShotPosition.position, spawnShotPosition.forward, out RaycastHit hit))
         {
             IShootable shootable = hit.collider.GetComponentInParent<IShootable>();
