@@ -14,6 +14,9 @@ namespace Unity.VersionControl.Git
 
         private static void OnHierarchyItemTryToDrawStatusIcon(int instanceID, Rect selectionRect)
         {
+            if (!ApplicationConfiguration.AreHierarchyIconsTurnedOn)
+                return;
+
             string guid;
             GameObject hierarchyGO = EditorUtility.InstanceIDToObject(instanceID) as GameObject;
             if(!hierarchyGO)
@@ -40,7 +43,7 @@ namespace Unity.VersionControl.Git
                 if (hierarchyGO != PrefabUtility.GetNearestPrefabInstanceRoot(hierarchyGO))
                     return;
 
-                GameObject prefab = PrefabUtility.GetCorrespondingObjectFromSource(hierarchyGO);
+                GameObject prefab = PrefabUtility.GetCorrespondingObjectFromOriginalSource(hierarchyGO);
                 if (!prefab)
                     return;
 
@@ -55,7 +58,7 @@ namespace Unity.VersionControl.Git
 
             // place the icon to the right of the list:
             Rect r = new Rect(selectionRect);
-            r.x = r.width + 10;
+            r.x = ApplicationConfiguration.AreHierarchyIconsIndented ? r.width + 10 : r.x = r.xMax - 40;
             r.width = 18;
 
             GUI.Label(r, texture);
