@@ -24,37 +24,14 @@ public class Satan : DicePlayer, IShootable, IAimable
         satanFaces = GetComponent<SatanFaces>();
     }
 
-    private void Start()
-    {
-        GameplayManager.Instance.OnPlayerThrewDices += OnPlayerThrewDices;
-    }
-
-    private void OnDisable()
-    {
-        GameplayManager.Instance.OnPlayerThrewDices -= OnPlayerThrewDices;
-    }
-
     public void SetFace(SatanFaceType newFaceType) => satanFaces.SetFace(newFaceType);
 
-    private void OnPlayerThrewDices()
+    public override void ThrowDices()
     {
-        StartCoroutine(AfterPlayerThrewDicesEnumerator());
-    }
-
-    private IEnumerator AfterPlayerThrewDicesEnumerator()
-    {
-        yield return new WaitForSeconds(2f);
-
         Debug.Log("Your score: " + GameplayManager.Instance.player.CurrentScore);
-        if(GameplayManager.Instance.player.CurrentScore.dicesNum < GameplayManager.Instance.player.AllDicesNum)
-        {
-            StoryManager.Instance.PlayNextMonologue(reaccToPlayerMissingCrateWithDiceMonologues);
-            yield return new WaitForSeconds(3f);
-        }
+        base.ThrowDices();
 
-        GameplayManager.Instance.ChangeState(GameState.SatanTurn);
-        diceThrowing.ThrowDices();
-        GameplayManager.Instance.SatanThrewDices();
+        GameplayManager.Instance.SendSignalToGameplayManager(GameplayManager.Instance.satanThrewDicesSignal);
     }
 
     public void IsAimedAt(Gun gunAiming)

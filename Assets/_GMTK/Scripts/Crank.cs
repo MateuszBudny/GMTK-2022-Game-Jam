@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Crank : MonoBehaviour, IInteractable
 {
+    [SerializeField]
+    private BombsDropping bombsDropping;
+
     public void Interact(Player player)
     {
-        if(GameplayManager.Instance.State != GameState.BombsAreFalling)
+        if(GameplayManager.Instance.IsGameInState(GameplayManager.Instance.playerCanInteractState)
+            || GameplayManager.Instance.IsGameInState(GameplayManager.Instance.playerCanInteractNoDiceMustDropBombsState))
         {
-            GameplayManager.Instance.OpenHullDoor();
+            bombsDropping.OpenHullDoorAndDropBombs();
         }
     }
 }

@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5680619739181645991}
   - component: {fileID: 5680619739181645990}
+  - component: {fileID: 8217151364333014299}
+  - component: {fileID: 7368598553960096332}
   m_Layer: 0
   m_Name: GameplayManager
   m_TagString: Untagged
@@ -44,17 +46,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243ef20a0fe46f647afd46d8f1b55cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fsmOwner: {fileID: 8217151364333014299}
   player: {fileID: 0}
   satan: {fileID: 0}
-  cursor: {fileID: 0}
   vcamFollowMouse: {fileID: 0}
   vcamCrank: {fileID: 0}
-  postProcessController: {fileID: 0}
   blackScreen: {fileID: 0}
-  onStartFadeOutDuration: 7
-  openEyesText: {fileID: 0}
   thankYou: {fileID: 0}
-  introMonologues: {fileID: 11400000, guid: 52ec1d3445b15bf47a221e2da2fdc1a9, type: 2}
   burzaEndingMonologues: {fileID: 11400000, guid: 7c35f77cc0640d644a2b7707c74703f8,
     type: 2}
   suggestionsMonologues: {fileID: 11400000, guid: 3fd8a0d221a12b4478121c00075712c9,
@@ -64,16 +62,103 @@ MonoBehaviour:
   satanDiceLoseMonologues: {fileID: 11400000, guid: 7b2be3b4fcc149e46b9b25be66d8af75,
     type: 2}
   drawMonologues: {fileID: 11400000, guid: 7a0e9aca3e255ac4e9a45829c417df60, type: 2}
-  crankToRoll: {fileID: 0}
-  hulkDoorLeft: {fileID: 0}
-  hulkDoorRight: {fileID: 0}
-  bombs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  closedEyesState: {fileID: 11400000, guid: fff5f9e1c4c046441b77377e24228343, type: 2}
+  satanStartingMonologueState: {fileID: 11400000, guid: 21368282f5cbee54b84c5730a10b0a62,
+    type: 2}
+  playerCanInteractState: {fileID: 11400000, guid: 6b9f2eb92e458834dbe43949cad27446,
+    type: 2}
+  playerTurnState: {fileID: 11400000, guid: 6e2ca034f597eb541b1919d762af1aa7, type: 2}
+  satanTurnState: {fileID: 11400000, guid: 34ab4208d416ba443a26e61bea6e3861, type: 2}
+  playerCanInteractNoDiceMustDropBombsState: {fileID: 11400000, guid: c5b87ee6102a923448f2999e2b5db580,
+    type: 2}
+  playerIsDroppingBombsState: {fileID: 11400000, guid: 7a5e0afaae886f74894514d475b7e0f5,
+    type: 2}
+  playerBecomesSatanState: {fileID: 11400000, guid: 66da8ec8b66a5344aa350258eb97f461,
+    type: 2}
+  gameOverState: {fileID: 11400000, guid: e8ae08c50977d634c891370edecc65f0, type: 2}
+  eyesStartingToOpenSignal: {fileID: 11400000, guid: 9248b46456aff8f46878f3a787f2dda3,
+    type: 2}
+  playerTookDicesSignal: {fileID: 11400000, guid: 2fa44c76d48f455408fd0d513d390feb,
+    type: 2}
+  playerThrewDicesSignal: {fileID: 11400000, guid: 860027a61e118724791cf02d6736835d,
+    type: 2}
+  satanThrewDicesSignal: {fileID: 11400000, guid: 4898443b15d8b6740ae2df4ca141468c,
+    type: 2}
+  playerKilledThemselfSignal: {fileID: 11400000, guid: 95fc8fb3d2fd0e348a009ac82192322a,
+    type: 2}
   OnVCamChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CinemachineNoiseMovement, LowkeyFramework
+        m_MethodName: UpdateGainOffsetsOnVCamChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8217151364333014299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5680619739181645984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a7dbb6bbdf4ffb46ab7dd87ba8191e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _serializedExposedParameters: []
+  _boundGraphSerialization: 
+  _boundGraphObjectReferences: []
+  _boundGraphSource:
+    _version: 0
+    _category: 
+    _comments: 
+    _translation: {x: -155, y: 13}
+    _zoomFactor: 1
+  _firstActivation: 0
+  _enableAction: 0
+  _disableAction: 0
+  _lockBoundGraphPrefabOverrides: 1
+  _preInitializeSubGraphs: 0
+  _updateMode: 0
+  _graph: {fileID: 11400000, guid: baa206050f09c864381749521853eb72, type: 2}
+  _blackboard: {fileID: 7368598553960096332}
+--- !u!114 &7368598553960096332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5680619739181645984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98a6db0b653f764eac834f85857a9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parentBlackboard: {fileID: 0}
+  _serializedBlackboard: '{"_variables":{"blackScreen":{"_name":"blackScreen","_id":"bd4d3d2f-a4d6-4b3e-9df1-5ef34c01dc38","$type":"NodeCanvas.Framework.Variable`1[[BlackScreen,
+    LowkeyFramework, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"vcamFollowMouse":{"_name":"vcamFollowMouse","_id":"7e8c8716-8422-451c-9fe8-e89c3ca3e71c","$type":"NodeCanvas.Framework.Variable`1[[Cinemachine.CinemachineVirtualCamera,
+    Cinemachine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"openEyesText":{"_name":"openEyesText","_id":"81dcdc26-a4cf-4d46-b6a1-fc1b2cbae68f","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"onStartFadeOutDuration":{"_value":4.0,"_name":"onStartFadeOutDuration","_id":"fe8ac685-ffab-40bb-a9dd-c405930bbb46","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
+  _objectReferences: []
+  _serializedVariables:
+  - _json: '{"_name":"blackScreen","_id":"bd4d3d2f-a4d6-4b3e-9df1-5ef34c01dc38","$type":"NodeCanvas.Framework.Variable`1[[BlackScreen,
+      LowkeyFramework, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_name":"vcamFollowMouse","_id":"7e8c8716-8422-451c-9fe8-e89c3ca3e71c","$type":"NodeCanvas.Framework.Variable`1[[Cinemachine.CinemachineVirtualCamera,
+      Cinemachine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_name":"openEyesText","_id":"81dcdc26-a4cf-4d46-b6a1-fc1b2cbae68f","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_value":4.0,"_name":"onStartFadeOutDuration","_id":"fe8ac685-ffab-40bb-a9dd-c405930bbb46","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
