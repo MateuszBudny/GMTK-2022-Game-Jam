@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
+  m_Name: GameplayManager_FSM
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_nestedBT":{"_value":1},"executionMode":0,"_name":"ClosedEyes","_position":{"x":455.2355,"y":244.6918},"$type":"NodeCanvas.StateMachines.NestedBTState","$id":"0"},{"_nestedBT":{"_value":2},"executionMode":0,"_name":"SatanStartingMonologue","_position":{"x":619.2947,"y":342.6328},"$type":"NodeCanvas.StateMachines.NestedBTState","$id":"1"},{"_nestedBT":{"_value":3},"executionMode":0,"_name":"PlayTheGamePlayerCanInteract","_position":{"x":861.0,"y":449.0},"$type":"NodeCanvas.StateMachines.NestedBTState","$id":"2"},{"_nestedBT":{"_value":4},"executionMode":0,"_name":"PlayerTurnToThrowDices","_position":{"x":1121.155,"y":586.0965},"$type":"NodeCanvas.StateMachines.NestedBTState","$id":"3"},{"_nestedBT":{"_value":5},"executionMode":0,"_name":"SatanTurnToThrowDices","_position":{"x":1333.0,"y":715.0},"$type":"NodeCanvas.StateMachines.NestedBTState","$id":"4"},{"_nestedBT":{"_value":6},"executionMode":0,"_transitionEvaluation":1,"_name":"ResultOfDices","_position":{"x":1573.0,"y":896.0},"$type":"NodeCanvas.StateMachines.NestedBTState","$id":"5"},{"_nestedBT":{"_value":7},"executionMode":0,"_name":"PlayerWonTheDices","_position":{"x":718.0,"y":723.0},"$type":"NodeCanvas.StateMachines.NestedBTState","$id":"6"},{"_nestedBT":{"_value":8},"executionMode":0,"_name":"DrawResult","_position":{"x":1103.0,"y":714.0},"$type":"NodeCanvas.StateMachines.NestedBTState","$id":"7"},{"_nestedBT":{"_value":9},"executionMode":0,"_name":"SatanWonTheDices","_position":{"x":1774.0,"y":995.0},"$type":"NodeCanvas.StateMachines.NestedBTState","$id":"8"},{"_nestedBT":{"_value":10},"executionMode":0,"_name":"PlayerCanInteractNoDiceMustDropBombs","_position":{"x":1896.774,"y":1124.29},"$type":"NodeCanvas.StateMachines.NestedBTState","$id":"9"},{"_nestedBT":{"_value":11},"executionMode":0,"_transitionEvaluation":1,"_name":"PlayerIsDroppingBombs","_position":{"x":2219.109,"y":1279.422},"$type":"NodeCanvas.StateMachines.NestedBTState","$id":"10"},{"_nestedBT":{"_value":12},"executionMode":0,"_name":"PlayerBecomesSatan","_position":{"x":2456.676,"y":1407.503},"$type":"NodeCanvas.StateMachines.NestedBTState","$id":"11"},{"_nestedBT":{"_value":13},"executionMode":0,"_name":"GameOver","_position":{"x":2143.317,"y":1598.011},"$type":"NodeCanvas.StateMachines.NestedBTState","$id":"12"},{"_position":{"x":1661.782,"y":1423.273},"$type":"NodeCanvas.StateMachines.AnyState","$id":"13"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"signalDefinition":{"_value":14},"argumentsMap":{},"$type":"NodeCanvas.Tasks.Conditions.CheckSignal"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"method":{"_baseInfo":"GameplayManager|CheckTheGameResult|ResultOfDices","_paramsInfo":""},"parameters":[],"checkValue":{"_type":"ResultOfDices","_value":{"$content":0,"$type":"ResultOfDices"}},"$type":"NodeCanvas.Tasks.Conditions.CheckFunction_Multiplatform"},"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"method":{"_baseInfo":"GameplayManager|CheckTheGameResult|ResultOfDices","_paramsInfo":""},"parameters":[],"checkValue":{"_type":"ResultOfDices","_value":{"$content":2,"$type":"ResultOfDices"}},"$type":"NodeCanvas.Tasks.Conditions.CheckFunction_Multiplatform"},"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"method":{"_baseInfo":"GameplayManager|CheckTheGameResult|ResultOfDices","_paramsInfo":""},"parameters":[],"checkValue":{"_type":"ResultOfDices","_value":{"$content":1,"$type":"ResultOfDices"}},"$type":"NodeCanvas.Tasks.Conditions.CheckFunction_Multiplatform"},"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"7"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"method":{"_baseInfo":"Player|get_IsPlayerGoingInsaneNow|System.Boolean","_paramsInfo":""},"checkValue":{"_type":"System.Boolean","_value":{"$content":true,"$type":"System.Boolean"}},"overrideAgent":{"_type":"Player","_name":"player","_targetVariableID":"e31f8927-9bcc-4c16-90c0-ff6bc9d75e7d"},"$type":"NodeCanvas.Tasks.Conditions.CheckProperty_Multiplatform"},"_sourceNode":{"$ref":"10"},"_targetNode":{"$ref":"11"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"method":{"_baseInfo":"Player|get_IsPlayerGoingInsaneNow|System.Boolean","_paramsInfo":""},"checkValue":{"_type":"System.Boolean","_value":{"$content":false,"$type":"System.Boolean"}},"overrideAgent":{"_type":"Player","_name":"player","_targetVariableID":"e31f8927-9bcc-4c16-90c0-ff6bc9d75e7d"},"$type":"NodeCanvas.Tasks.Conditions.CheckProperty_Multiplatform"},"_sourceNode":{"$ref":"10"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"12"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"signalDefinition":{"_value":15},"argumentsMap":{},"$type":"NodeCanvas.Tasks.Conditions.CheckSignal"},"_sourceNode":{"$ref":"13"},"_targetNode":{"$ref":"12"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: fff5f9e1c4c046441b77377e24228343, type: 2}
+  - {fileID: 11400000, guid: 21368282f5cbee54b84c5730a10b0a62, type: 2}
+  - {fileID: 11400000, guid: 6b9f2eb92e458834dbe43949cad27446, type: 2}
+  - {fileID: 11400000, guid: 6e2ca034f597eb541b1919d762af1aa7, type: 2}
+  - {fileID: 11400000, guid: 34ab4208d416ba443a26e61bea6e3861, type: 2}
+  - {fileID: 11400000, guid: e5e38c6859ce34c46a8c5ca17461217c, type: 2}
+  - {fileID: 11400000, guid: 4ba5df643a09e9f4e95dda5ac46e5ff4, type: 2}
+  - {fileID: 11400000, guid: f310a30316c83d74c9ccb76e16f54e6a, type: 2}
+  - {fileID: 11400000, guid: 4a73cc4d185e4e64386859ed5abc929e, type: 2}
+  - {fileID: 11400000, guid: c5b87ee6102a923448f2999e2b5db580, type: 2}
+  - {fileID: 11400000, guid: 7a5e0afaae886f74894514d475b7e0f5, type: 2}
+  - {fileID: 11400000, guid: 66da8ec8b66a5344aa350258eb97f461, type: 2}
+  - {fileID: 11400000, guid: e8ae08c50977d634c891370edecc65f0, type: 2}
+  - {fileID: 11400000, guid: e4d6aac3fe4d4cf48a07f1f572b82313, type: 2}
+  - {fileID: 11400000, guid: 95fc8fb3d2fd0e348a009ac82192322a, type: 2}
+  _graphSource:
+    _version: 3.29
+    _category: 
+    _comments: 
+    _translation: {x: -1981.7483, y: -1007.15717}
+    _zoomFactor: 1
+  _haltSerialization: 0
+  _externalSerializationFile: {fileID: 0}

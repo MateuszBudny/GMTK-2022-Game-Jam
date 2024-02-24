@@ -42,7 +42,7 @@ public class SoundManager : SingleBehaviour<SoundManager>
 
     private void Update()
     {
-        if(GameplayManager.Instance.State != GameState.GameOver)
+        if(!GameplayManager.Instance.IsGameInState(GameplayManager.Instance.gameOverState))
         {
             if(!rareAmbientPlayedAlready)
             {

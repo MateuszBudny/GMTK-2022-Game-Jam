@@ -40,7 +40,6 @@ public class ThematicMonologuesData<TLineRecord> : AbstractThematicMonologuesDat
                 monologuesCurrentQueue = new Queue<List<TLineRecord>>(lines);
                 break;
             case ThematicMonologuesInitType.Shuffle:
-                Debug.LogError("init");
                 monologuesCurrentQueue = new Queue<List<TLineRecord>>(lines.Shuffle());
                 break;
             case ThematicMonologuesInitType.FirstMonologueNormalShuffleOthers:

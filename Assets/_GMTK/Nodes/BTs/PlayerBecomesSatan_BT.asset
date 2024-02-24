@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a686a47eee2fa44cb0a34b5d86e4d5e, type: 3}
+  m_Name: PlayerBecomesSatan_BT
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"_position":{"x":387.8472,"y":136.8123},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"0"},{"_action":{"fadeType":{},"fadeDuration":{"_value":6.0},"forceStartFromBeginning":{},"waitForFadeEnd":{"_value":true},"$type":"NodeCanvas.Tasks.Actions.BlackScreenFadeNode"},"_position":{"x":-190.6461,"y":398.6237},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"1"},{"_action":{"setTo":0,"overrideAgent":{"_type":"UnityEngine.Transform","_name":"satan","_targetVariableID":"ce3329eb-17cd-47b5-ad4a-35328c3dc4e8"},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},"_position":{"x":19.56321,"y":396.1362},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"2"},{"_action":{"method":{"_baseInfo":"Player|BecomeSatan|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"overrideAgent":{"_type":"Player","_name":"player","_targetVariableID":"e31f8927-9bcc-4c16-90c0-ff6bc9d75e7d"},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":190.896,"y":395.4702},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"3"},{"_action":{"waitTime":{"_value":3.0},"$type":"NodeCanvas.Tasks.Actions.Wait"},"_position":{"x":521.2772,"y":413.2888},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"4"},{"_action":{"method":{"_baseInfo":"BlackScreen|FadeOut|System.Void","_paramsInfo":"System.Single|System.Boolean|System.Action"},"parameters":[{"_type":"System.Single","_value":{"$content":6.0,"$type":"System.Single"}},{"_type":"System.Boolean","_value":{"$content":false,"$type":"System.Boolean"}},{"_type":"System.Action"}],"returnValue":{},"overrideAgent":{"_type":"BlackScreen","_name":"blackScreen","_targetVariableID":"bd4d3d2f-a4d6-4b3e-9df1-5ef34c01dc38"},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":635.9314,"y":409.2892},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"5"},{"_action":{"method":{"_baseInfo":"PostProcessController|SetVignetteSmoothly|System.Void","_paramsInfo":"System.Single|System.Single"},"parameters":[{"_type":"System.Single","_value":{"$content":0.6,"$type":"System.Single"}},{"_type":"System.Single","_value":{"$content":6.0,"$type":"System.Single"}}],"returnValue":{},"overrideAgent":{"_type":"PostProcessController","_name":"postProcessController","_targetVariableID":"01f047a1-0326-4b26-bc29-adadcb2c7964"},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":909.2352,"y":410.6224},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"6"},{"_action":{"waitTime":{"_value":10.0},"$type":"NodeCanvas.Tasks.Actions.Wait"},"_position":{"x":1266.53,"y":407.956},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"7"},{"_action":{"fadeType":{},"fadeDuration":{"_value":10.0},"forceStartFromBeginning":{},"waitForFadeEnd":{"_value":true},"$type":"NodeCanvas.Tasks.Actions.BlackScreenFadeNode"},"_position":{"x":1375.694,"y":411.8074},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"8"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[{"name":"Player
+    Becomes Satan","rect":{"xMin":-220.6461,"yMin":330.4702,"xMax":383.896,"yMax":515.2905},"autoGroup":true},{"name":"Letting
+    Player Play as Satan","rect":{"xMin":491.2772,"yMin":342.956,"xMax":1585.694,"yMax":528.4742},"autoGroup":true}],"localBlackboard":{"_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+  _objectReferences: []
+  _graphSource:
+    _version: 3.29
+    _category: 
+    _comments: 
+    _translation: {x: 380, y: 24}
+    _zoomFactor: 1
+  _haltSerialization: 0
+  _externalSerializationFile: {fileID: 0}

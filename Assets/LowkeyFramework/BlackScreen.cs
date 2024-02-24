@@ -5,12 +5,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BlackScreen : MonoBehaviour
+public class BlackScreen : SingleBehaviour<BlackScreen>
 {
     private Image blackImage;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         blackImage = GetComponent<Image>();
     }
 

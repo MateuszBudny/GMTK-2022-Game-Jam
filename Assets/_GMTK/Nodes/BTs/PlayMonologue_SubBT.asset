@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a686a47eee2fa44cb0a34b5d86e4d5e, type: 3}
+  m_Name: PlayMonologue_SubBT
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"_action":{"actions":[{"method":{"_baseInfo":"StoryManager|get_Instance|StoryManager","_paramsInfo":""},"returnValue":{"_type":"StoryManager","_name":"_storyManagerInstance"},"$type":"NodeCanvas.Tasks.Actions.GetProperty_Multiplatform"},{"method":{"_baseInfo":"StoryManager|PlayNextMonologue|System.Void","_paramsInfo":"AbstractThematicMonologuesData"},"parameters":[{"_type":"AbstractThematicMonologuesData","_name":"thematicMonologuesToPlay","_targetVariableID":"7a44b23b-23b8-4046-bc96-c67be0e77b63"}],"returnValue":{},"overrideAgent":{"_type":"StoryManager","_name":"_storyManagerInstance"},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"}],"$type":"NodeCanvas.Framework.ActionList"},"_position":{"x":499.0,"y":481.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{"thematicMonologuesToPlay":{"_name":"thematicMonologuesToPlay","_id":"7a44b23b-23b8-4046-bc96-c67be0e77b63","_isPublic":true,"$type":"NodeCanvas.Framework.Variable`1[[AbstractThematicMonologuesData,
+    GMTK, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+  _objectReferences: []
+  _graphSource:
+    _version: 3.29
+    _category: 
+    _comments: 
+    _translation: {x: 0, y: 0}
+    _zoomFactor: 1
+  _haltSerialization: 0
+  _externalSerializationFile: {fileID: 0}
