@@ -64,7 +64,8 @@ MonoBehaviour:
     type: 2}
   playerBecomesSatanState: {fileID: 11400000, guid: 66da8ec8b66a5344aa350258eb97f461,
     type: 2}
-  satanIsWreckingHavoc: {fileID: 11400000, guid: 82b1cc09002057e4a86069aea8585b16,
+  playerIsSatanState: {fileID: 11400000, guid: 4691275d3b26431448662a00e02af7d7, type: 2}
+  satanIsWreckingHavocState: {fileID: 11400000, guid: 82b1cc09002057e4a86069aea8585b16,
     type: 2}
   gameOverState: {fileID: 11400000, guid: e8ae08c50977d634c891370edecc65f0, type: 2}
   eyesStartingToOpenSignal: {fileID: 11400000, guid: 9248b46456aff8f46878f3a787f2dda3,
