@@ -21,7 +21,7 @@ public class SatanFaces : MonoBehaviour
     public void SetFace(SatanFaceType newFaceType)
     {
         bool isDuringRotation = false;
-        if (facesRotationTween != null && facesRotationTween.IsPlaying())
+        if (facesRotationTween.IsActive() && facesRotationTween.IsPlaying())
         {
             facesRotationTween.Kill();
             isDuringRotation = true;
