@@ -40,7 +40,7 @@ public class Player : DicePlayer, IShootable, IAimable
 
     public void OnPlayerAction(InputValue inputValue)
     {
-        if(inputValue.isPressed && !GameplayManager.Instance.IsGameInState(GameplayManager.Instance.gameOverState))
+        if(inputValue.isPressed && !GameplayManager.Instance.IsGameInState(GameplayManager.Instance.gameOverState) && !GameplayManager.Instance.IsGameInState(GameplayManager.Instance.satanIsWreckingHavocState))
         {
             if (GameplayManager.Instance.IsGameInState(GameplayManager.Instance.closedEyesState))
             {
@@ -64,7 +64,7 @@ public class Player : DicePlayer, IShootable, IAimable
                     GameplayManager.Instance.SendSignalToGameplayManager(GameplayManager.Instance.playerTookDicesSignal);
                 }
             }
-            else if(GameplayManager.Instance.IsGameInState(GameplayManager.Instance.playerBecomesSatanState))
+            else if(GameplayManager.Instance.IsGameInState(GameplayManager.Instance.playerIsSatanState))
             {
                 diceThrowing.SpawnAndThrowDices();
             }
