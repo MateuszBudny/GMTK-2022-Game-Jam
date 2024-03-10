@@ -2,6 +2,8 @@
     "BombsDropping",
     "Player",
     "PostProcessController",
+    "Satan",
+    "Cinemachine.CinemachineImpulseSource",
     "System.Boolean",
     "System.Int32",
     "System.Object",

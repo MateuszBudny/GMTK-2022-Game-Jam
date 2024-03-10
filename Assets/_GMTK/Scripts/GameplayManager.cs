@@ -33,6 +33,7 @@ public class GameplayManager : SingleBehaviour<GameplayManager>
     public BehaviourTree playerCanInteractNoDiceMustDropBombsState;
     public BehaviourTree playerIsDroppingBombsState;
     public BehaviourTree playerBecomesSatanState;
+    public BehaviourTree satanIsWreckingHavoc;
     public BehaviourTree gameOverState;
 
     [Header("Signals")]

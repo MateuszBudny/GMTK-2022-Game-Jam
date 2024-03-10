@@ -51,17 +51,6 @@ MonoBehaviour:
   satan: {fileID: 0}
   vcamFollowMouse: {fileID: 0}
   vcamCrank: {fileID: 0}
-  blackScreen: {fileID: 0}
-  thankYou: {fileID: 0}
-  burzaEndingMonologues: {fileID: 11400000, guid: 7c35f77cc0640d644a2b7707c74703f8,
-    type: 2}
-  suggestionsMonologues: {fileID: 11400000, guid: 3fd8a0d221a12b4478121c00075712c9,
-    type: 2}
-  satanDiceWinMonologues: {fileID: 11400000, guid: c73e6a9cdd846bc449b6ff6d9e5ec7be,
-    type: 2}
-  satanDiceLoseMonologues: {fileID: 11400000, guid: 7b2be3b4fcc149e46b9b25be66d8af75,
-    type: 2}
-  drawMonologues: {fileID: 11400000, guid: 7a0e9aca3e255ac4e9a45829c417df60, type: 2}
   closedEyesState: {fileID: 11400000, guid: fff5f9e1c4c046441b77377e24228343, type: 2}
   satanStartingMonologueState: {fileID: 11400000, guid: 21368282f5cbee54b84c5730a10b0a62,
     type: 2}
@@ -74,6 +63,8 @@ MonoBehaviour:
   playerIsDroppingBombsState: {fileID: 11400000, guid: 7a5e0afaae886f74894514d475b7e0f5,
     type: 2}
   playerBecomesSatanState: {fileID: 11400000, guid: 66da8ec8b66a5344aa350258eb97f461,
+    type: 2}
+  satanIsWreckingHavoc: {fileID: 11400000, guid: 82b1cc09002057e4a86069aea8585b16,
     type: 2}
   gameOverState: {fileID: 11400000, guid: e8ae08c50977d634c891370edecc65f0, type: 2}
   eyesStartingToOpenSignal: {fileID: 11400000, guid: 9248b46456aff8f46878f3a787f2dda3,

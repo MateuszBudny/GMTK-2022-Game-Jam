@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a686a47eee2fa44cb0a34b5d86e4d5e, type: 3}
   m_Name: PlayerWonTheDices_BT
   m_EditorClassIdentifier: 
-  _serializedGraph: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"_subTree":{"_value":1},"_variablesMap":[{"_targetSubGraphVariableID":"7a44b23b-23b8-4046-bc96-c67be0e77b63","_canWrite":true,"_type":"AbstractThematicMonologuesData","_value":{"$content":2,"$type":"SatanThematicMonologuesData"}}],"_position":{"x":383.0,"y":440.0},"$type":"NodeCanvas.BehaviourTrees.SubTree"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+  _serializedGraph: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"_position":{"x":570.0,"y":307.8},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"0"},{"_subTree":{"_value":1},"_variablesMap":[{"_targetSubGraphVariableID":"7a44b23b-23b8-4046-bc96-c67be0e77b63","_canWrite":true,"_type":"AbstractThematicMonologuesData","_value":{"$content":2,"$type":"SatanThematicMonologuesData"}}],"_position":{"x":416.0,"y":432.0},"$type":"NodeCanvas.BehaviourTrees.SubTree","$id":"1"},{"_action":{"method":{"_baseInfo":"Satan|IncreaseAnger|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"overrideAgent":{"_type":"Satan","_name":"satan","_targetVariableID":"ce3329eb-17cd-47b5-ad4a-35328c3dc4e8"},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":645.0,"y":430.8},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"2"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
   _objectReferences:
   - {fileID: 0}
   - {fileID: 11400000, guid: 2698a4740494ce54d82be4d1e05acf28, type: 2}
@@ -21,7 +21,7 @@ MonoBehaviour:
     _version: 3.29
     _category: 
     _comments: 
-    _translation: {x: -140, y: -174}
+    _translation: {x: -24, y: -135}
     _zoomFactor: 1
   _haltSerialization: 0
   _externalSerializationFile: {fileID: 0}

@@ -1,4 +1,5 @@
 using DG.Tweening;
+using NodeCanvas.Framework;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,10 +14,28 @@ public class Satan : DicePlayer, IShootable, IAimable
     private SatanThematicMonologuesData playerShootingAtSatanMonologues;
     [SerializeField]
     private SatanThematicMonologuesData playerAimingAtSatanMonologues;
+    [SerializeField]
+    private int maxAngerLevel = 10;
+    [SerializeField]
+    private SignalDefinition satanGotAngrySignal;
 
     public SatanFaceType CurrentFace => satanFaces.CurrentFace;
 
+    public int AngerLevel
+    {
+        get => angerLevel;
+        private set
+        {
+            angerLevel = value;
+            if(AngerLevel >= maxAngerLevel)
+            {
+                GameplayManager.Instance.SendSignalToGameplayManager(satanGotAngrySignal);
+            }
+        }
+    }
+
     private SatanFaces satanFaces;
+    private int angerLevel;
 
     protected override void Awake()
     {
@@ -32,6 +51,11 @@ public class Satan : DicePlayer, IShootable, IAimable
         base.ThrowDices();
 
         GameplayManager.Instance.SendSignalToGameplayManager(GameplayManager.Instance.satanThrewDicesSignal);
+    }
+
+    public void IncreaseAnger()
+    {
+        AngerLevel++;
     }
 
     public void IsAimedAt(Gun gunAiming)
