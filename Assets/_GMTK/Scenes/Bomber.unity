@@ -454,6 +454,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 60889539378096550}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1925642225 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4402969928321353394, guid: d44a8898613fb244ca3fd4f3f5b545e8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1925804750637503554}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a6607bd02d9429419ef512c6f7c9e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1979352518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1722,12 +1734,13 @@ PrefabInstance:
         LowkeyFramework, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"cursorUI":{"_value":6,"_name":"cursorUI","_id":"0322a253-d629-40ef-884d-29e39c4745db","$type":"NodeCanvas.Framework.Variable`1[[UIElement,
         LowkeyFramework, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"thankYouUI":{"_value":7,"_name":"thankYouUI","_id":"5b5c19c7-4fa3-42cd-a503-d92bf7da327b","$type":"NodeCanvas.Framework.Variable`1[[UIElement,
         LowkeyFramework, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"satanImpulseSource":{"_value":8,"_name":"satanImpulseSource","_id":"f01227d4-4a98-427c-b8db-6309e26398eb","$type":"NodeCanvas.Framework.Variable`1[[Cinemachine.CinemachineImpulseSource,
-        Cinemachine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+        Cinemachine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"endingsCounterUI":{"_value":9,"_name":"endingsCounterUI","_id":"45724a8c-c121-41b7-b0cb-e1211014bfd0","$type":"NodeCanvas.Framework.Variable`1[[UIElement,
+        LowkeyFramework, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
       objectReference: {fileID: 0}
     - target: {fileID: 7368598553960096332, guid: 869ddf2e26a97d44299686d3e7c14f1e,
         type: 3}
       propertyPath: _objectReferences.Array.size
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7368598553960096332, guid: 869ddf2e26a97d44299686d3e7c14f1e,
         type: 3}
@@ -1771,9 +1784,20 @@ PrefabInstance:
       objectReference: {fileID: 2147313992}
     - target: {fileID: 7368598553960096332, guid: 869ddf2e26a97d44299686d3e7c14f1e,
         type: 3}
+      propertyPath: _objectReferences.Array.data[9]
+      value: 
+      objectReference: {fileID: 1925642225}
+    - target: {fileID: 7368598553960096332, guid: 869ddf2e26a97d44299686d3e7c14f1e,
+        type: 3}
       propertyPath: _serializedVariables.Array.size
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 7368598553960096332, guid: 869ddf2e26a97d44299686d3e7c14f1e,
+        type: 3}
+      propertyPath: _objectReferences.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4c4919c6148c173428f20206e78c18db,
+        type: 2}
     - target: {fileID: 7368598553960096332, guid: 869ddf2e26a97d44299686d3e7c14f1e,
         type: 3}
       propertyPath: _serializedVariables.Array.data[0]._json
@@ -1842,6 +1866,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7368598553960096332, guid: 869ddf2e26a97d44299686d3e7c14f1e,
         type: 3}
+      propertyPath: _serializedVariables.Array.data[11]._json
+      value: '{"_value":1,"_name":"endingsCounterUI","_id":"45724a8c-c121-41b7-b0cb-e1211014bfd0","$type":"NodeCanvas.Framework.Variable`1[[UIElement,
+        LowkeyFramework, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7368598553960096332, guid: 869ddf2e26a97d44299686d3e7c14f1e,
+        type: 3}
+      propertyPath: _serializedVariables.Array.data[12]._json
+      value: '{"_value":1,"_name":"myEndingSO","_id":"6f9040fc-a7a1-4df1-a54a-d0868fbf58f1","$type":"NodeCanvas.Framework.Variable`1[[EndingSO,
+        GMTK, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7368598553960096332, guid: 869ddf2e26a97d44299686d3e7c14f1e,
+        type: 3}
       propertyPath: _serializedVariables.Array.data[0]._references.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1893,6 +1929,16 @@ PrefabInstance:
     - target: {fileID: 7368598553960096332, guid: 869ddf2e26a97d44299686d3e7c14f1e,
         type: 3}
       propertyPath: _serializedVariables.Array.data[10]._references.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7368598553960096332, guid: 869ddf2e26a97d44299686d3e7c14f1e,
+        type: 3}
+      propertyPath: _serializedVariables.Array.data[11]._references.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7368598553960096332, guid: 869ddf2e26a97d44299686d3e7c14f1e,
+        type: 3}
+      propertyPath: _serializedVariables.Array.data[12]._references.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7368598553960096332, guid: 869ddf2e26a97d44299686d3e7c14f1e,
@@ -1950,6 +1996,17 @@ PrefabInstance:
       propertyPath: _serializedVariables.Array.data[10]._references.Array.data[1]
       value: 
       objectReference: {fileID: 2147313992}
+    - target: {fileID: 7368598553960096332, guid: 869ddf2e26a97d44299686d3e7c14f1e,
+        type: 3}
+      propertyPath: _serializedVariables.Array.data[11]._references.Array.data[1]
+      value: 
+      objectReference: {fileID: 1925642225}
+    - target: {fileID: 7368598553960096332, guid: 869ddf2e26a97d44299686d3e7c14f1e,
+        type: 3}
+      propertyPath: _serializedVariables.Array.data[12]._references.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4c4919c6148c173428f20206e78c18db,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 869ddf2e26a97d44299686d3e7c14f1e, type: 3}
 --- !u!1001 &7288094137546172433
