@@ -3,6 +3,7 @@
     "Player",
     "PostProcessController",
     "Satan",
+    "UIElement",
     "Cinemachine.CinemachineImpulseSource",
     "System.Boolean",
     "System.Int32",
