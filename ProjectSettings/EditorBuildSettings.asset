@@ -12,5 +12,9 @@ EditorBuildSettings:
     path: Assets/_GMTK/Scenes/Bomber.unity
     guid: c1a6608306186ad48ba0b55b04075662
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 70c77ddfe43083748afd30d37c7ccc72,
+      type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7,
+      type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: 55be8b62858e2614dbc64f59c9cc271a,
       type: 2}
